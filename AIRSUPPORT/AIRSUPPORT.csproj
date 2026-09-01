@@ -8,6 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Components\Services\DataCleaningService.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Components\Services\DataCleaningService.cs" />
     <None Include="wwwroot\Data\LIME Ekstrakt COMPANY.csv" />
   </ItemGroup>
 
