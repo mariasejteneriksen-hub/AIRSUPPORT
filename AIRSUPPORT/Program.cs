@@ -29,4 +29,9 @@ if (!File.Exists("wwwroot/Data/turnover_cleaned.csv"))
     new TurnoverCleaningService().CleanTurnoverData();
 }
 
+if (!File.Exists("wwwroot/Data/company_cleaned.csv"))
+{
+    new CompanyCleaningService().CleanCompanyData();
+}
+
 app.Run();
