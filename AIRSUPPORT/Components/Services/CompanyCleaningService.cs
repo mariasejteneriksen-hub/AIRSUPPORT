@@ -40,7 +40,16 @@ namespace AIRSUPPORT.Components.Services
                     OcFwSat = CsvParsingHelper.ParseDouble(row["Tails – OC-FW, SAT"]?.ToString()?.Replace(",", ".")),
                     OcNotam = CsvParsingHelper.ParseDouble(row["Tails - OC-NOTAM"]?.ToString()?.Replace(",", ".")),
                     CustomerSince = CsvParsingHelper.ParseDate(row["Customer Since"]?.ToString()),
-                    PriceEscalation = CsvParsingHelper.ParseDecimal(row["Price escalation %"]?.ToString()?.Replace(",", "."))
+                    PriceEscalation = CsvParsingHelper.ParseDecimal(row["Price escalation %"]?.ToString()?.Replace(",", ".")),
+                    Terminationdate = CsvParsingHelper.ParseDate(row["Termination as per"]?.ToString()), 
+                    ChurnValue = CsvParsingHelper.ParseDouble(row["Churn value"]?.ToString()),
+                    Avoidable = row["Avoidable/Un-avoidable"]?.ToString(),
+                    ChurnReason = row["Churn reason"]?.ToString(),
+                    BlockedDate = CsvParsingHelper.ParseDate(row["Blocked Date"]?.ToString()),
+                    BlockedReason = row["Blocked Reason"]?.ToString(),
+
+
+
                 };
             }).ToList();
 
