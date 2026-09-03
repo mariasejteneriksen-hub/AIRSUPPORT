@@ -6,10 +6,10 @@
         public string? CompanyName { get; set; }
         public string? CustomerStatus { get; set; }
         public double PriorityCustomer { get; set; }
-        public double PPS { get; set; }
-        public double OcFwTerr { get; set; }
-        public double OcFwSat { get; set; }
-        public double OcNotam { get; set; }
+        public double TailsOnPPS { get; set; }
+        public double TailsFlightWatchTerrestrial { get; set; }
+        public double TailsFlightWatchSatellite { get; set; }
+        public double TailsNotamMonitoring { get; set; }
         public DateTime? CustomerSince { get; set; }
         public decimal? PriceEscalation { get; set; }
         public DateTime? Terminationdate { get; set; }
