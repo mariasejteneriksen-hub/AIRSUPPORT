@@ -42,7 +42,7 @@ namespace AIRSUPPORT.Components.Services
                     CustomerSince = CsvParsingHelper.ParseDate(row["Customer Since"]?.ToString()),
                     PriceEscalation = CsvParsingHelper.ParseDecimal(row["Price escalation %"]?.ToString()?.Replace(",", ".")),
                     Terminationdate = CsvParsingHelper.ParseDate(row["Termination as per"]?.ToString()), 
-                    ChurnValue = CsvParsingHelper.ParseDouble(row["Churn value"]?.ToString()),
+                    ChurnValue = CsvParsingHelper.ParseDoubleDanish(row["Churn value"]?.ToString()),
                     Avoidable = row["Avoidable/Un-avoidable"]?.ToString(),
                     ChurnReason = row["Churn reason"]?.ToString(),
                     BlockedDate = CsvParsingHelper.ParseDate(row["Blocked Date"]?.ToString()),

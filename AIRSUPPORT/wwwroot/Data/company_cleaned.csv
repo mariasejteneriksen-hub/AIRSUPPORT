@@ -1,5 +1,5 @@
-NavCustomerNo;CompanyName;CustomerStatus;PriorityCustomer;PPS;OcFwTerr;OcFwSat;OcNotam;CustomerSince;PriceEscalation;Terminationdate;ChurnValue;Avoidable;ChurnReason;BlockedDate;BlockedReason
-COM11892;2 Excel Aviation Limited;PotCust;0;0;0;0;0;04/01/2011 00:00:00;0.00;;0;Avoidable;Moving to Jeppesen product;04/03/2023 00:00:00;Moved to another supplier
+NavCustomerNo;CompanyName;CustomerStatus;PriorityCustomer;TailsOnPPS;TailsFlightWatchTerrestrial;TailsFlightWatchSatellite;TailsNotamMonitoring;CustomerSince;PriceEscalation;Terminationdate;ChurnValue;Avoidable;ChurnReason;BlockedDate;BlockedReason
+COM11892;2 Excel Aviation Limited;PotCust;0;0;0;0;0;04/01/2011 00:00:00;0.00;;63478;Avoidable;Moving to Jeppesen product;04/03/2023 00:00:00;Moved to another supplier
 COM13257;3Plex Aero Ltd;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM13554;48th Contracting Squadron;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM11423;ABC Bedarfsflug GmbH;Customer;3;4;4;0;0;08/01/2007 00:00:00;8.00;;0;;;;
@@ -7,13 +7,13 @@ COM11003;ABELAG AVIATION S.A. (Part of Luxaviation Group);Customer;3;1;0;0;0;07/
 COM13165;Abu Dhabi Aviation;Customer;0;9;2;2;0;03/01/2018 00:00:00;8.00;;0;;;02/06/2024 00:00:00;
 COM11005;ACM AIR CHARTER LUFTFAHRT;Customer;2;5;0;0;0;02/01/1998 00:00:00;8.00;;0;;;;
 COM11007;AEGEAN AIRLINES S.A.;Customer;1;0;95;0;0;04/26/2023 00:00:00;8.00;;0;;;;
-COM12863;Aeolian Services;PotCust;0;0;0;0;0;07/01/2013 00:00:00;8.00;03/11/2025 00:00:00;0;Unavoidable;FPL Binding date 10/31/2025. account closed 3/11/2025 due to no business.;04/04/2025 00:00:00;FPL Binding date 10/31/2025. account closed 3/11/2025 due to no business.
+COM12863;Aeolian Services;PotCust;0;0;0;0;0;07/01/2013 00:00:00;8.00;03/11/2025 00:00:00;152032;Unavoidable;FPL Binding date 10/31/2025. account closed 3/11/2025 due to no business.;04/04/2025 00:00:00;FPL Binding date 10/31/2025. account closed 3/11/2025 due to no business.
 COM11507;AER ARANN Ltd. (STOBART);NonCust;0;0;0;0;0;09/01/2008 00:00:00;0.00;;0;;;09/28/2021 00:00:00;Customer bankrupt, account been active since bankruptcy to assist if need. No com and activities, account now closed
 ;Aer Lingus;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM13404;AEREO CALAFIA;Quarantine;0;0;0;0;0;03/29/2019 00:00:00;0.00;01/21/2025 00:00:00;0;Unavoidable;NO Comm, No payment;01/21/2025 00:00:00;No payment, no communication
+COM13404;AEREO CALAFIA;Quarantine;0;0;0;0;0;03/29/2019 00:00:00;0.00;01/21/2025 00:00:00;39417;Unavoidable;NO Comm, No payment;01/21/2025 00:00:00;No payment, no communication
 ;Aero K Airlines Co. Ltd.;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;PPS AeroData test account;NonCust;0;0;0;0;0;;0.00;;0;;;;
-COM11008;Aero-Dienst GmbH;PotCust;0;0;0;0;0;06/01/1996 00:00:00;0.00;05/31/2024 00:00:00;0;Avoidable;Lost to FF.;06/03/2024 00:00:00;Lost to FF.
+COM11008;Aero-Dienst GmbH;PotCust;0;0;0;0;0;06/01/1996 00:00:00;0.00;05/31/2024 00:00:00;82583;Avoidable;Lost to FF.;06/03/2024 00:00:00;Lost to FF.
 ;Aeromar Mexico;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM13295;AERONEXUS CORPORATE;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Air Europa Express;PotCust;0;0;0;0;0;;0.00;;0;;;;
@@ -51,7 +51,7 @@ COM12919;Universal Air (AIR CM GLOBAL LTD);Customer;2;4;3;3;0;03/01/2016 00:00:0
 ;ASL Airlines Ireland;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM12920;AIRCORSICA;Customer;1;14;14;0;0;07/01/2016 00:00:00;8.00;;0;;;;
 COM13722;Air Cote Divoire;PotCust;1;0;0;0;0;;0.00;;0;;;;
-COM13625;AIR DJIBOUTI;Quarantine;2;1;0;0;0;10/01/2021 00:00:00;8.00;10/14/2025 00:00:00;0;Unavoidable;Missing payment has previously been churned, unchurned.;10/14/2025 00:00:00;No payment, no communication
+COM13625;AIR DJIBOUTI;Quarantine;2;1;0;0;0;10/01/2021 00:00:00;8.00;10/14/2025 00:00:00;51739;Unavoidable;Missing payment has previously been churned, unchurned.;10/14/2025 00:00:00;No payment, no communication
 COM14192;Air Dolomiti;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM11910;Air Europa;PotCust;0;0;0;0;0;;0.00;;0;;;;Account closed correctly
 COM13974;AIR EXPLORE;Customer;1;0;5;4;0;02/01/2022 00:00:00;8.00;;0;;;;
@@ -67,39 +67,39 @@ COM13142;Air Libya;Customer;2;5;6;5;0;02/01/2017 00:00:00;8.00;;0;;;;
 COM14035;KM Malta Airlines (ex Air Malta);PotCust;0;0;0;0;0;;0.00;;0;;;03/10/2022 00:00:00;
 COM13551;Air Manas;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM13004;Air Mediterranean;Customer;3;1;0;0;0;01/01/2018 00:00:00;8.00;;0;;;;
-COM13878;AIR MOLDOVA;PotCust;0;0;0;0;0;05/05/2021 00:00:00;0.00;;0;Unavoidable;Missing payment;05/16/2023 00:00:00;Missing payment and communication
+COM13878;AIR MOLDOVA;PotCust;0;0;0;0;0;05/05/2021 00:00:00;0.00;;189525;Unavoidable;Missing payment;05/16/2023 00:00:00;Missing payment and communication
 COM13679;Air Mountain SA;PotCust;0;0;0;0;0;09/01/2020 00:00:00;0.00;;0;;;09/04/2023 00:00:00;Contract terminated by customer
 ;Air Namibia;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM13589;Air North;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;AIR NOSTRUM;PotCust;0;0;0;0;0;;0.00;;0;;;;Account closed correctly
-COM13525;Air Ocean Maroc;PotCust;0;0;0;0;0;09/17/2020 00:00:00;0.00;;0;Unavoidable;Missing payment;05/16/2023 00:00:00;Missing payment and communication
+COM13525;Air Ocean Maroc;PotCust;0;0;0;0;0;09/17/2020 00:00:00;0.00;;51805;Unavoidable;Missing payment;05/16/2023 00:00:00;Missing payment and communication
 ;Air Peace;Customer via;2;0;0;0;0;07/01/2026 00:00:00;0.00;;0;;;;
-COM12598;Air Pink doo ( airpink.rs );NonCust;0;0;0;0;0;01/01/2014 00:00:00;0.00;03/05/2024 00:00:00;0;Unavoidable;Shutting down the company.;04/04/2024 00:00:00;Shutting down the company.
+COM12598;Air Pink doo ( airpink.rs );NonCust;0;0;0;0;0;01/01/2014 00:00:00;0.00;03/05/2024 00:00:00;388609;Unavoidable;Shutting down the company.;04/04/2024 00:00:00;Shutting down the company.
 ;Air Spray USA;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM13614;AIR SUPPORT A/S;NonCust;0;0;0;0;0;;0.00;;0;;;;
 COM14327;Air Tahiti S.A.;Customer;0;0;0;0;0;02/18/2026 00:00:00;0.00;;0;;;;
 COM11467;Air Tanzania Company Ltd.;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM12839;Air-Taxi Europe Gmbh;Quarantine;3;4;0;0;0;05/01/2015 00:00:00;8.00;12/18/2025 00:00:00;0;Unavoidable;see history;12/16/2025 00:00:00;No communication, no payment
+COM12839;Air-Taxi Europe Gmbh;Quarantine;3;4;0;0;0;05/01/2015 00:00:00;8.00;12/18/2025 00:00:00;67682;Unavoidable;see history;12/16/2025 00:00:00;No communication, no payment
 COM13497;Air Taxi and Charter International;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM12398;AIR TRANSPORT EUROPE, spol. s r.o. (ATE);Customer;3;1;0;0;0;09/01/2012 00:00:00;8.00;;0;;;;
 ;Air Transport International LLC;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM14029;InterCaribbean Airways;Customer;1;16;17;0;0;03/21/2023 00:00:00;8.00;;0;;;;
 ;Air VIA;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM12630;AIR VOLTA;PotCust;0;0;0;0;0;02/01/2014 00:00:00;0.00;;0;Avoidable;Going to ForeFlight for webbased solution.;11/07/2023 00:00:00;The customer has terminated the contract
+COM12630;AIR VOLTA;PotCust;0;0;0;0;0;02/01/2014 00:00:00;0.00;;44489;Avoidable;Going to ForeFlight for webbased solution.;11/07/2023 00:00:00;The customer has terminated the contract
 COM14601;AIR WISCONSIN AIRLINES;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM12530;Air X Charter Ltd;Customer;3;0;0;0;0;05/01/2013 00:00:00;8.00;;0;;;02/06/2024 00:00:00;
 COM11452;UNICAIR (Air Alliance Express AG & Co. KG);Customer;2;11;0;0;0;12/01/2012 00:00:00;8.00;;0;;;;
 COM14096;AirAsia Group Berhad;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;AirBlue;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM12413;AIRBUS TRANSPORT INT. (FR89383474814);PotCust;0;0;0;0;0;11/01/2012 00:00:00;0.00;;0;;;11/11/2020 00:00:00;Terminated agreement end 2020.
-COM13040;Aircompany Armenia LLC (Air Dilijans LLC);NonCust;0;0;0;0;0;09/01/2016 00:00:00;0.00;09/11/2024 00:00:00;0;Unavoidable;No aircraft left.;10/02/2024 00:00:00;No aircraft left.
+COM13040;Aircompany Armenia LLC (Air Dilijans LLC);NonCust;0;0;0;0;0;09/01/2016 00:00:00;0.00;09/11/2024 00:00:00;35797;Unavoidable;No aircraft left.;10/02/2024 00:00:00;No aircraft left.
 COM12929;airCreebec;Customer;2;21;0;0;0;07/01/2016 00:00:00;8.00;;0;;;;
 ;Airfast Indonesia;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM12690;AIR INUIT;Customer;1;29;0;0;0;05/01/2015 00:00:00;8.00;;0;;;;
 COM12379;AIRJETSUL;PotCust;0;0;0;0;0;04/01/2017 00:00:00;0.00;;0;;;08/17/2021 00:00:00;Closed due to missing payment
 COM11025;AIRLINK GmbH;Customer;2;5;0;0;0;10/01/1994 00:00:00;8.00;;0;;;;
 COM13570;Airspeedcharter (AeroStan);Customer;0;4;2;0;0;11/14/2019 00:00:00;8.00;;0;;;;
-COM13985;Airstream;PotCust;0;0;0;0;0;01/03/2018 00:00:00;0.00;01/31/2024 00:00:00;0;Avoidable;Changing to a provider who is a friend of their CEO.;02/20/2024 00:00:00;Churned iflg. HEH mail 20.02.2024
+COM13985;Airstream;PotCust;0;0;0;0;0;01/03/2018 00:00:00;0.00;01/31/2024 00:00:00;83069;Avoidable;Changing to a provider who is a friend of their CEO.;02/20/2024 00:00:00;Churned iflg. HEH mail 20.02.2024
 COM13649;Airtask Ltd;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM14140;AIR-TEC;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;AIRTRANS Flugzeugvermietungsgesellschaft mbH;PotCust;0;0;0;0;0;;0.00;;0;;;01/03/2022 00:00:00;Test expired, decided to go for FF due to Jeppesen terminal charts and pilot driven FPL
@@ -108,7 +108,7 @@ COM12034;Air X Charter (Germany) GmbH & Co KG;PotCust;0;0;0;0;0;01/01/2011 00:00
 COM11902;AIS Airlines;Customer;3;1;1;0;0;08/01/2010 00:00:00;8.00;;0;;;;
 COM11885;AJ PRODUKTER AB;PotCust;0;0;0;0;0;11/01/2011 00:00:00;0.00;;0;;;09/15/2021 00:00:00;No need for own account, they have aircraft on Hummingbird AOC
 ;AK-AIR GEORGIA L.T.D.;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM12052;Air Igor (Mng account - Aerotranscargo Moldova);PotCust;0;0;0;0;0;04/01/2012 00:00:00;0.00;;0;Unavoidable;will use SHJ ahead, they have office next door. I guess that is a better finansiel option for them.;01/02/2024 00:00:00;They have ended they contract with us
+COM12052;Air Igor (Mng account - Aerotranscargo Moldova);PotCust;0;0;0;0;0;04/01/2012 00:00:00;0.00;;43888;Unavoidable;will use SHJ ahead, they have office next door. I guess that is a better finansiel option for them.;01/02/2024 00:00:00;They have ended they contract with us
 ;Alaska Airlines Inc;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Albawings sh.p.k;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM13332;Alexandria Airlines;Customer via;0;2;2;2;0;;0.00;;0;;;;Covid-19 closure. No activity, no payment
@@ -118,9 +118,9 @@ COM13572;ALHAYA AVIATION;Customer;0;2;0;0;0;01/01/2020 00:00:00;8.00;;0;;;;
 COM11573;ALKAN AIR;Customer;3;1;1;0;0;08/01/2008 00:00:00;8.00;;0;;;;
 COM13555;Alliance Air (India);PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM13594;ALLIANCE FLIGHT SUPPORT;Customer;3;0;0;0;0;03/01/2020 00:00:00;8.00;;0;;Churned JAN 2026, unchurned MAR 2026;;
-COM13436;ALLIED AIR;PotCust;0;0;0;0;0;04/01/2019 00:00:00;0.00;;0;Unavoidable;Missing payment;;renewed interest LN
+COM13436;ALLIED AIR;PotCust;0;0;0;0;0;04/01/2019 00:00:00;0.00;;170433;Unavoidable;Missing payment;;renewed interest LN
 COM12829;AlMasria Universal Airlines;Customer;2;8;8;0;0;04/01/2016 00:00:00;8.00;;0;;;11/16/2021 00:00:00;
-COM12693;Alpha Jet Services PC;NonCust;0;0;0;0;0;07/01/2014 00:00:00;0.00;;0;Unavoidable;No activity for the past 5 months.;12/11/2023 00:00:00;Terminated the contract
+COM12693;Alpha Jet Services PC;NonCust;0;0;0;0;0;07/01/2014 00:00:00;0.00;;47712;Unavoidable;No activity for the past 5 months.;12/11/2023 00:00:00;Terminated the contract
 COM14038;Alpha Star Aviation Services/ Infinity Aviation Academy;Customer;0;0;0;0;0;06/21/2022 00:00:00;8.00;;0;;;09/27/2023 00:00:00;
 COM13432;AFS ALPINE FLIGHTSERVICE GMBH;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM13891;ALS LIMITED;Customer;2;13;0;0;0;12/01/2021 00:00:00;8.00;;0;Unavoidable;reopen after partial payment 16/4, with promise of full payment.;;
@@ -133,7 +133,7 @@ COM11438;AMAPOLA FLYG AB;Customer;2;11;0;0;0;10/01/2007 00:00:00;8.00;;0;;;;
 ;AMC Aviation poland;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;AMERIDAIR;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Amira Air;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM11859;AMJET EXECUTIVE;Quarantine;0;0;0;0;0;10/01/2012 00:00:00;0.00;08/12/2024 00:00:00;0;Unavoidable;Missing payment  - year after year.;08/12/2024 00:00:00;No payment, no communication.
+COM11859;AMJET EXECUTIVE;Quarantine;0;0;0;0;0;10/01/2012 00:00:00;0.00;08/12/2024 00:00:00;56276;Unavoidable;Missing payment  - year after year.;08/12/2024 00:00:00;No payment, no communication.
 COM13377;AMREF Flying Doctors;Customer;2;5;5;5;0;12/01/2018 00:00:00;8.00;;0;;;;
 COM13460;AOPA DMU;NonCust;0;0;0;0;0;;0.00;;0;;;;
 COM12361;THREE GREEN AERO (AOSAC / 3Green);Customer;2;7;7;1;6;02/01/2013 00:00:00;8.00;;0;;;;
@@ -152,16 +152,16 @@ COM12577;ASISTIM (SITA);Customer;1;40;8;0;0;09/01/2013 00:00:00;0.00;;0;;;;
 ;Ryanair;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM11343;ASL nv (Air Service Leige NV) MOTHER COMPANY;Customer;2;28;0;0;0;02/01/2006 00:00:00;8.00;;0;;;;
 COM13457;ASTRAL AVIATION;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM13327;ATA CONCEPT GmbH;NonCust;0;0;0;0;0;08/01/2018 00:00:00;0.00;;0;Unavoidable;No Activity;05/10/2023 00:00:00;Operations ceased
+COM13327;ATA CONCEPT GmbH;NonCust;0;0;0;0;0;08/01/2018 00:00:00;0.00;;33406;Unavoidable;No Activity;05/10/2023 00:00:00;Operations ceased
 COM11653;West Atlantic UK Ltd.;Customer;1;11;11;0;13;01/01/2010 00:00:00;8.00;;0;;;;
 COM11034;Atlantic Airways;Customer;2;4;0;0;0;11/01/2002 00:00:00;8.00;;0;;;;
 COM13640;ATLANTIS ARMENIAN AIRLINES;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM12984;Atlantis European Airways;PotCust;0;0;0;0;0;12/10/2020 00:00:00;0.00;;0;;;12/09/2020 00:00:00;Want to close account for now
-COM11035;ATLAS AIR SERVICE AG;NonCust;0;0;0;0;0;09/01/1994 00:00:00;8.00;06/30/2025 00:00:00;0;Avoidable;New partner with PPS account, cancellation only do to optm. of business. Flightplanning done by sprouts Gmbh, also a PPS customer;07/01/2025 00:00:00;New partner with PPS account, cancellation only do to optm. of business. Flightplanning done by sprouts Gmbh, also a PPS customer
+COM11035;ATLAS AIR SERVICE AG;NonCust;0;0;0;0;0;09/01/1994 00:00:00;8.00;06/30/2025 00:00:00;108301;Avoidable;New partner with PPS account, cancellation only do to optm. of business. Flightplanning done by sprouts Gmbh, also a PPS customer;07/01/2025 00:00:00;New partner with PPS account, cancellation only do to optm. of business. Flightplanning done by sprouts Gmbh, also a PPS customer
 ;Atlas Global Airlines;NonCust;0;0;0;0;0;;0.00;;0;;;;
 ;ATLAS GLOBAL UA;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;ATRAN LCC;Quarantine;0;0;0;0;0;;0.00;;0;;;;
-COM13669;Aura Airlines;PotCust;0;0;0;0;0;11/18/2020 00:00:00;0.00;;0;Unavoidable;Missing payment;12/20/2022 00:00:00;No payment, no communication
+COM13669;Aura Airlines;PotCust;0;0;0;0;0;11/18/2020 00:00:00;0.00;;178971;Unavoidable;Missing payment;12/20/2022 00:00:00;No payment, no communication
 COM11220;Aurigny Air Services Ltd.;Customer;2;11;0;0;0;03/01/2005 00:00:00;8.00;;0;;;;
 COM11038;Austrian Air Force;Customer;3;3;0;0;0;12/01/2001 00:00:00;8.00;;0;;;;
 COM11039;AVANTI AIR GmbH & Co. KG;Customer;3;2;2;0;0;07/01/1996 00:00:00;8.00;;0;;;;
@@ -174,7 +174,7 @@ COM13692;Aviastar TU;Quarantine;0;0;0;0;0;;0.00;;0;;;;
 COM13647;AviaThor;NonCust;0;0;0;0;0;;0.00;;0;;;;
 COM11612;Aviation Bridge LTD;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Aviation Pioneers;NonCust;0;0;0;0;0;01/20/2015 00:00:00;0.00;;0;;;;
-COM12885;AviaTraining Centre CJSC;NonCust;0;0;0;0;0;08/01/2015 00:00:00;0.00;;0;Unavoidable;Moved to Fly One Armenia (COM14322) instead No need for this any longer;11/28/2023 00:00:00;Moved to Fly One Armenia (COM14322) instead No need for this any longer
+COM12885;AviaTraining Centre CJSC;NonCust;0;0;0;0;0;08/01/2015 00:00:00;0.00;;38902;Unavoidable;Moved to Fly One Armenia (COM14322) instead No need for this any longer;11/28/2023 00:00:00;Moved to Fly One Armenia (COM14322) instead No need for this any longer
 COM11288;Avinode AB;NonCust;0;0;0;0;0;;0.00;;0;;;;
 COM14645;AVIOVISION N.V. (AVIOBOOK);NonCust;0;0;0;0;0;;0.00;;0;;;;
 COM13670;AVION EXPRESS;PotCust;1;0;0;0;0;;0.00;;0;;;;
@@ -183,18 +183,18 @@ COM13272;AVIOSTART;Customer;3;1;0;0;0;12/16/2020 00:00:00;8.00;;0;;;;
 COM13689;Azman Air Services;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Business Aviation Asia Ltd.;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM12952;BAA Training;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM13341;Avincis Aviation Norway (Ex Babcock Norway);PotCust;0;0;0;0;0;01/01/2020 00:00:00;0.00;03/31/2025 00:00:00;0;Avoidable;Management decision - hele avincis gruppen skifter til FF. NO, SE, DK, PO, ES + afrika;;(PJ Reopening) Management decision - hele avincis gruppen skifter til FF. NO, SE, DK, PO, ES + afrika
+COM13341;Avincis Aviation Norway (Ex Babcock Norway);PotCust;0;0;0;0;0;01/01/2020 00:00:00;0.00;03/31/2025 00:00:00;171116;Avoidable;Management decision - hele avincis gruppen skifter til FF. NO, SE, DK, PO, ES + afrika;;(PJ Reopening) Management decision - hele avincis gruppen skifter til FF. NO, SE, DK, PO, ES + afrika
 ;Baby Jet Airlines;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;BILLUND AIR CENTER;NonCust;0;0;0;0;0;;0.00;;0;;;;
 COM11219;BAE Systems Corporate Air Travel Ltd.;PotCust;0;0;0;0;0;02/01/2005 00:00:00;0.00;;0;;;;
 COM13292;BAE Systems Marine Ltd.;Customer via;0;0;0;0;0;02/01/2019 00:00:00;0.00;;0;;;12/12/2023 00:00:00;Moved to Signum
 ;Baltic Jet Aircompany;PotCust;0;0;0;0;0;;0.00;;0;;;;account closed correctly
 COM13445;Bartolini Air;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM13418;AlpAvia d.o.o. (previously Batagon);Quarantine;3;0;0;0;0;05/01/2019 00:00:00;8.00;10/01/2025 00:00:00;0;Unavoidable;Out of business, no AC left.;09/05/2025 00:00:00;Out of business, no AC left.
+COM13418;AlpAvia d.o.o. (previously Batagon);Quarantine;3;0;0;0;0;05/01/2019 00:00:00;8.00;10/01/2025 00:00:00;77377;Unavoidable;Out of business, no AC left.;09/05/2025 00:00:00;Out of business, no AC left.
 ;BEARSKIN AIRLINES;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM11424;Bel Air Aviation A/S;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;BELAVIA;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM11044;BenAir A/S;NonCust;0;0;0;0;0;12/01/1991 00:00:00;0.00;;0;Unavoidable;No activity. See customer since - very old customer.;02/06/2023 00:00:00;AOC closed
+COM11044;BenAir A/S;NonCust;0;0;0;0;0;12/01/1991 00:00:00;0.00;;15823;Unavoidable;No activity. See customer since - very old customer.;02/06/2023 00:00:00;AOC closed
 COM13639;BEST WINGS;NonCust;0;0;0;0;0;;0.00;;0;;;;
 COM11941;BESTFLY;PotCust;2;0;0;0;0;;0.00;;0;;;;
 COM13488;BKNJET Havacılık AŞ;PotCust;0;0;0;0;0;;0.00;;0;;;;
@@ -205,14 +205,14 @@ COM14244;Bishwo Airways;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM13210;Blackbird Air A/S;Customer;2;9;9;0;0;10/31/2017 00:00:00;8.00;;0;;;;
 COM11223;BLUE AIR;PotCust;0;0;0;0;0;05/01/2015 00:00:00;0.00;;0;;;;
 COM14111;Bluebird Airways;Customer;3;4;4;0;0;06/04/2024 00:00:00;8.00;;0;;;;
-COM11297;Blue Islands Ltd.;NonCust;3;5;0;0;0;02/01/2006 00:00:00;8.00;11/24/2025 00:00:00;0;Unavoidable;Bankrypcty;11/24/2025 00:00:00;Bankruptcy
+COM11297;Blue Islands Ltd.;NonCust;3;5;0;0;0;02/01/2006 00:00:00;8.00;11/24/2025 00:00:00;136972;Unavoidable;Bankrypcty;11/24/2025 00:00:00;Bankruptcy
 COM13428;Bluebair Jet S.A.;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM12752;BLUEBIRD NORDIC;NonCust;0;0;0;0;0;11/01/2015 00:00:00;0.00;05/01/2024 00:00:00;0;Unavoidable;Shutting down activity. AC transfered to Air Explore.;06/10/2024 00:00:00;Opsagt kontrakten. Konkurs. Ført på tab
-COM12186;Jet Story Sp. z o. o., Bluejet;PotCust;0;0;0;0;0;12/01/2018 00:00:00;0.00;;0;Avoidable;Going to jeppesen. Plates related;02/02/2023 00:00:00;Cancellation of services
+COM12752;BLUEBIRD NORDIC;NonCust;0;0;0;0;0;11/01/2015 00:00:00;0.00;05/01/2024 00:00:00;234778;Unavoidable;Shutting down activity. AC transfered to Air Explore.;06/10/2024 00:00:00;Opsagt kontrakten. Konkurs. Ført på tab
+COM12186;Jet Story Sp. z o. o., Bluejet;PotCust;0;0;0;0;0;12/01/2018 00:00:00;0.00;;238795;Avoidable;Going to jeppesen. Plates related;02/02/2023 00:00:00;Cancellation of services
 COM13861;Blue One - Aircraft & Crew Management;NonCust;0;0;0;0;0;;0.00;;0;;;;
 COM11236;Bookajet Ltd. Operations Department;PotCust;0;0;0;0;0;09/01/2009 00:00:00;0.00;;0;;;11/01/2022 00:00:00;Customer cancelled subscription
 COM11055;BOSCH (SMS invoice);NonCust;0;0;0;0;0;06/01/2012 00:00:00;0.00;;0;;;;
-COM13173;SoftwareOne;PotCust;3;1;0;0;0;06/01/2012 00:00:00;8.00;03/31/2026 00:00:00;0;Unavoidable;Aircraft sold - no demand for PPS;04/15/2026 00:00:00;Closed by customer
+COM13173;SoftwareOne;PotCust;3;1;0;0;0;06/01/2012 00:00:00;8.00;03/31/2026 00:00:00;19980;Unavoidable;Aircraft sold - no demand for PPS;04/15/2026 00:00:00;Closed by customer
 COM13651;BRAATHENS REGIONAL AIRWAYS;Customer;1;15;15;0;0;02/01/2010 00:00:00;8.00;;0;;;;
 COM13369;BRAVO AIR Ltd;PotCust;0;0;0;0;0;;0.00;;0;;;;IMP invoice never settled. PPS never installed.
 COM13228;Bravo Airways;PotCust;0;0;0;0;0;;0.00;;0;;;;
@@ -252,12 +252,12 @@ COM13416;COBRA JET AVIATION;PotCust;0;0;0;0;0;06/24/2021 00:00:00;0.00;;0;;;09/2
 COM13889;Comair Ltd;PotCust;0;0;0;0;0;04/04/2022 00:00:00;0.00;;0;;;01/16/2023 00:00:00;Company bankrupt! (never went live)
 COM12848;Comfort Jet Services, SA;PotCust;0;0;0;0;0;05/01/2015 00:00:00;0.00;;0;;;11/02/2020 00:00:00;Company shut down on Sept. 25th, 2020.
 COM13475;WSI: Empire, Elite;PotCust;0;0;0;0;0;08/01/2016 00:00:00;0.00;;0;;;02/24/2023 00:00:00;Ceased operations
-COM13197;Concierge U Ltd, t/a Jet Concierge Club;PotCust;0;0;0;0;0;09/01/2017 00:00:00;0.00;;0;Avoidable;Going to FF, Plates related, dissatisfied with RGEN and hosting performance.;03/01/2023 00:00:00;Contract terminated
+COM13197;Concierge U Ltd, t/a Jet Concierge Club;PotCust;0;0;0;0;0;09/01/2017 00:00:00;0.00;;415993;Avoidable;Going to FF, Plates related, dissatisfied with RGEN and hosting performance.;03/01/2023 00:00:00;Contract terminated
 ;Condor Flugdienst;PotCust;1;0;0;0;0;;0.00;;0;;;;
 ;CONGO AIRWAYS;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM13538;Constanta Airlines;PotCust;0;0;0;0;0;;0.00;;0;;;10/28/2020 00:00:00;Test period over
 ;Contour Aviation;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM13870;CORENDON AIRLINES;PotCust;0;0;0;0;0;05/27/2021 00:00:00;0.00;10/31/2024 00:00:00;0;Avoidable;Change of tracking tool. pakage deal from Jeppesen.;11/05/2024 00:00:00;Change of tracking tool
+COM13870;CORENDON AIRLINES;PotCust;0;0;0;0;0;05/27/2021 00:00:00;0.00;10/31/2024 00:00:00;517000;Avoidable;Change of tracking tool. pakage deal from Jeppesen.;11/05/2024 00:00:00;Change of tracking tool
 ;Corporate Jet Management Ltd.;NonCust;0;0;0;0;0;;0.00;;0;;;;
 ;CORPORATE JETS XXI;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM14049;CROATIA AIRLINES;PotCust;1;0;0;0;0;;0.00;;0;;;;
@@ -287,11 +287,11 @@ COM14154;DRUKAIR, ROYAL BHUTAN AIRLINES;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;DSA Aviation Company;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM11079;Luxembourg Air Services (DUCAIR);Customer;2;2;0;0;0;01/01/2000 00:00:00;8.00;;0;;;;
 ;DuPage Aerospace;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM12769;EAGLE AIR ICELAND;Quarantine;0;0;0;0;0;11/01/2015 00:00:00;0.00;05/31/2024 00:00:00;0;Avoidable;Lost to FF. Exit postponed several months due to wish from customer. Account closure postponed to 30.11.2024 Rep bankrupt nov 2024;12/12/2024 00:00:00;Bankrupt!
+COM12769;EAGLE AIR ICELAND;Quarantine;0;0;0;0;0;11/01/2015 00:00:00;0.00;05/31/2024 00:00:00;35976;Avoidable;Lost to FF. Exit postponed several months due to wish from customer. Account closure postponed to 30.11.2024 Rep bankrupt nov 2024;12/12/2024 00:00:00;Bankrupt!
 COM12578;Eagle Aviation GmbH;Customer;3;1;0;0;0;10/01/2013 00:00:00;8.00;;0;;;;
 COM13672;EAGLE EXPRESS d.o.o.;NonCust;0;0;0;0;0;;0.00;;0;;;;
 COM13697;EAN AVIATION;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM11345;EASTERN AIRWAYS (UK) Ltd.;NonCust;2;10;0;0;0;07/01/2013 00:00:00;8.00;10/31/2025 00:00:00;0;Unavoidable;account reopened upon request from customer;;Bankruptcy
+COM11345;EASTERN AIRWAYS (UK) Ltd.;NonCust;2;10;0;0;0;07/01/2013 00:00:00;8.00;10/31/2025 00:00:00;429318;Unavoidable;account reopened upon request from customer;;Bankruptcy
 COM13624;Easy Charter LLC;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;EATC European Air Tactical Command;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;EC AIR;PotCust;0;0;0;0;0;;0.00;;0;;;;
@@ -303,7 +303,7 @@ COM11084;EFS European Flight Service AB;Customer;2;7;0;0;0;11/01/2014 00:00:00;8
 COM13398;Emirates Flight Training Academy;Customer;0;32;0;0;0;01/01/2020 00:00:00;8.00;;0;;;;
 COM13592;EGO AIRWAYS S.P.A.;NonCust;0;0;0;0;0;09/01/2020 00:00:00;0.00;;0;;;02/01/2022 00:00:00;Missing payment and communication
 COM13481;EGT Jet Ltd.;Customer;3;5;0;0;0;06/01/2019 00:00:00;8.00;;0;;;;
-COM13218;ELANG LINTAS INDONESIA;NonCust;0;0;0;0;0;03/01/2018 00:00:00;8.00;05/27/2025 00:00:00;0;Unavoidable;Missing payment;05/27/2025 00:00:00;No communication, no payment
+COM13218;ELANG LINTAS INDONESIA;NonCust;0;0;0;0;0;03/01/2018 00:00:00;8.00;05/27/2025 00:00:00;36794;Unavoidable;Missing payment;05/27/2025 00:00:00;No communication, no payment
 COM13512;LLC AVIATION COMPANY ELERON (VVA);PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM13394;Eliance Aviation Global Services SLU;Customer;3;3;0;0;0;01/01/2020 00:00:00;8.00;;0;;;;Partly payment received, HEH reopen
 COM12181;ELILOMBARDA S. R. L.;Customer;3;1;0;0;0;09/01/2011 00:00:00;8.00;;0;;;;
@@ -315,11 +315,11 @@ COM13390;Emperor Aviation Ltd;Quarantine;0;0;0;0;0;04/01/2019 00:00:00;0.00;;0;;
 COM11440;EMPIRE AVIATION GROUP;Customer;0;22;0;0;0;11/01/2007 00:00:00;8.00;;0;;;;
 COM11843;ENAV S.p.A. Flight Inspection Dept.;PotCust;0;0;0;0;0;04/01/2010 00:00:00;0.00;;0;;;03/31/2023 00:00:00;Contract ended by customer
 ;Endeavor Air, Inc;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM13343;ENDEAVOUR AVIATION;PotCust;0;0;0;0;0;09/01/2018 00:00:00;0.00;12/12/2024 00:00:00;0;Avoidable;Unknown reason.;12/12/2024 00:00:00;No renewal of subscription
+COM13343;ENDEAVOUR AVIATION;PotCust;0;0;0;0;0;09/01/2018 00:00:00;0.00;12/12/2024 00:00:00;42997;Avoidable;Unknown reason.;12/12/2024 00:00:00;No renewal of subscription
 COM14381;Enter Air Sp. z o.o.;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM12364;EPSILON AVIATION;Customer;3;1;1;0;0;06/01/2015 00:00:00;8.00;;0;;;;
 ;ERNEST;NonCust;0;0;0;0;0;;0.00;;0;;;;
-COM13582;Erofey (Lutonair);NonCust;3;1;0;0;0;09/01/2017 00:00:00;0.00;07/31/2026 00:00:00;0;Unavoidable;Closed by AIR SUPPORT initiative. Erofey is a Russian Company, with Russian AOC.  AC formerly VPBMH;07/10/2026 00:00:00;Sanctioned
+COM13582;Erofey (Lutonair);NonCust;3;1;0;0;0;09/01/2017 00:00:00;0.00;07/31/2026 00:00:00;47774;Unavoidable;Closed by AIR SUPPORT initiative. Erofey is a Russian Company, with Russian AOC.  AC formerly VPBMH;07/10/2026 00:00:00;Sanctioned
 COM11103;FLYVEVÅBNET ESK 721;Customer;3;4;8;2;0;11/01/1994 00:00:00;8.00;;0;;;;
 ;Escadron de transport 3/60 Esterel;NonCust;0;0;0;0;0;;0.00;;0;;;;
 COM13557;Etihad Aviation Training;PotCust;0;0;0;0;0;;0.00;;0;;;;
@@ -327,15 +327,15 @@ COM13557;Etihad Aviation Training;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Euroairlines;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;(Duplicate) Everts Air Cargo;NonCust;0;0;0;0;0;;0.00;;0;;;;
 ;Everts Air Cargo;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM12579;Evolem Aviation;NonCust;0;0;0;0;0;01/01/2014 00:00:00;0.00;;0;Unavoidable;Company closed, no activity.;01/02/2023 00:00:00;Company closed
+COM12579;Evolem Aviation;NonCust;0;0;0;0;0;01/01/2014 00:00:00;0.00;;27734;Unavoidable;Company closed, no activity.;01/02/2023 00:00:00;Company closed
 COM13770;Executive Authority For Special Flights EACS;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM13504;EXECUJET AIR CHARTER;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;ExecuJet Asia Pte Ltd;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;ExecuJet Middle East (LuxAviation);PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Execujet UK Ltd.;NonCust;0;0;0;0;0;;0.00;;0;;;;
-COM14137;Executive Aircraft Services;NonCust;0;0;0;0;0;01/02/2023 00:00:00;0.00;09/30/2024 00:00:00;0;Unavoidable;Account frozen on request from Customer. Reason is war in the area. RAIM cancelled.;05/08/2025 00:00:00;Account frozen on request from Customer. Reason is war in the area. RAIM cancelled.
+COM14137;Executive Aircraft Services;NonCust;0;0;0;0;0;01/02/2023 00:00:00;0.00;09/30/2024 00:00:00;22540;Unavoidable;Account frozen on request from Customer. Reason is war in the area. RAIM cancelled.;05/08/2025 00:00:00;Account frozen on request from Customer. Reason is war in the area. RAIM cancelled.
 COM12535;Executive Jets Asia Sdn Bhd;PotCust;0;0;0;0;0;;0.00;;0;;;04/08/2021 00:00:00;MB: Termination mail received 17-11-2020, no usage and OPS activities. Now on stdby and not terminated until further notice
-COM11096;FAI rent-a-jet;PotCust;0;0;0;0;0;11/01/1996 00:00:00;0.00;11/01/2024 00:00:00;0;Avoidable;Going to Unknown competitor;;
+COM11096;FAI rent-a-jet;PotCust;0;0;0;0;0;11/01/1996 00:00:00;0.00;11/01/2024 00:00:00;201975;Avoidable;Going to Unknown competitor;;
 COM13686;FAIR AVIATION;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM13671;Falcon Jet Aviation;PotCust;0;0;0;0;0;09/01/2020 00:00:00;0.00;;0;;;04/06/2022 00:00:00;Agreement determintated
 ;FARS QESHM AIR;NonCust;0;0;0;0;0;;0.00;;0;;;;
@@ -343,7 +343,7 @@ COM12515;FALCON AVIATION SERVICES;Customer;0;10;0;0;0;03/01/2017 00:00:00;8.00;;
 ;Fast Air;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;FCG WX account;NonCust;0;0;0;0;0;;0.00;;0;;;;
 ;FDSC;NonCust;0;0;0;0;0;;0.00;;0;;;;
-COM13908;Federal Airlines;PotCust;1;0;0;0;0;10/01/2022 00:00:00;8.00;04/30/2025 00:00:00;0;Avoidable;40 of fleet going to fastjet, existing customer, 60 % goes to new vendor - EFB and FPL system intgr.;07/03/2025 00:00:00;HEH - please specify
+COM13908;Federal Airlines;PotCust;1;0;0;0;0;10/01/2022 00:00:00;8.00;04/30/2025 00:00:00;30000;Avoidable;40 of fleet going to fastjet, existing customer, 60 % goes to new vendor - EFB and FPL system intgr.;07/03/2025 00:00:00;HEH - please specify
 ;(Duplicate) Felix Airways;NonCust;0;0;0;0;0;;0.00;;0;;;;
 COM13571;FIFA AIR;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;FIGHTER WING KARUP;PotCust;0;0;0;0;0;;0.00;;0;;;10/28/2020 00:00:00;Not used the account since 2016, no active installations. Either Fighter wing SKP and Esk 721 know about this account
@@ -365,16 +365,16 @@ COM11368;Flex Flight ApS;Customer;2;2;3;0;0;11/01/2006 00:00:00;8.00;;0;;;;
 ;FLIGHT OPTIONS;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM13176;Fliteline BV;Customer;3;0;0;0;0;09/24/2024 00:00:00;8.00;;0;;;;
 ;FLY AO ANGOLA;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM13125;Fly Baghdad;Quarantine;0;1;0;0;0;07/01/2017 00:00:00;8.00;02/23/2024 00:00:00;0;Unavoidable;sanctions removed in 2025, reopened;08/18/2026 00:00:00;Lack of payment
+COM13125;Fly Baghdad;Quarantine;0;1;0;0;0;07/01/2017 00:00:00;8.00;02/23/2024 00:00:00;302100;Unavoidable;sanctions removed in 2025, reopened;08/18/2026 00:00:00;Lack of payment
 ;Fly Blue Crane;NonCust;0;0;0;0;0;;0.00;;0;;;;
 ;FLY CD;NonCust;0;0;0;0;0;;0.00;;0;;;;
-COM12721;Fly Egypt;Quarantine;0;0;0;0;0;12/01/2014 00:00:00;0.00;10/31/2024 00:00:00;0;Unavoidable;See Spec.;11/04/2024 00:00:00;Out of business
+COM12721;Fly Egypt;Quarantine;0;0;0;0;0;12/01/2014 00:00:00;0.00;10/31/2024 00:00:00;49329;Unavoidable;See Spec.;11/04/2024 00:00:00;Out of business
 ;FLY MODERN ARK;NonCust;0;0;0;0;0;;0.00;;0;;;;
 COM13099;FLY ONE S.R.L;Customer;2;14;12;0;0;11/01/2016 00:00:00;8.00;;0;;;02/01/2022 00:00:00;
 ;FLY WALES;NonCust;0;0;0;0;0;;0.00;;0;;;;
 COM13154;Fly2Sky OOD;Customer via;0;0;0;0;0;04/01/2017 00:00:00;0.00;;0;;;04/06/2021 00:00:00;Invoiced through AOSAC from April 1st, 2021
 COM13157;FLYADEAL;Customer;0;47;0;0;0;08/01/2017 00:00:00;8.00;;0;;;;
-COM13060;Airlink;PotCust;0;0;0;0;0;10/01/2018 00:00:00;0.00;;0;Avoidable;Going to Lido;01/04/2024 00:00:00;Going to Lido
+COM13060;Airlink;PotCust;0;0;0;0;0;10/01/2018 00:00:00;0.00;;1043441;Avoidable;Going to Lido;01/04/2024 00:00:00;Going to Lido
 COM13696;Fly Armenia Airways LLC (DEAD);PotCust;0;0;0;0;0;05/25/2021 00:00:00;0.00;;0;;;09/22/2021 00:00:00;No payment and no communication
 COM13249;FLYBOSNIA d.o.o.;PotCust;0;0;0;0;0;12/01/2018 00:00:00;0.00;;0;;;;
 COM12926;COMLUX MALTA;PotCust;0;0;0;0;0;;0.00;;0;;;;
@@ -449,7 +449,7 @@ COM11494;Flightworx Aviation Ltd.;Customer;1;1;0;0;0;05/01/2008 00:00:00;8.00;;0
 COM11770;Fly Aviation Services;Customer;0;0;0;0;0;12/01/2009 00:00:00;100.00;;0;;;;
 COM13123;FLY GAC;PotCust;0;0;0;0;0;06/01/2018 00:00:00;0.00;;0;;;03/15/2021 00:00:00;No usage, moved to Direct Dispatch. Account have been on hold for long time.
 COM12867;FLY SERVICE LTD;Customer;0;3;3;0;0;08/01/2016 00:00:00;8.00;;0;;;;
-COM13041;Haya Aviation Services Ltd;Quarantine;0;0;0;0;0;08/01/2016 00:00:00;8.00;05/08/2025 00:00:00;0;Unavoidable;No contact;05/08/2025 00:00:00;No communication, no payment. No valid emails.
+COM13041;Haya Aviation Services Ltd;Quarantine;0;0;0;0;0;08/01/2016 00:00:00;8.00;05/08/2025 00:00:00;53742;Unavoidable;No contact;05/08/2025 00:00:00;No communication, no payment. No valid emails.
 COM12777;FLYOPS SAS;Customer;3;0;0;0;0;04/01/2016 00:00:00;8.00;;0;;;;
 COM13474;Ford Aviation;PotCust;0;0;0;0;0;04/01/2019 00:00:00;0.00;;0;;;01/21/2021 00:00:00;Stand-by since April. No Activity. Account closed.
 ;Forty West;PotCust;0;0;0;0;0;;0.00;;0;;;;
@@ -469,10 +469,10 @@ COM13022;iJET;PotCust;0;0;0;0;0;09/01/2017 00:00:00;0.00;;0;;;08/27/2021 00:00:0
 COM11350;Q-Gate & Interflight Services;Customer;3;0;0;0;0;10/01/2006 00:00:00;100.00;;0;;;;No communication, no payment
 COM13400;I-OPS Aviation;Customer;3;0;0;0;0;01/01/2019 00:00:00;8.00;;0;;;;
 ;Jet Business Solutions;Customer via;0;0;0;0;0;06/08/2026 00:00:00;0.00;;0;;;;
-COM12121;JET CALL GmbH & CO.KG;PotCust;0;0;0;0;0;04/01/2011 00:00:00;0.00;;0;Unavoidable;Missing payment;02/28/2023 00:00:00;No payment, no communication
+COM12121;JET CALL GmbH & CO.KG;PotCust;0;0;0;0;0;04/01/2011 00:00:00;0.00;;55337;Unavoidable;Missing payment;02/28/2023 00:00:00;No payment, no communication
 COM11888;Jetflight Aviation Ltd.;Customer;0;0;0;0;0;12/01/2013 00:00:00;8.00;;0;;;;
 COM13048;JET TEAM Ltd;Customer;3;0;0;0;0;08/01/2016 00:00:00;8.00;;0;;;;
-COM11742;JETBASE;PotCust;0;0;0;0;0;01/01/2013 00:00:00;0.00;08/30/2024 00:00:00;0;Unavoidable;Staff shortage forces them to shut-down business. (termination extended to 30 august 2024);09/02/2024 00:00:00;Staff shortage forces them to shut-down business. (termination extended to 30 august 2024)
+COM11742;JETBASE;PotCust;0;0;0;0;0;01/01/2013 00:00:00;0.00;08/30/2024 00:00:00;88651;Unavoidable;Staff shortage forces them to shut-down business. (termination extended to 30 august 2024);09/02/2024 00:00:00;Staff shortage forces them to shut-down business. (termination extended to 30 august 2024)
 COM11331;JETEX FZE;Customer;0;0;0;0;0;04/01/2009 00:00:00;8.00;;0;;;;
 COM12017;Jet-Stream Ops Kft.;Customer;2;0;0;0;0;06/01/2011 00:00:00;100.00;;0;;;;
 COM12424;KARISMA BAHANA AVIASI;Customer;0;0;0;0;0;11/01/2012 00:00:00;8.00;;0;;;;
@@ -482,11 +482,11 @@ COM12235;AVIART LLC;Quarantine;0;0;0;0;0;07/06/2017 00:00:00;0.00;;0;;;03/09/202
 COM12255;Lux Flight Solutions SA;Customer;2;12;0;0;0;10/01/2011 00:00:00;100.00;;0;;;;
 ;Magma aviation;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM13129;Mediterranean Aviation Services;Customer;0;0;0;0;0;04/01/2017 00:00:00;8.00;;0;;;;
-COM13623;Merkur Aviation;PotCust;0;0;0;0;0;04/01/2020 00:00:00;8.00;02/28/2025 00:00:00;0;Unavoidable;Shutting down for flight planning activities.;04/02/2025 00:00:00;Shutting down for flight planning activities.
+COM13623;Merkur Aviation;PotCust;0;0;0;0;0;04/01/2020 00:00:00;8.00;02/28/2025 00:00:00;157491;Unavoidable;Shutting down for flight planning activities.;04/02/2025 00:00:00;Shutting down for flight planning activities.
 ;Merlot Aero Ltd;NonCust;0;0;0;0;0;;0.00;;0;;;;
 COM12393;METIS Aviation Limited;Customer;3;0;0;0;0;07/01/2012 00:00:00;8.00;;0;;;;
 COM12676;Moonjet;Customer;0;0;0;0;0;02/01/2015 00:00:00;8.00;;0;;;;
-COM12185;NavFix Flight Services;PotCust;0;0;0;0;0;08/01/2011 00:00:00;0.00;09/30/2024 00:00:00;0;Avoidable;cancellation of contract;10/01/2024 00:00:00;Contract ended - do not know the reason
+COM12185;NavFix Flight Services;PotCust;0;0;0;0;0;08/01/2011 00:00:00;0.00;09/30/2024 00:00:00;80508;Avoidable;cancellation of contract;10/01/2024 00:00:00;Contract ended - do not know the reason
 COM12118;Nexus Flight Operations Services;PotCust;0;0;0;0;0;09/01/2014 00:00:00;0.00;;0;;;01/18/2022 00:00:00;Closed due to missing payment and communication
 ;Palm Aviation;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM14241;Paramount Global Ferry Services;Customer;0;0;0;0;0;07/31/2023 00:00:00;8.00;;0;;;;
@@ -506,9 +506,9 @@ COM13191;SkyOne FZE (Terra Avia) (OMEGA AIR);Customer;0;0;0;0;0;07/01/2017 00:00
 COM12418;Skyblue Aero Singapore Pte. Ltd.;Customer;0;0;0;0;0;11/01/2012 00:00:00;8.00;;0;;;02/11/2022 00:00:00;
 COM12698;SOS INTERNATIONAL;PotCust;0;0;0;0;0;11/01/2014 00:00:00;0.00;;0;;;06/01/2022 00:00:00;No need for PPS any longer
 COM12707;Saudia Private Aviation;Customer;0;0;0;0;0;04/01/2015 00:00:00;8.00;;0;;;;
-COM13082;SPOT REISEN GmbH DWC-LLC;PotCust;0;0;0;0;0;11/01/2016 00:00:00;0.00;02/29/2024 00:00:00;0;Avoidable;Going to unknown competiror;03/04/2024 00:00:00;Going to unknown competiror
+COM13082;SPOT REISEN GmbH DWC-LLC;PotCust;0;0;0;0;0;11/01/2016 00:00:00;0.00;02/29/2024 00:00:00;54533;Avoidable;Going to unknown competiror;03/04/2024 00:00:00;Going to unknown competiror
 COM13152;sprouts GmbH;Customer;2;0;0;0;0;08/01/2017 00:00:00;8.00;;0;;;;
-COM12088;Success Aviation Services FZCO;PotCust;0;0;0;0;0;02/01/2018 00:00:00;0.00;;0;Unavoidable;Missing payment. Company still exist;03/20/2023 00:00:00;Contract terminated
+COM12088;Success Aviation Services FZCO;PotCust;0;0;0;0;0;02/01/2018 00:00:00;0.00;;83090;Unavoidable;Missing payment. Company still exist;03/20/2023 00:00:00;Contract terminated
 COM13126;Tango Limited;Customer;3;0;0;0;0;04/01/2017 00:00:00;8.00;;0;;;;
 ;TSK AVIATION and LOGISTICS SERVICES;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM11724;United Aviation Services (with EULA) aka UAS Int. Trip Support;Customer;0;0;0;0;0;11/01/2010 00:00:00;8.00;;0;;;;
@@ -538,9 +538,9 @@ COM12363;GEORGIAN AIRWAYS;Customer;0;2;0;0;0;06/01/2017 00:00:00;8.00;;0;;;;
 COM11680;GestAir;Customer;1;0;0;0;0;06/01/2009 00:00:00;8.00;;0;;;;
 COM13254;GETJET AIRLINES;Customer;1;18;18;2;18;01/01/2018 00:00:00;4.00;;0;;;;
 ;Mr. E Herd, G-FFFC;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM11100;GIESERS STAHLBAU GmbH;PotCust;0;0;0;0;0;08/01/2002 00:00:00;8.00;07/31/2025 00:00:00;0;Avoidable;Will no longer do flight planning inhouse. (outsourced);07/31/2025 00:00:00;Will no longer do flight planning inhouse. (outsourced)
+COM11100;GIESERS STAHLBAU GmbH;PotCust;0;0;0;0;0;08/01/2002 00:00:00;8.00;07/31/2025 00:00:00;8054;Avoidable;Will no longer do flight planning inhouse. (outsourced);07/31/2025 00:00:00;Will no longer do flight planning inhouse. (outsourced)
 ;GLOBAL AFRICA AVIATION;NonCust;0;0;0;0;0;;0.00;;0;;;;
-COM12948;GLOBAL AIRWAYS LIMITED;PotCust;1;0;0;0;0;05/01/2016 00:00:00;8.00;04/30/2025 00:00:00;0;Avoidable;NB bundle deal. AIRBUS operator.;04/02/2025 00:00:00;NB bundle deal. AIRBUS operator.
+COM12948;GLOBAL AIRWAYS LIMITED;PotCust;1;0;0;0;0;05/01/2016 00:00:00;8.00;04/30/2025 00:00:00;211464;Avoidable;NB bundle deal. AIRBUS operator.;04/02/2025 00:00:00;NB bundle deal. AIRBUS operator.
 ;GLOBAL AVIATION CARGO;NonCust;0;0;0;0;0;;0.00;;0;;;;
 COM11488;GLOBEAIR AG;Customer;1;18;19;0;0;09/01/2008 00:00:00;8.00;;0;;;;
 ;GLOCK Ges.m.b.H.;PotCust;0;0;0;0;0;;0.00;;0;;;;
@@ -574,7 +574,7 @@ COM14110;Himalaya Airlines;Customer;2;4;0;0;4;04/21/2025 00:00:00;3.00;;0;;;;
 ;Hongkong Jet;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM13417;HOP!;Customer;1;36;41;0;0;05/04/2021 00:00:00;3.00;;0;;;;
 COM11416;HTM Jet Service GmbH & Co KG;PotCust;0;0;0;0;0;08/01/2007 00:00:00;0.00;;0;;;04/06/2021 00:00:00;Terminated agreement December 16-12-2020, with effect from March 31, 2021. Company will be closed down
-COM11082;HUMMINGBIRD AVIATION SERVICES;Quarantine;3;3;0;0;0;09/01/2014 00:00:00;8.00;01/31/2026 00:00:00;0;Unavoidable;No contact, Company seem to be vanished from the earth.;12/17/2025 00:00:00;No communication, no payment
+COM11082;HUMMINGBIRD AVIATION SERVICES;Quarantine;3;3;0;0;0;09/01/2014 00:00:00;8.00;01/31/2026 00:00:00;66259;Unavoidable;No contact, Company seem to be vanished from the earth.;12/17/2025 00:00:00;No communication, no payment
 COM13633;Hunnu Air;Customer;0;0;4;4;0;01/25/2026 00:00:00;8.00;;0;;;;
 COM12845;Air Inuit Hydro Quebec div.;Customer;1;4;0;0;0;06/01/2015 00:00:00;8.00;;0;;;;
 COM12449;Hyperion Aviation Ltd;Customer;2;9;9;9;0;09/01/2017 00:00:00;8.00;;0;;;;
@@ -586,9 +586,9 @@ COM12619;ICELANDAIR;PotCust;0;0;0;0;0;02/01/2014 00:00:00;0.00;;0;;;08/24/2021 0
 ;Icon Aviation;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;IFSAL;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM11121;International Jet Management;PotCust;0;0;0;0;0;05/01/2015 00:00:00;0.00;;0;;;;
-COM13012;MAE Jet Charters Company WLL (IJM3);PotCust;0;0;0;0;0;09/01/2016 00:00:00;0.00;;0;Unavoidable;Missing payment;11/08/2021 00:00:00;Account closed, IJM cancelled long time ago MAE have been running on IJM3 until now. They now have their own PPS MENA CARGO
-COM11125;ImperialJet Europe GmbH;Quarantine;0;0;0;0;0;03/01/2007 00:00:00;8.00;03/18/2025 00:00:00;0;Unavoidable;Missing payment;03/18/2025 00:00:00;No payment!
-COM12288;Svenskt Industriflyg AB (Bluelink Jets AB);PotCust;3;1;0;0;0;12/09/2011 00:00:00;8.00;06/30/2026 00:00:00;0;Avoidable;Have chosen another vendor. Unknown reason;;
+COM13012;MAE Jet Charters Company WLL (IJM3);PotCust;0;0;0;0;0;09/01/2016 00:00:00;0.00;;23704;Unavoidable;Missing payment;11/08/2021 00:00:00;Account closed, IJM cancelled long time ago MAE have been running on IJM3 until now. They now have their own PPS MENA CARGO
+COM11125;ImperialJet Europe GmbH;Quarantine;0;0;0;0;0;03/01/2007 00:00:00;8.00;03/18/2025 00:00:00;60627;Unavoidable;Missing payment;03/18/2025 00:00:00;No payment!
+COM12288;Svenskt Industriflyg AB (Bluelink Jets AB);PotCust;3;1;0;0;0;12/09/2011 00:00:00;8.00;06/30/2026 00:00:00;49536;Avoidable;Have chosen another vendor. Unknown reason;;
 COM13561;Snild ehf;NonCust;0;0;0;0;0;;0.00;;0;;;;
 ;International JetClub Ltd;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;IQ Charter;PotCust;0;0;0;0;0;;0.00;;0;;;;
@@ -607,7 +607,7 @@ COM14621;Jazeera Airways K.S.C.;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM12584;Jet Advisor;PotCust;0;0;0;0;0;03/01/2011 00:00:00;0.00;;0;;;10/06/2025 00:00:00;Cleaning up/TRL
 ;Jet Airways Limited;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Jet Aviation Flight Services, Inc.;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM11124;JET AVIATION Business Jets;PotCust;0;0;0;0;0;01/01/1995 00:00:00;0.00;02/29/2024 00:00:00;0;Avoidable;Going to different provider;03/04/2024 00:00:00;Churn feb24 iflg. HEH
+COM11124;JET AVIATION Business Jets;PotCust;0;0;0;0;0;01/01/1995 00:00:00;0.00;02/29/2024 00:00:00;30203;Avoidable;Going to different provider;03/04/2024 00:00:00;Churn feb24 iflg. HEH
 COM13203;Jetbee Czech s.r.o.;Customer;3;5;5;0;0;09/01/2017 00:00:00;8.00;;0;;;;
 COM11193;Jet Executive International;Customer;3;4;5;0;0;10/01/1997 00:00:00;8.00;;0;;;;
 COM13517;Jet Premier One;PotCust;0;0;0;0;0;;0.00;;0;;;;
@@ -616,7 +616,7 @@ COM11332;JET TIME (old);NonCust;0;0;0;0;0;;0.00;;0;;;09/17/2021 00:00:00;Bankrup
 ;JET4U;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;JET ADVISOR PAD Aviation Service GmbH;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;TUI fly (Belgium);PotCust;1;0;0;0;0;;0.00;;0;;;;
-COM12638;JETCORP;NonCust;0;0;0;0;0;07/01/2014 00:00:00;0.00;04/30/2024 00:00:00;0;Unavoidable;No more Tails left, shutting down business.;05/02/2024 00:00:00;No more Tails left, shutting down business. Skyldig saldo betalt 23.05.2024
+COM12638;JETCORP;NonCust;0;0;0;0;0;07/01/2014 00:00:00;0.00;04/30/2024 00:00:00;43325;Unavoidable;No more Tails left, shutting down business.;05/02/2024 00:00:00;No more Tails left, shutting down business. Skyldig saldo betalt 23.05.2024
 COM11127;JETFLITE OY;Customer;3;3;0;0;0;01/01/1997 00:00:00;8.00;;0;;;;
 COM12524;JETFLY AVIATION S.A.;Customer;1;50;49;0;46;06/01/2013 00:00:00;8.00;;0;;;;
 ;JetLounge GmbH;PotCust;0;0;0;0;0;;0.00;;0;;;;
@@ -668,31 +668,31 @@ COM13278;Life Line Ltd;Customer;3;5;4;0;0;03/01/2018 00:00:00;8.00;;0;;;;
 COM13668;Religare Aviation;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM13666;Lilium GmbH;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM13693;LINK AIR CARGO;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM12881;Lipican Aer d.o.o.;PotCust;3;3;0;0;0;04/03/2018 00:00:00;8.00;01/31/2026 00:00:00;0;Unavoidable;fleet sold, no more AC left. no need for flight planning software;;
+COM12881;Lipican Aer d.o.o.;PotCust;3;3;0;0;0;04/03/2018 00:00:00;8.00;01/31/2026 00:00:00;60365;Unavoidable;fleet sold, no more AC left. no need for flight planning software;;
 COM12586;Jet Commerce OU, Litavio;NonCust;3;0;0;0;0;09/01/2013 00:00:00;8.00;;0;;;05/05/2026 00:00:00;Closed because of the war in Ukraine
 COM12527;LITHUANIAN AIR FORCE AIRBASE;PotCust;0;0;0;0;0;01/01/2016 00:00:00;0.00;;0;;;01/02/2023 00:00:00;Blocked on Dec. 31st, 2021 - updated correctly now
 ;LK Flyers LTD;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM11386;LOGANAIR Ltd.a;Customer;1;35;37;0;0;07/01/2007 00:00:00;8.00;;0;;;;
-COM13245;Longtail Aviation International Ltd.;PotCust;0;0;1;1;0;11/22/2024 00:00:00;8.00;08/05/2026 00:00:00;2911;Unavoidable;previously churned 31/01/2024 due to missing payment.  value (47.833).    New contract breach, FPL via Flightworx.;;
+COM13245;Longtail Aviation International Ltd.;PotCust;0;0;1;1;0;11/22/2024 00:00:00;8.00;08/05/2026 00:00:00;29.11;Unavoidable;previously churned 31/01/2024 due to missing payment.  value (47.833).    New contract breach, FPL via Flightworx.;;
 COM13507;Lothringen Aero Services GmbH;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM11139;LUFTTRANSPORT F.W. A/S;Customer;0;0;0;0;0;10/01/1998 00:00:00;0.00;;0;;;;
-COM13266;LUMIWINGS S.A.;Quarantine;3;1;0;0;0;06/01/2018 00:00:00;8.00;10/14/2025 00:00:00;0;Unavoidable;Missing payment - no communication.;10/14/2025 00:00:00;No payment, no communication
+COM13266;LUMIWINGS S.A.;Quarantine;3;1;0;0;0;06/01/2018 00:00:00;8.00;10/14/2025 00:00:00;45059;Unavoidable;Missing payment - no communication.;10/14/2025 00:00:00;No payment, no communication
 COM11140;LUXAIR S.A.;Customer;1;21;23;0;0;07/01/1998 00:00:00;8.00;;0;;;;
 ;LUXAVIATION MANAGEMENT COMPANY;NonCust;0;0;0;0;0;11/10/2020 00:00:00;0.00;;0;;;;
 COM13814;Masterjet (Luxaviation Portugal - Part of Luxaviation Group);PotCust;0;0;0;0;0;;0.00;;0;;;09/12/2023 00:00:00;Never went live
-COM11138;LUXAVIATION UK (Part of Luxaviation Group. Former LEA London executive Aviation);PotCust;0;0;0;0;0;12/01/2018 00:00:00;0.00;;0;Avoidable;Group deal - going to Flightkeys;09/12/2023 00:00:00;Contract terminated
+COM11138;LUXAVIATION UK (Part of Luxaviation Group. Former LEA London executive Aviation);PotCust;0;0;0;0;0;12/01/2018 00:00:00;0.00;;222107;Avoidable;Group deal - going to Flightkeys;09/12/2023 00:00:00;Contract terminated
 COM12414;LUXWING Ltd.;Customer;2;8;10;0;0;10/01/2012 00:00:00;8.00;;0;;;;
 COM14528;Lynden Air Cargo, LLC;Pending Delivery;0;10;0;0;0;03/31/2026 00:00:00;4.00;;0;;;;
 COM12154;MAC Medical Aviation Consulting GmbH;Customer;3;0;0;0;0;08/01/2008 00:00:00;8.00;;0;;;;
 ;MAHAN AIR;NonCust;0;0;0;0;0;;0.00;;0;;;;
 ;FSUE “State ATM Corporation”;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM13408;MALETH AERO;Quarantine;0;0;0;0;0;09/01/2020 00:00:00;8.00;05/27/2025 00:00:00;0;Unavoidable;See blocked reason;05/27/2025 00:00:00;No payment, no communication
+COM13408;MALETH AERO;Quarantine;0;0;0;0;0;09/01/2020 00:00:00;8.00;05/27/2025 00:00:00;80033;Unavoidable;See blocked reason;05/27/2025 00:00:00;No payment, no communication
 ;MALMÖ AVIATION TEST;NonCust;0;0;0;0;0;;0.00;;0;;;;
 ;Mango Airlines;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM13606;MAP Transportes Aéreos Ltda;PotCust;0;0;0;0;0;03/01/2020 00:00:00;0.00;;0;;;11/11/2020 00:00:00;No activity, no pay.
 COM13516;MARATHON AIRLINES;Customer;2;5;0;0;0;08/01/2020 00:00:00;8.00;;0;;;;
 COM13688;Maximus Air L.L.C;Customer;0;2;0;0;0;09/23/2020 00:00:00;8.00;;0;;;;
-COM11319;MEDAVIA;PotCust;0;0;0;0;0;12/01/2006 00:00:00;8.00;10/31/2025 00:00:00;0;Unavoidable;Havent  used PPS for 5 Years. AC parked. Might resume operations at some time.;05/27/2025 00:00:00;missing payment
+COM11319;MEDAVIA;PotCust;0;0;0;0;0;12/01/2006 00:00:00;8.00;10/31/2025 00:00:00;14009;Unavoidable;Havent  used PPS for 5 Years. AC parked. Might resume operations at some time.;05/27/2025 00:00:00;missing payment
 ;MEGA GLOBAL AIR SERVICES ( MALDIVES ) PVT LTD.;NonCust;0;0;0;0;0;;0.00;;0;;;;
 ;Meridian Aircraft Management;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Meridiana;PotCust;0;0;0;0;0;;0.00;;0;;;;
@@ -727,7 +727,7 @@ COM13654;BLUE EAGLE FLY;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM13632;MERIT LOYAL TECHNOLOGY LTD;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM13530;DAS private jets GmbH;Customer;3;4;0;0;0;10/01/2022 00:00:00;8.00;;0;;;;
 COM13680;NILS CONRADI;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM13657;AJWAA AIRLINES;PotCust;0;0;0;0;0;09/30/2020 00:00:00;0.00;;0;Unavoidable;Missing payment, no contact;01/24/2023 00:00:00;No payment!
+COM13657;AJWAA AIRLINES;PotCust;0;0;0;0;0;09/30/2020 00:00:00;0.00;;52194;Unavoidable;Missing payment, no contact;01/24/2023 00:00:00;No payment!
 COM13533;AVIATORS S.A.S.;NonCust;0;0;0;0;0;;0.00;;0;;;;
 COM13628;UPLINK OPERATIONS;NonCust;0;0;0;0;0;;0.00;;0;;;;
 COM13584;Zephyr Aviation Ltd;PotCust;0;0;0;0;0;;0.00;;0;;;;
@@ -752,7 +752,7 @@ COM13618;WHITE AIRWAYS;Customer;2;0;0;0;0;05/21/2025 00:00:00;0.00;;0;;;;
 COM13563;AZUR AIR Russia;Quarantine;0;0;0;0;0;;0.00;;0;;;;
 COM13627;IDC AVIATION;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM13583;Kommunalförbundet Svenskt Ambulansflyg (KSA);NonCust;0;0;0;0;0;;0.00;;0;;;;
-COM13994;Jet Aviation;PotCust;0;0;0;0;0;06/02/2021 00:00:00;0.00;;0;Avoidable;Group deal - lux aviation;10/04/2023 00:00:00;Contract terminated
+COM13994;Jet Aviation;PotCust;0;0;0;0;0;06/02/2021 00:00:00;0.00;;80811;Avoidable;Group deal - lux aviation;10/04/2023 00:00:00;Contract terminated
 COM13597;Avalon Airlines LLC;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM13568;Fastway Aviation Group;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Clay Lacy Aviation, Inc.;PotCust;0;0;0;0;0;;0.00;;0;;;;
@@ -785,7 +785,7 @@ COM12930;NORLANDAIR;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM11152;NORTH FLYING A/S;Customer;2;6;2;0;0;12/01/1990 00:00:00;8.00;;0;;;;
 COM14679;Northern Air Cargo;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM11209;NORWEGIAN AIR SHUTTLE ASA;PotCust;0;0;0;0;0;11/01/2005 00:00:00;0.00;;0;;;10/26/2021 00:00:00;All accounts blocked, not customer
-COM12836;Nova Airways;NonCust;0;0;0;0;0;05/01/2015 00:00:00;0.00;;0;Unavoidable;Missing payment;05/16/2023 00:00:00;Missing payment and communication/war in the country, bank closed, at least a year
+COM12836;Nova Airways;NonCust;0;0;0;0;0;05/01/2015 00:00:00;0.00;;23054;Unavoidable;Missing payment;05/16/2023 00:00:00;Missing payment and communication/war in the country, bank closed, at least a year
 COM12249;NOVAIR Test;NonCust;0;0;0;0;0;;0.00;;0;;;;NOVAIR closed and terminated
 COM14151;NovoAir Ltd.;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;NPAS Ltd;NonCust;0;0;0;0;0;;0.00;;0;;;;
@@ -793,9 +793,9 @@ COM14151;NovoAir Ltd.;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Oceanskies Aero Ltd;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM13514;OK AVIATION WINGS;Customer;3;1;0;0;0;09/01/2019 00:00:00;8.00;;0;;;;
 COM11595;OLYMPIC AIR S.A.;Customer;2;19;0;0;0;08/01/2009 00:00:00;8.00;;0;;;;
-COM12943;OLYMPUS AIRWAYS S.A;PotCust;0;0;0;0;0;03/01/2016 00:00:00;0.00;;0;Unavoidable;Missing payment, company still exist;03/01/2022 00:00:00;Due to missing payment and communication
+COM12943;OLYMPUS AIRWAYS S.A;PotCust;0;0;0;0;0;03/01/2016 00:00:00;0.00;;67862;Unavoidable;Missing payment, company still exist;03/01/2022 00:00:00;Due to missing payment and communication
 ;Oman Air;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM13537;OMNI Táxi Aéreo S.A.;PotCust;0;0;0;0;0;09/01/2021 00:00:00;0.00;06/30/2024 00:00:00;0;Unavoidable;Has no use of system anymore;07/03/2024 00:00:00;Has no use of system anymore
+COM13537;OMNI Táxi Aéreo S.A.;PotCust;0;0;0;0;0;09/01/2021 00:00:00;0.00;06/30/2024 00:00:00;39720;Unavoidable;Has no use of system anymore;07/03/2024 00:00:00;Has no use of system anymore
 COM12301;Omni Aviação eTecnologia SA.;PotCust;0;0;0;0;0;05/01/2012 00:00:00;0.00;;0;;;05/21/2025 00:00:00;Transferred to White Airways instead. (Omni and White have parted ways, May 25)
 ;OneCarribean LTD AOC;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Opera Jet 2 CB account;NonCust;0;0;0;0;0;;0.00;;0;;;;Should have been closed 03.03.2016 with main account, now closed correctly
@@ -810,14 +810,14 @@ COM11155;ProAir Aviation GmbH;Customer;1;36;0;0;0;01/01/1998 00:00:00;8.00;;0;;;
 ;Pan Air;NonCust;0;0;0;0;0;;0.00;;0;;;;
 COM11622;Panaviatic Ltd;Customer;3;3;0;0;0;08/01/2012 00:00:00;8.00;;0;;;;
 ;Panisa Airlines S.A;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM11411;Papier-Mettler KG;PotCust;0;0;0;0;0;08/01/2007 00:00:00;8.00;01/01/2025 00:00:00;0;Avoidable;due to some reorganisation at flight department, and Route Generation;03/03/2025 00:00:00;due to some reorganisation at flight department, and Route Generation
+COM11411;Papier-Mettler KG;PotCust;0;0;0;0;0;08/01/2007 00:00:00;8.00;01/01/2025 00:00:00;50516;Avoidable;due to some reorganisation at flight department, and Route Generation;03/03/2025 00:00:00;due to some reorganisation at flight department, and Route Generation
 COM13643;Paradox Jets Ltd;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Pars Air;NonCust;0;0;0;0;0;;0.00;;0;;;;
 COM12767;Petroleum Air Services (PAS);Customer;3;8;0;0;0;03/01/2020 00:00:00;8.00;;0;;;;
 ;Pascan Aviation;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM13084;Voepass - Linhas Aéreas;Quarantine;0;0;0;0;0;10/01/2018 00:00:00;8.00;04/30/2025 00:00:00;0;Unavoidable;Grounded by the auth. due to missing SMS and lack of compliance;05/08/2025 00:00:00;Grounded by the auth. due to missing SMS and lack of compliance
+COM13084;Voepass - Linhas Aéreas;Quarantine;0;0;0;0;0;10/01/2018 00:00:00;8.00;04/30/2025 00:00:00;369720;Unavoidable;Grounded by the auth. due to missing SMS and lack of compliance;05/08/2025 00:00:00;Grounded by the auth. due to missing SMS and lack of compliance
 COM13342;Passionair;Customer;2;4;0;0;0;07/01/2020 00:00:00;8.00;;0;;;11/29/2023 00:00:00;
-COM11898;PEAK Air GMBH;PotCust;0;0;0;0;0;07/01/2007 00:00:00;8.00;04/30/2025 00:00:00;0;Avoidable;Outsourcing to existing PPS user.;11/04/2025 00:00:00;Termination received, cleaning up. Out sourcing FPL planning to existing PPS user.
+COM11898;PEAK Air GMBH;PotCust;0;0;0;0;0;07/01/2007 00:00:00;8.00;04/30/2025 00:00:00;69534;Avoidable;Outsourcing to existing PPS user.;11/04/2025 00:00:00;Termination received, cleaning up. Out sourcing FPL planning to existing PPS user.
 ;PEGASUS AIRLINES;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Perimeter Aviation;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;PERSONAL AIR TRANSPORT;PotCust;0;0;0;0;0;;0.00;;0;;;;
@@ -834,7 +834,7 @@ COM13054;Plus Ultra Líneas Aéreas S.A.;PotCust;0;0;0;0;0;11/01/2016 00:00:00;0
 ;PRAGA AVIATION s.r.o.;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;JSC PREMIER AVIA;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM13527;PREMIER PRIVATE JETS;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM12429;Premium Jet AG;PotCust;0;0;0;0;0;10/01/2012 00:00:00;0.00;;0;Unavoidable;No Activity;10/02/2023 00:00:00;Contract terminated
+COM12429;Premium Jet AG;PotCust;0;0;0;0;0;10/01/2012 00:00:00;0.00;;24533;Unavoidable;No Activity;10/02/2023 00:00:00;Contract terminated
 ;Prestbury Two LLP;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM13678;PRIME AVIATION;Customer;0;0;0;0;0;10/01/2021 00:00:00;8.00;;0;;;;
 ;Prime Jet LLC;PotCust;0;0;0;0;0;;0.00;;0;;;;
@@ -844,7 +844,7 @@ COM13611;PRINCE AVIATION;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;PrivatAir Saudi Arabia Ltd;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM14613;PAL Airlines;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;PSA Airlines, Inc.;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM13337;PSI AIR 2007;PotCust;0;0;0;0;0;03/22/2021 00:00:00;0.00;;0;Unavoidable;Missing payment;06/08/2023 00:00:00;No payment, no communication
+COM13337;PSI AIR 2007;PotCust;0;0;0;0;0;03/22/2021 00:00:00;0.00;;45869;Unavoidable;Missing payment;06/08/2023 00:00:00;No payment, no communication
 ;PUROLATOR;NonCust;0;0;0;0;0;;0.00;;0;;;;
 COM14003;QATAR AIRWAYS;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM13867;Qatar Amiri Flight;PotCust;0;0;0;0;0;;0.00;;0;;;;
@@ -862,7 +862,7 @@ COM13626;RBA VOYAGE Sdn Bhd;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM13613;REDSTAR AVIATION;Customer;0;0;0;0;0;12/01/2020 00:00:00;8.00;;0;;;;
 COM12511;AIR CHARTER EXPRESS LLC (Former REEM STYLE);Customer;0;8;5;3;0;05/01/2013 00:00:00;8.00;;0;;;;
 COM14150;Regent Airways;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM13042;Regional Jet OU ( X-Fly / NORDICA);NonCust;1;0;0;0;0;07/01/2016 00:00:00;0.00;12/31/2024 00:00:00;0;Unavoidable;Bankruptcy;01/07/2025 00:00:00;Bankruptcy
+COM13042;Regional Jet OU ( X-Fly / NORDICA);NonCust;1;0;0;0;0;07/01/2016 00:00:00;0.00;12/31/2024 00:00:00;422382;Unavoidable;Bankruptcy;01/07/2025 00:00:00;Bankruptcy
 COM12245;REGOURD AVIATION (Amelia);Customer;1;21;18;14;0;10/01/2018 00:00:00;0.00;;0;;;;
 COM14326;RELIANCE AIR CHARTER;PotCust;3;0;0;0;0;;0.00;;0;;;;
 ;Reva, Inc.;PotCust;0;0;0;0;0;;0.00;;0;;;;
@@ -878,7 +878,7 @@ COM12632;ROYAL JET;Customer;0;31;0;0;0;03/01/2019 00:00:00;8.00;;0;;;;
 COM13559;RRSM International LLC;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM13562;RUSLINE;Quarantine;0;0;0;0;0;;0.00;;0;;;;
 COM13499;SA EXPRESS;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM11391;Babcock Scandinavian Air Ambulance AB;NonCust;0;0;0;0;0;05/01/2007 00:00:00;0.00;;0;Unavoidable;No activity - contact for ambulance service lost.;10/04/2023 00:00:00;Contract terminated
+COM11391;Babcock Scandinavian Air Ambulance AB;NonCust;0;0;0;0;0;05/01/2007 00:00:00;0.00;;81337;Unavoidable;No activity - contact for ambulance service lost.;10/04/2023 00:00:00;Contract terminated
 COM11404;SAAB AB;Customer;3;12;0;0;0;03/01/2008 00:00:00;8.00;;0;;;;
 COM12587;Ministry of defence SAF Airlift;Customer;3;4;4;3;0;03/01/2014 00:00:00;8.00;;0;;;;
 COM13057;SAFAIR OPERATIONS (PTY) LTD;Customer;1;38;0;0;0;09/01/2017 00:00:00;8.00;;0;;;;
@@ -895,13 +895,13 @@ COM13601;Sarah Airways;Customer;3;5;5;0;0;02/01/2020 00:00:00;8.00;;0;;;;
 COM12212;Sardinian Sky Services s.r.l;Customer;3;2;0;0;0;01/01/2012 00:00:00;8.00;;0;;;;
 ;(Duplicate) SAS (do not use);NonCust;0;0;0;0;0;;0.00;;0;;;;
 COM12396;SATA Air Acores, SA;Customer;1;7;0;0;0;10/01/2015 00:00:00;8.00;;0;;;;
-COM14024;SATA INTERNATIONAL;Pending Closure;2;7;7;0;0;01/02/2023 00:00:00;5.00;09/30/2029 00:00:00;0;Avoidable;dissatisfied with ETOPS calculation - bad onboarding from customer side. First termination received 13 january 2025, but agreed to negotation;;
+COM14024;SATA INTERNATIONAL;Pending Closure;2;7;7;0;0;01/02/2023 00:00:00;5.00;09/30/2029 00:00:00;573040;Avoidable;dissatisfied with ETOPS calculation - bad onboarding from customer side. First termination received 13 january 2025, but agreed to negotation;;
 COM13659;SAUDI ROYAL AVIATION;Customer;0;17;0;0;0;11/03/2022 00:00:00;8.00;;0;;;;
 COM12870;Saudi Royal Fleet;Customer;0;0;11;0;0;09/01/2015 00:00:00;6.00;;0;;;;
 COM13121;SAUDIA;PotCust;0;0;0;0;0;;0.00;;0;;;11/02/2020 00:00:00;Account closed correctly
-COM11394;SaxonAir Charter Ltd.;PotCust;3;8;0;0;0;06/01/2007 00:00:00;8.00;03/31/2026 00:00:00;0;Avoidable;changing du to EFB  and long login issues;04/15/2026 00:00:00;Closed pr. mail HEH
+COM11394;SaxonAir Charter Ltd.;PotCust;3;8;0;0;0;06/01/2007 00:00:00;8.00;03/31/2026 00:00:00;174908;Avoidable;changing du to EFB  and long login issues;04/15/2026 00:00:00;Closed pr. mail HEH
 ;SC AeroTech Llc;NonCust;0;0;0;0;0;;0.00;;0;;;;
-COM12024;SCANWINGS LTD;PotCust;0;0;0;0;0;10/01/2012 00:00:00;0.00;;0;Avoidable;Going to webbased solution, with integraded Runway analysis. Rocket Route, Ipreflight;11/08/2023 00:00:00;The customer has terminated the agreement
+COM12024;SCANWINGS LTD;PotCust;0;0;0;0;0;10/01/2012 00:00:00;0.00;;69628;Avoidable;Going to webbased solution, with integraded Runway analysis. Rocket Route, Ipreflight;11/08/2023 00:00:00;The customer has terminated the agreement
 ;Scott International Procedures;NonCust;0;0;0;0;0;;0.00;;0;;;;
 COM11650;SEABORNE AIRLINES Inc.;Customer;0;3;0;0;0;11/01/2012 00:00:00;8.00;;0;;;;
 ;Seletar Jet Charter Pte Ltd;PotCust;0;0;0;0;0;;0.00;;0;;;;
@@ -918,7 +918,7 @@ COM13508;SIRIUS-AERO;Quarantine;0;0;0;0;0;11/01/2019 00:00:00;0.00;;0;;;04/21/20
 ;SKA AIRCRAFT LEASING;NonCust;0;0;0;0;0;;0.00;;0;;;;
 COM12319;SKAN SERVICE APS (CB WX only);Customer;3;0;0;0;0;01/01/2012 00:00:00;0.00;;0;;;;
 COM13482;SKY AIRLINE;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM13566;SkyAir;Quarantine;0;0;0;0;0;01/01/2020 00:00:00;8.00;04/30/2025 00:00:00;0;Unavoidable;Out of business for now;04/30/2025 00:00:00;Out of business for now
+COM13566;SkyAir;Quarantine;0;0;0;0;0;01/01/2020 00:00:00;8.00;04/30/2025 00:00:00;50592;Unavoidable;Out of business for now;04/30/2025 00:00:00;Out of business for now
 COM12369;SKY EXPRESS S.A.;PotCust;0;0;0;0;0;12/01/2016 00:00:00;0.00;;0;;;03/08/2021 00:00:00;Termination of agreement
 ;SKY PARTNERS GROUP;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;SKYBIRD Airlines;PotCust;0;0;0;0;0;;0.00;;0;;;;
@@ -934,14 +934,14 @@ COM13605;SMART JET SP. Z.O.O.;Customer;3;6;0;0;0;03/01/2020 00:00:00;8.00;;0;;;;
 COM14106;SMART JET AVIATION;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Smart4Aviation Technologies B.V.;NonCust;0;0;0;0;0;;0.00;;0;;;;
 COM12038;SMART AVIATION;Customer;3;7;0;0;0;10/01/2018 00:00:00;0.00;;0;;;;
-COM12657;Smartlynx Airlines;NonCust;1;0;35;22;35;12/01/2014 00:00:00;8.00;11/07/2025 00:00:00;0;Unavoidable;Unchurned;11/24/2025 00:00:00;Insolvency
+COM12657;Smartlynx Airlines;NonCust;1;0;35;22;35;12/01/2014 00:00:00;8.00;11/07/2025 00:00:00;499120;Unavoidable;Unchurned;11/24/2025 00:00:00;Insolvency
 ;SMILE AIR;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Smooth Route Sdn. Bhd.;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM14068;SOLENTA AVIATION;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM13790;ACASS Ireland Ltd;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM11224;SIPJ SONNIG International Private Jet;PotCust;0;0;0;0;0;08/01/2013 00:00:00;0.00;;0;Avoidable;going to onknown competitor;06/13/2023 00:00:00;Lost to competitor
+COM11224;SIPJ SONNIG International Private Jet;PotCust;0;0;0;0;0;08/01/2013 00:00:00;0.00;;81737;Avoidable;going to onknown competitor;06/13/2023 00:00:00;Lost to competitor
 COM11230;(Duplicate) Falcon Jet Aviation;NonCust;0;0;0;0;0;;0.00;;0;;;;
-COM11228;Falcon Wings;PotCust;0;0;0;0;0;08/01/2013 00:00:00;0.00;01/02/2024 00:00:00;0;Unavoidable;contract terminated;01/02/2024 00:00:00;Contract terminated
+COM11228;Falcon Wings;PotCust;0;0;0;0;0;08/01/2013 00:00:00;0.00;01/02/2024 00:00:00;80134;Unavoidable;contract terminated;01/02/2024 00:00:00;Contract terminated
 COM13141;SOUTHERN CROSS INTERNATIONAL;Customer;3;0;0;0;0;03/01/2017 00:00:00;8.00;;0;;;;
 COM11909;Sovereign Business Jets Limited;PotCust;0;0;0;0;0;05/01/2010 00:00:00;0.00;;0;;;11/09/2020 00:00:00;Terminated agreement 06-11-2020, account to be closed on 31st December 2020
 COM13558;SPACECARGO INC;Customer via;0;0;0;0;0;02/01/2020 00:00:00;0.00;;0;;;08/30/2021 00:00:00;Invoiced to Bu Shames from Aug 1st, 2021
@@ -955,8 +955,8 @@ COM14122;SpiceJet Ltd.;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;SPREE FLUG;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM11466;SPRINTAIR SA;Customer;2;15;0;0;0;03/01/2008 00:00:00;8.00;;0;;;;
 COM11178;STAR-LINE;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM11518;MAERSK AIR CARGO (Tidligere STAR AIR);Pending Closure;1;19;0;0;0;11/01/2011 00:00:00;8.00;10/30/2031 00:00:00;0;Avoidable;Lasse Bay Hansen;;
-COM13461;Star Air Cargo (Pty) Ltd;PotCust;2;0;0;0;0;02/01/2020 00:00:00;8.00;03/31/2025 00:00:00;0;Unavoidable;Out of business;04/02/2025 00:00:00;Out of business
+COM11518;MAERSK AIR CARGO (Tidligere STAR AIR);Pending Closure;1;19;0;0;0;11/01/2011 00:00:00;8.00;10/30/2031 00:00:00;1252317;Avoidable;Lasse Bay Hansen;;
+COM13461;Star Air Cargo (Pty) Ltd;PotCust;2;0;0;0;0;02/01/2020 00:00:00;8.00;03/31/2025 00:00:00;296839;Unavoidable;Out of business;04/02/2025 00:00:00;Out of business
 COM13322;Ghodawat Enterprises Pvt Ltd (Star Air India);Customer;2;9;8;8;0;10/01/2018 00:00:00;8.00;;0;;;;
 COM13382;STAR AVIATION SPA;Customer;2;10;0;0;0;10/01/2018 00:00:00;8.00;;0;;;;
 COM13637;STAR EAST AIRLINE SRL (Jordan);PotCust;0;0;0;0;0;;0.00;;0;;;;
@@ -969,9 +969,9 @@ COM11181;SUN AIR OF SCANDINAVIA A/S (SUN-AIR Aviation Group);Customer;2;5;5;0;0;
 ;Sun Country Airlines;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM13646;SUNCLASS AIRLINES;PotCust;1;0;0;0;0;09/01/2020 00:00:00;0.00;;0;;;;
 ;SunExpress Airline;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM13118;Sunrise Airways S.A.;PotCust;0;0;0;0;0;02/01/2017 00:00:00;0.00;03/06/2024 00:00:00;0;Unavoidable;Missing payment;03/06/2024 00:00:00;missing payment and communication
+COM13118;Sunrise Airways S.A.;PotCust;0;0;0;0;0;02/01/2017 00:00:00;0.00;03/06/2024 00:00:00;62193;Unavoidable;Missing payment;03/06/2024 00:00:00;missing payment and communication
 COM13541;SUNWING AIRLINES INC.;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM11189;FÖRSVARSMAKTEN (SWEDISH AIR FORCE);NonCust;0;0;0;0;0;11/09/1999 00:00:00;0.00;09/30/2025 00:00:00;0;Avoidable;Charts, stay funktion,;;
+COM11189;FÖRSVARSMAKTEN (SWEDISH AIR FORCE);NonCust;0;0;0;0;0;11/09/1999 00:00:00;0.00;09/30/2025 00:00:00;382000;Avoidable;Charts, stay funktion,;;
 COM12878;SWIFTAIR S.A;Customer;1;51;53;0;0;01/01/2016 00:00:00;8.00;;0;;;;
 ;SWIFT FLITE;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;SwiftAir Hellas;PotCust;0;0;0;0;0;;0.00;;0;;;;
@@ -988,10 +988,10 @@ COM12778;TALA Fze;PotCust;0;0;0;0;0;12/01/2014 00:00:00;0.00;;0;;;02/04/2021 00:
 ;TAME EP Línea Aérea del Ecuador;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM12528;LINK CONNECTION AEREA, Tarmexico;Customer;0;4;0;0;0;11/01/2013 00:00:00;8.00;;0;;;;
 ;TAROM Romanian Air Transport;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM12682;Tatra JET s.r.o.;PotCust;0;0;0;0;0;01/14/2021 00:00:00;8.00;06/30/2025 00:00:00;0;Avoidable;New ownership and new management, decision mad by the owners.;07/01/2025 00:00:00;New ownership and new management, decision mad by the owners.
+COM12682;Tatra JET s.r.o.;PotCust;0;0;0;0;0;01/14/2021 00:00:00;8.00;06/30/2025 00:00:00;71584;Avoidable;New ownership and new management, decision mad by the owners.;07/01/2025 00:00:00;New ownership and new management, decision mad by the owners.
 COM13274;Tayaran Jet JSCo;PotCust;0;0;0;0;0;03/01/2018 00:00:00;0.00;;0;;;08/24/2021 00:00:00;Missing payment
 ;TC by Paulina Woroniecka;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM13378;Georgian Wings (TCA LLC);Quarantine;0;0;0;0;0;02/18/2021 00:00:00;8.00;12/31/2024 00:00:00;0;Unavoidable;No AC, No flights, no use of PPS;08/20/2025 00:00:00;No AC, No flights, no use of PPS. No communiation. No payment
+COM13378;Georgian Wings (TCA LLC);Quarantine;0;0;0;0;0;02/18/2021 00:00:00;8.00;12/31/2024 00:00:00;22758;Unavoidable;No AC, No flights, no use of PPS;08/20/2025 00:00:00;No AC, No flights, no use of PPS. No communiation. No payment
 COM13354;TEXEL AIR;Customer;0;11;11;11;0;08/01/2019 00:00:00;8.00;;0;;;;
 COM13545;Thai Summer Airways;Quarantine;0;0;0;0;0;;0.00;;0;;;;
 ;THALES;NonCust;0;0;0;0;0;;0.00;;0;;;;
@@ -1022,7 +1022,7 @@ COM11196;TYROL AIR AMBULANCE GmbH;Customer;2;5;0;0;0;12/01/2001 00:00:00;8.00;;0
 ;TYROLEAN JET SERVICE Nfg. GmbH & Co KG;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;UIA UKRAINE INTERNATIONAL AIRLINES;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM13124;UKRAINIAN WINGS;Customer;3;0;0;0;0;04/01/2017 00:00:00;8.00;;0;;;08/27/2021 00:00:00;
-COM13598;ULTIMATE AIRWAYS (PTY);NonCust;0;0;0;0;0;07/01/2021 00:00:00;8.00;03/31/2025 00:00:00;0;Unavoidable;Out of business;04/02/2025 00:00:00;Out of business
+COM13598;ULTIMATE AIRWAYS (PTY);NonCust;0;0;0;0;0;07/01/2021 00:00:00;8.00;03/31/2025 00:00:00;25913;Unavoidable;Out of business;04/02/2025 00:00:00;Out of business
 COM11538;UNITED AVIATION;PotCust;0;0;0;0;0;04/01/2019 00:00:00;0.00;;0;;;09/18/2023 00:00:00;No contact, no payment
 COM13658;United Sky Cargo GmbH;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM13498;UNITY AIR;PotCust;0;0;0;0;0;;0.00;;0;;;;
@@ -1031,7 +1031,7 @@ COM13402;UR AIRLINES;Customer;0;0;0;0;0;02/01/2019 00:00:00;8.00;;0;;;02/07/2024
 COM12658;US-Bangla Airlines;Customer;0;15;0;0;0;06/01/2014 00:00:00;8.00;;0;;;;
 COM13310;JSC UVT AERO;Quarantine;0;0;0;0;0;03/01/2019 00:00:00;0.00;;0;;;03/09/2022 00:00:00;Discontinue of service - Russia
 COM13256;VALAIR;Customer;3;3;0;0;0;04/01/2018 00:00:00;8.00;;0;;;;
-COM12754;VALLJET;Pending Closure;2;25;35;0;0;12/31/2014 00:00:00;8.00;11/30/2026 00:00:00;0;Avoidable;MAC user. Multiple AOC. wants more modern solution.;;
+COM12754;VALLJET;Pending Closure;2;25;35;0;0;12/31/2014 00:00:00;8.00;11/30/2026 00:00:00;495398;Avoidable;MAC user. Multiple AOC. wants more modern solution.;;
 COM13682;VALUE JET;Customer;2;10;7;0;0;03/01/2022 00:00:00;8.00;;0;;;;
 ;Van Air Europe a.s.;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;ViaAir LLC;PotCust;0;0;0;0;0;;0.00;;0;;;;
@@ -1077,7 +1077,7 @@ COM13243;YALLAFLY AIRWAYS S.A;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;YANAIR LTD;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM13000;YUZMASHAVIA;PotCust;0;0;0;0;0;02/17/2017 00:00:00;0.00;;0;;;10/28/2020 00:00:00;No more flights, - No Re-opening fee until 31.12.2020
 COM13005;ZEMAN Flugtechnik & Logistik GmbH;Customer;3;1;0;0;0;08/01/2016 00:00:00;8.00;;0;;;;
-COM12620;ZENITH AVIATION LIMITED;NonCust;3;3;0;0;0;02/01/2014 00:00:00;8.00;03/16/2026 00:00:00;0;Unavoidable;Customer shutting down activity.  3700 EUR unpaid invoices.;02/24/2026 00:00:00;Lack of payment
+COM12620;ZENITH AVIATION LIMITED;NonCust;3;3;0;0;0;02/01/2014 00:00:00;8.00;03/16/2026 00:00:00;108990;Unavoidable;Customer shutting down activity.  3700 EUR unpaid invoices.;02/24/2026 00:00:00;Lack of payment
 ;Zeusch Aviation BV;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM13232;Zimbabwe Airways (PVT), Ltd.;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM12574;ZIMEX AVIATION LTD.;Customer;2;9;0;0;0;11/01/2013 00:00:00;8.00;;0;;;;
@@ -1106,7 +1106,7 @@ COM13248;PRECISION AIR SERVICES;Customer;2;6;6;0;0;07/01/2022 00:00:00;8.00;;0;;
 COM13255;LOT Polish Airlines S.A.;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM13409;CHARTER JETS;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM13403;ASTRA AIRLINES;PotCust;0;0;0;0;0;07/01/2019 00:00:00;0.00;;0;;;12/14/2020 00:00:00;Account been on hold since Oct2019, no activities or communication. CH-Aviation have status as restarting for long time
-COM14132;Sabena Technics BGC;PotCust;3;0;0;0;0;04/19/2023 00:00:00;8.00;05/31/2026 00:00:00;0;Avoidable;Has no use of PPS. Has sent 11 flightplans in 3 years.;01/22/2024 00:00:00;
+COM14132;Sabena Technics BGC;PotCust;3;0;0;0;0;04/19/2023 00:00:00;8.00;05/31/2026 00:00:00;51088;Avoidable;Has no use of PPS. Has sent 11 flightplans in 3 years.;01/22/2024 00:00:00;
 COM13240;ATA AIRLINES;NonCust;0;0;0;0;0;;0.00;;0;;;;Closed due to US sanctions
 ;Batik Air;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM14295;INDIGO;PotCust;0;0;0;0;0;;0.00;;0;;;;
@@ -1116,7 +1116,7 @@ COM14307;Air Niugini Ltd;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM13653;Deutsches Zentrum für Luft- und Raumfahrt e.V. (DLR);Customer;2;7;0;0;0;01/18/2021 00:00:00;8.00;;0;;;;
 ;FLYJETSTREAM AVIATION;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;JAZZ AVIATION;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM13242;AMC AIRLINES;PotCust;0;0;0;0;0;11/30/2023 00:00:00;0.00;08/20/2024 00:00:00;0;Unavoidable;Missing paymeny;08/20/2024 00:00:00;Missing payment and communication
+COM13242;AMC AIRLINES;PotCust;0;0;0;0;0;11/30/2023 00:00:00;0.00;08/20/2024 00:00:00;36229;Unavoidable;Missing paymeny;08/20/2024 00:00:00;Missing payment and communication
 COM14321;TAILWIND AIRLINES;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;EUROATLANTIC AIRWAYS;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM13430;KENYA AIRWAYS;PotCust;1;0;0;0;0;;0.00;;0;;;;
@@ -1129,7 +1129,7 @@ COM14470;Airest;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;ASTONJET;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM12508;SKYBRIDGE;Customer;3;0;0;0;0;10/01/2016 00:00:00;8.00;;0;;;;
 COM13687;PINK JET;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM11417;ACT AIRLINES;PotCust;0;0;0;0;0;06/20/2022 00:00:00;0.00;11/30/2024 00:00:00;0;Avoidable;CUS used PPS as a backup system. We did not manage to win them.;;Reopened by OW
+COM11417;ACT AIRLINES;PotCust;0;0;0;0;0;06/20/2022 00:00:00;0.00;11/30/2024 00:00:00;271553;Avoidable;CUS used PPS as a backup system. We did not manage to win them.;;Reopened by OW
 ;MedEx Aero;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM13299;RAF AVIA;Customer;3;2;2;0;0;07/01/2021 00:00:00;8.00;;0;;;;
 COM13703;SEVENAIR;Customer;3;4;0;0;0;11/06/2020 00:00:00;8.00;;0;;;02/07/2024 00:00:00;
@@ -1188,10 +1188,10 @@ COM13738;SKOL Airline LLC;Quarantine;0;0;0;0;0;03/03/2021 00:00:00;0.00;;0;;;;
 COM13731;Marc Kanitz;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Aeroflot;Quarantine;0;0;0;0;0;;0.00;;0;;;;
 COM13796;Afriqiyah Airways;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM13818;FLYR;NonCust;0;0;0;0;0;11/18/2021 00:00:00;0.00;;0;Unavoidable;Bankruptcy;03/20/2023 00:00:00;Ceased to exist
+COM13818;FLYR;NonCust;0;0;0;0;0;11/18/2021 00:00:00;0.00;;549087;Unavoidable;Bankruptcy;03/20/2023 00:00:00;Ceased to exist
 COM13734;MS Aviation;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;West Air, Inc;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM14162;Jet Club Malta;PotCust;0;0;0;0;0;03/15/2023 00:00:00;0.00;12/18/2023 00:00:00;0;Unavoidable;Missing payment;12/18/2023 00:00:00;missing payment and communication
+COM14162;Jet Club Malta;PotCust;0;0;0;0;0;03/15/2023 00:00:00;0.00;12/18/2023 00:00:00;2922;Unavoidable;Missing payment;12/18/2023 00:00:00;missing payment and communication
 COM13735;JETLUXE;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM13743;UZ Aero Tech Group;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM14450;ISRAIR;PotCust;0;0;0;0;0;;0.00;;0;;;;
@@ -1224,14 +1224,14 @@ COM13896;ULS Airlines Cargo;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM13760;Libyan Express;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;AIRPORT WATCH free of charge (PJ);NonCust;0;0;0;0;0;;0.00;;0;;;;
 COM13774;ETF AIRWAYS d.o.o.;Customer;2;3;3;0;0;01/12/2021 00:00:00;8.00;;0;;;;
-COM13798;RAYA AIRWAYS;PotCust;0;0;0;0;0;01/01/2022 00:00:00;0.00;11/01/2024 00:00:00;0;Avoidable;Unknown.  Unfortenatnately sequence of event in handling the termination notice.  FPL Binding date was 04/30/2025;12/03/2024 00:00:00;HEH- please add reason!
+COM13798;RAYA AIRWAYS;PotCust;0;0;0;0;0;01/01/2022 00:00:00;0.00;11/01/2024 00:00:00;310095;Avoidable;Unknown.  Unfortenatnately sequence of event in handling the termination notice.  FPL Binding date was 04/30/2025;12/03/2024 00:00:00;HEH- please add reason!
 COM13789;Vflyair Airline Ghana Limited;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;PCAire Inc.;NonCust;0;0;0;0;0;;0.00;;0;;;;
 ;Alliance Airlines;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM11093;ExecuJet Europe AG (part of Luxaviation Group);PotCust;0;0;0;0;0;06/01/2020 00:00:00;0.00;;0;;;10/02/2023 00:00:00;Contact terminated
 ;Luxaviation Germany GmbH (Part of Luxaviation Group);PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM11312;Luxaviation S.A. (Part of Luxaviation Group);PotCust;3;0;0;0;0;10/01/2018 00:00:00;0.00;04/30/2024 00:00:00;0;Avoidable;Group deal, going to;05/01/2024 00:00:00;Group deal, going to
-COM13915;Luxaviation San Marino SRL (Part of Luxaviation Group);PotCust;0;0;0;0;0;;0.00;;0;Avoidable;Group deal - going Flightkeys;09/12/2023 00:00:00;Contract terminated
+COM11312;Luxaviation S.A. (Part of Luxaviation Group);PotCust;3;0;0;0;0;10/01/2018 00:00:00;0.00;04/30/2024 00:00:00;70683;Avoidable;Group deal, going to;05/01/2024 00:00:00;Group deal, going to
+COM13915;Luxaviation San Marino SRL (Part of Luxaviation Group);PotCust;0;0;0;0;0;;0.00;;48268;Avoidable;Group deal - going Flightkeys;09/12/2023 00:00:00;Contract terminated
 ;STM (EFB);NonCust;0;0;0;0;0;;0.00;;0;;;;
 COM13804;Al Rafidain;PotCust;0;0;0;0;0;05/06/2021 00:00:00;0.00;;0;;;12/14/2021 00:00:00;Due to missing payment and communication
 ;Air Prague;PotCust;0;0;0;0;0;;0.00;;0;;;;
@@ -1244,13 +1244,13 @@ COM13812;European Cargo Ltd;Quarantine;2;6;6;0;0;07/01/2021 00:00:00;8.00;;0;;;1
 COM13829;ROTANA JET;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;IanSupport Aviation Management;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM13828;SATENA;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM13821;Polar Aviation OY;NonCust;0;0;0;0;0;08/01/2021 00:00:00;0.00;03/01/2024 00:00:00;0;Unavoidable;All activities moved to new company Valo aviation. New 3 year contract signed.;04/05/2024 00:00:00;Konto lukket, flyttet til Valo.
+COM13821;Polar Aviation OY;NonCust;0;0;0;0;0;08/01/2021 00:00:00;0.00;03/01/2024 00:00:00;97995;Unavoidable;All activities moved to new company Valo aviation. New 3 year contract signed.;04/05/2024 00:00:00;Konto lukket, flyttet til Valo.
 COM13853;Union Aviation;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM13820;BADR Airlines;Customer;2;5;0;0;0;12/01/2014 00:00:00;8.00;;0;;;;
 COM13827;SHIRAK AVIA LLC;Customer;0;3;0;0;0;02/09/2021 00:00:00;8.00;;0;;;;
 COM14294;Camair;PotCust;2;0;0;0;0;;0.00;;0;;;;
 COM12736;Location Flight Support (LFS);Customer;0;0;0;0;0;09/01/2014 00:00:00;8.00;;0;;;;
-COM13831;Hala Air;PotCust;0;0;0;0;0;05/08/2023 00:00:00;0.00;02/06/2024 00:00:00;0;Unavoidable;Missing payment;02/06/2024 00:00:00;missing payment and communication
+COM13831;Hala Air;PotCust;0;0;0;0;0;05/08/2023 00:00:00;0.00;02/06/2024 00:00:00;51625;Unavoidable;Missing payment;02/06/2024 00:00:00;missing payment and communication
 COM14653;IFS International Flight Support;NonCust;0;0;0;0;0;;0.00;;0;;;;
 ;Satcom Direct (GOGO);NonCust;0;0;0;0;0;;0.00;;0;;;;
 ;Grand Junction Regional Airport;NonCust;0;0;0;0;0;;0.00;;0;;;;
@@ -1284,7 +1284,7 @@ COM13860;Continuum Aviation Pvt Ltd;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;IASON GmbH (COSMIC Radiation);NonCust;0;0;0;0;0;;0.00;;0;;;;
 COM13863;Zeefass Aviation Services Limited;PotCust;3;0;0;0;0;;0.00;;0;;;;
 COM13864;IPC International Parts Company;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM13868;EATIS Business Aviation;PotCust;0;0;0;0;0;02/01/2022 00:00:00;0.00;;0;Unavoidable;Missing payment, No contact;12/09/2022 00:00:00;No active a/c for now.
+COM13868;EATIS Business Aviation;PotCust;0;0;0;0;0;02/01/2022 00:00:00;0.00;;34054;Unavoidable;Missing payment, No contact;12/09/2022 00:00:00;No active a/c for now.
 COM13884;Cargo Union;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Luftrettung DRF;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM13865;My Jet SRL (former Conarg Motion);Customer;3;6;0;0;0;03/31/2021 00:00:00;8.00;;0;;;;
@@ -1292,7 +1292,7 @@ COM13866;CAVOK5;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM13872;CARIBLIFT;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;ANDREWS TELECOMS CONSULTING (PTY) LTD;NonCust;0;0;0;0;0;;0.00;;0;;;;
 ;Collins Aerospace (Arinc Direct);NonCust;0;0;0;0;0;;0.00;;0;;;;
-COM13871;G-OPS;PotCust;0;0;0;0;0;05/04/2021 00:00:00;0.00;03/01/2024 00:00:00;0;Unavoidable;No further need for a flight planning tool.;04/17/2024 00:00:00;No further need for a flight planning tool.
+COM13871;G-OPS;PotCust;0;0;0;0;0;05/04/2021 00:00:00;0.00;03/01/2024 00:00:00;69324;Unavoidable;No further need for a flight planning tool.;04/17/2024 00:00:00;No further need for a flight planning tool.
 ;HITIT;NonCust;0;0;0;0;0;;0.00;;0;;;;
 ;ArtiCon;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM13874;FlightDispatch PRG;PotCust;0;0;0;0;0;;0.00;;0;;;;
@@ -1337,7 +1337,7 @@ COM14380;Transavia Airlines (Netherlands);PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Eurowings;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM13881;Flight Axis;Customer;3;0;0;0;0;05/30/2024 00:00:00;8.00;;0;;;;
 COM13886;FlyAfrica Zimbabwe;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM13928;Norse Atlantic Airways;Pending Closure;0;11;11;0;0;06/01/2022 00:00:00;8.00;06/30/2027 00:00:00;0;Unavoidable;They have outsourced dispatch due to lack off staff at arendal.  However, despite NORSE acknowled contract lenght they refuse to pay remaining contract. Refused settlemet offer. Lawsuit via KR ongoing;;
+COM13928;Norse Atlantic Airways;Pending Closure;0;11;11;0;0;06/01/2022 00:00:00;8.00;06/30/2027 00:00:00;692836;Unavoidable;They have outsourced dispatch due to lack off staff at arendal.  However, despite NORSE acknowled contract lenght they refuse to pay remaining contract. Refused settlemet offer. Lawsuit via KR ongoing;;
 COM13882;Cognitive Technologies and Services Srl;PotCust;0;0;0;0;0;05/28/2021 00:00:00;0.00;;0;;;08/09/2022 00:00:00;Never went live.
 COM13883;Buraq Aviation  (Plexus Aviation);Customer;0;3;4;0;0;07/01/2021 00:00:00;8.00;;0;;;02/07/2024 00:00:00;
 ;Integrated OCC (IOCC);PotCust;0;0;0;0;0;;0.00;;0;;;;
@@ -1357,7 +1357,7 @@ COM14675;Private Routes Aviation;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM13892;ASL Airlines Australia;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM13888;1st Aero;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM13895;Projets Aviation;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM13893;CPS AVIATION;PotCust;0;0;0;0;0;05/10/2022 00:00:00;0.00;01/16/2025 00:00:00;0;Unavoidable;Missing payment, no contact, account closed.;01/28/2025 00:00:00;Missing payment, no contact, account closed.
+COM13893;CPS AVIATION;PotCust;0;0;0;0;0;05/10/2022 00:00:00;0.00;01/16/2025 00:00:00;39040;Unavoidable;Missing payment, no contact, account closed.;01/28/2025 00:00:00;Missing payment, no contact, account closed.
 COM13899;Bjarnes test company;NonCust;0;0;0;0;0;;0.00;;0;;;;de har betalt
 COM13894;Aramco Associated Company;PotCust;0;0;0;0;0;;0.00;;0;;;09/14/2021 00:00:00;Have never been an official customer, now closed and set to potcust
 COM14050;South African Airways;PotCust;0;0;0;0;0;;0.00;;0;;;;
@@ -1632,12 +1632,12 @@ COM14353;Albatros Airlines;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Aerogaviota;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Heli Malongo;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Global Air Transport;Customer via;0;0;0;0;0;12/20/2024 00:00:00;0.00;;0;;;;
-COM14272;Cambodia Airways Co. Ltd.;PotCust;0;0;4;0;0;11/02/2023 00:00:00;0.00;11/01/2024 00:00:00;0;Avoidable;Existing provide has extended coverage, no need for FW. dont want to pay for 2 systems.;06/19/2026 00:00:00;Existing provider has extended coverage, no need for FW. dont want to pay for 2 systems.
+COM14272;Cambodia Airways Co. Ltd.;PotCust;0;0;4;0;0;11/02/2023 00:00:00;0.00;11/01/2024 00:00:00;31566;Avoidable;Existing provide has extended coverage, no need for FW. dont want to pay for 2 systems.;06/19/2026 00:00:00;Existing provider has extended coverage, no need for FW. dont want to pay for 2 systems.
 ;Divi Divi Air;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Air Arabia Egypt;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Daily Air;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;ElDinder Airlines;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM14095;Electra Airways;PotCust;0;2;0;0;0;10/25/2022 00:00:00;0.00;01/31/2026 00:00:00;0;Avoidable;Going to Navblue - package deal, purely management decision.  Dispatchers not asked.;02/06/2026 00:00:00;contract terminated end of Jan/26
+COM14095;Electra Airways;PotCust;0;2;0;0;0;10/25/2022 00:00:00;0.00;01/31/2026 00:00:00;367782;Avoidable;Going to Navblue - package deal, purely management decision.  Dispatchers not asked.;02/06/2026 00:00:00;contract terminated end of Jan/26
 ;Jet Edge;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;AirAsia Japan;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;DAC East Africa;PotCust;0;0;0;0;0;;0.00;;0;;;;
@@ -1701,7 +1701,7 @@ COM14134;Afrijet Business Service;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Lanmei Airlines;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Fly540;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Varesh Airlines;NonCust;0;0;0;0;0;;0.00;;0;;;06/22/2021 00:00:00;Embargo
-COM12938;AlbaStar;PotCust;3;0;5;5;0;09/01/2022 00:00:00;8.00;09/30/2025 00:00:00;0;Avoidable;Signing of complete package with other operator;10/03/2025 00:00:00;Signing of complete package with other operator
+COM12938;AlbaStar;PotCust;3;0;5;5;0;09/01/2022 00:00:00;8.00;09/30/2025 00:00:00;89302;Avoidable;Signing of complete package with other operator;10/03/2025 00:00:00;Signing of complete package with other operator
 ;SJL Aeronáutica;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Genghis Khan Airlines;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Hevilift Australia;PotCust;0;0;0;0;0;;0.00;;0;;;;
@@ -1963,7 +1963,7 @@ COM14088;AirAsia India;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM14146;AZAL Azerbaijan Airlines;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Philippine Airlines;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Kunming Airlines;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM14183;PIA - Pakistan International Airlines;PotCust;0;0;0;0;0;12/15/2022 00:00:00;0.00;;0;Avoidable;Contract not renewed - back with Navblue.  Aircraft deal with Airbus most likely in play.;01/04/2024 00:00:00;Only 1 year contract - not renewed!
+COM14183;PIA - Pakistan International Airlines;PotCust;0;0;0;0;0;12/15/2022 00:00:00;0.00;;1135182;Avoidable;Contract not renewed - back with Navblue.  Aircraft deal with Airbus most likely in play.;01/04/2024 00:00:00;Only 1 year contract - not renewed!
 ;Aeronaves TSM;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Yamal Airlines;Quarantine;0;0;0;0;0;;0.00;;0;;;;
 ;West Air;PotCust;0;0;0;0;0;;0.00;;0;;;;
@@ -2015,7 +2015,7 @@ COM14218;Vistara;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM14458;Turpial Airlines;Customer;3;1;1;1;0;09/25/2025 00:00:00;8.00;;0;;;;
 ;DLR Flugbetriebe;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Airjet;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM13987;Aviation Horizons;Pending Closure;0;1;1;1;0;01/12/2022 00:00:00;8.00;01/31/2027 00:00:00;0;Unavoidable;AC out for long term maintenance - no operations left.;;
+COM13987;Aviation Horizons;Pending Closure;0;1;1;1;0;01/12/2022 00:00:00;8.00;01/31/2027 00:00:00;55714;Unavoidable;AC out for long term maintenance - no operations left.;;
 ;My Indo Airlines;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;RAC - Ryukyu Air Commuter*;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Interjet;PotCust;0;0;0;0;0;;0.00;;0;;;;
@@ -2041,7 +2041,7 @@ COM14457;Arik Air;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Lalona Air;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM13951;SkyAlps;Customer;2;10;9;0;0;01/12/2022 00:00:00;8.00;;0;;;;
 ;SkyBooking;NonCust;0;0;0;0;0;;0.00;;0;;;;
-COM14361;MSC AIR S.p.a.;PotCust;3;1;0;0;0;11/28/2024 00:00:00;8.00;06/03/2026 00:00:00;0;Avoidable;Integration issues, Jeppesen Aviator.;06/03/2026 00:00:00;Contract terminated by end of May 2026
+COM14361;MSC AIR S.p.a.;PotCust;3;1;0;0;0;11/28/2024 00:00:00;8.00;06/03/2026 00:00:00;158041;Avoidable;Integration issues, Jeppesen Aviator.;06/03/2026 00:00:00;Contract terminated by end of May 2026
 ;PDC Aviation;NonCust;0;0;0;0;0;;0.00;;0;;;;
 ;Aviation-Horizons;NonCust;0;0;0;0;0;;0.00;;0;;;01/07/2022 00:00:00;wrongly registered doublet - correct company is Aviation Horizons
 ;LIME TEST 2;NonCust;0;0;0;0;0;;0.00;;0;;;;
@@ -2079,7 +2079,7 @@ COM13921;Sun Air Aviation;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM13918;Prime Trip Support;Customer;0;0;0;0;0;10/01/2021 00:00:00;8.00;;0;;;;
 COM13922;Mesa Airlines;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;FLY SOMTRANS;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM13923;Luxaviation Germany (Part of Luxaviation Group);PotCust;0;0;0;0;0;10/01/2018 00:00:00;0.00;;0;Avoidable;Group deal - going to Flightkeys;09/12/2023 00:00:00;Contract terminated
+COM13923;Luxaviation Germany (Part of Luxaviation Group);PotCust;0;0;0;0;0;10/01/2018 00:00:00;0.00;;82465;Avoidable;Group deal - going to Flightkeys;09/12/2023 00:00:00;Contract terminated
 COM13924;VIP Airline Company;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM13925;Sling Pilot Academy;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Libyan Air Ambulance;PotCust;0;0;0;0;0;;0.00;;0;;;;
@@ -2093,13 +2093,13 @@ COM13938;JB Airlines Ltd;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Xiamen Airlines;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Garuda Indonesia;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM14517;Thai Airways International;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM13935;RED SEA AIRLINES;Quarantine;0;0;0;0;0;01/01/2022 00:00:00;8.00;04/30/2025 00:00:00;0;Avoidable;FPL Binding date 08/30/2027.  Took a div. due to wrong winds prediction, no compensation. God dissatisfied.;07/01/2025 00:00:00;No payment, no communication.
+COM13935;RED SEA AIRLINES;Quarantine;0;0;0;0;0;01/01/2022 00:00:00;8.00;04/30/2025 00:00:00;112932;Avoidable;FPL Binding date 08/30/2027.  Took a div. due to wrong winds prediction, no compensation. God dissatisfied.;07/01/2025 00:00:00;No payment, no communication.
 ;Redwings Aviation Services;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;FLYCANA;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Heli EFB GmbH;NonCust;0;0;0;0;0;;0.00;;0;;;;
 COM13931;FLYTAG FLIGHT SUPPORT;Customer;3;0;0;0;0;09/21/2021 00:00:00;8.00;;0;;;;
 COM13960;NEXUS INDIA;Customer;0;0;0;0;0;01/05/2022 00:00:00;8.00;;0;;;;
-COM13957;MANASIK AVIATION;PotCust;0;2;0;0;0;02/25/2022 00:00:00;8.00;04/30/2026 00:00:00;0;Unavoidable;Missing payment - no contact.;04/08/2026 00:00:00;Lack of payment
+COM13957;MANASIK AVIATION;PotCust;0;2;0;0;0;02/25/2022 00:00:00;8.00;04/30/2026 00:00:00;62550;Unavoidable;Missing payment - no contact.;04/08/2026 00:00:00;Lack of payment
 ;CAE;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Oyster Jets;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM13932;MC Havacilik A.S.;PotCust;0;0;0;0;0;;0.00;;0;;;;
@@ -2125,7 +2125,7 @@ COM13946;MIRACLE FLIGHT SUPPORT (FZE);PotCust;0;0;0;0;0;12/01/2021 00:00:00;0.00
 ;TCS Cargo;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM13947;Pharma Nord;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Air Transport Dominikana;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM13948;TRADEMID;NonCust;0;0;0;0;0;01/07/2022 00:00:00;0.00;;0;Unavoidable;Bankruptcy;01/12/2023 00:00:00;Company ceased!
+COM13948;TRADEMID;NonCust;0;0;0;0;0;01/07/2022 00:00:00;0.00;;177608;Unavoidable;Bankruptcy;01/12/2023 00:00:00;Company ceased!
 ;GFD GmbH;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;FSP HEH;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Boutique Aviation;PotCust;0;0;0;0;0;;0.00;;0;;;;
@@ -2136,7 +2136,7 @@ COM13953;AeroSolutionKorea;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Jet Manager;NonCust;0;0;0;0;0;;0.00;;0;;;12/07/2021 00:00:00;Use JetManager - do not use this one
 ;Engine2;NonCust;0;0;0;0;0;;0.00;;0;;;;
 COM13961;MET EXPRESS AIR;PotCust;0;0;0;0;0;01/12/2023 00:00:00;0.00;;0;;;;
-COM13955;MAE Aircraft Management (MENA CARGO);Quarantine;0;0;0;0;0;11/01/2021 00:00:00;0.00;01/31/2025 00:00:00;0;Unavoidable;Missing payment, no communication;01/28/2025 00:00:00;No payment, no communication!
+COM13955;MAE Aircraft Management (MENA CARGO);Quarantine;0;0;0;0;0;11/01/2021 00:00:00;0.00;01/31/2025 00:00:00;59258;Unavoidable;Missing payment, no communication;01/28/2025 00:00:00;No payment, no communication!
 COM13959;Compass Airways Belgium;NonCust;0;0;0;0;0;;0.00;;0;;;;
 COM13958;AA Corporation;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Oluwaseun Dan Olowoyeye;PotCust;0;0;0;0;0;;0.00;;0;;;;
@@ -2149,7 +2149,7 @@ COM13962;247 Aviation;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;SAFA (startup);PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;WEFRI;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Miralty Consulting Ltd;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM13963;SPARFELL Airways SA;PotCust;0;0;0;0;0;12/01/2021 00:00:00;0.00;09/30/2024 00:00:00;0;Unavoidable;Split of group. No PPS activity left.  Customer accept to pay 50 of the reamining contract value.;08/30/2024 00:00:00;No tails on PPS any longer
+COM13963;SPARFELL Airways SA;PotCust;0;0;0;0;0;12/01/2021 00:00:00;0.00;09/30/2024 00:00:00;65848;Unavoidable;Split of group. No PPS activity left.  Customer accept to pay 50 of the reamining contract value.;08/30/2024 00:00:00;No tails on PPS any longer
 COM13965;Poonawalla Aviation;Customer via;0;0;0;0;0;04/29/2024 00:00:00;0.00;;0;;;;
 COM13964;Premier International;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM13968;Natireva (Air Moana);Customer;0;4;4;3;0;02/20/2022 00:00:00;8.00;;0;;;;
@@ -2213,7 +2213,7 @@ COM14564;West Atlantic Sweden;Customer via;0;0;0;0;0;08/26/2024 00:00:00;8.00;;0
 ;Iroise Aero formation;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM13967;Avidus Jet Management;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;FLY 7 EXECUTIVE AVIATION SA;NonCust;0;0;0;0;0;;0.00;;0;;;;
-COM13972;Fly LeOne;PotCust;0;0;0;0;0;04/04/2023 00:00:00;0.00;03/01/2024 00:00:00;0;Unavoidable;Missing payment;02/06/2024 00:00:00;missing payment and communication
+COM13972;Fly LeOne;PotCust;0;0;0;0;0;04/04/2023 00:00:00;0.00;03/01/2024 00:00:00;8257;Unavoidable;Missing payment;02/06/2024 00:00:00;missing payment and communication
 ;Nigeria Air;PotCust;3;0;0;0;0;;0.00;;0;;;;
 ;GEAC Spa – Cuneo Airport;NonCust;0;0;0;0;0;;0.00;;0;;;;
 ;ONDA;NonCust;0;0;0;0;0;;0.00;;0;;;;
@@ -2311,7 +2311,7 @@ COM13969;PELICAN AIR SERVICES Ltd;PotCust;0;0;0;0;0;01/07/2022 00:00:00;0.00;;0;
 ;JN Avionics;NonCust;0;0;0;0;0;;0.00;;0;;;;
 COM13971;Kunooz Airlines (Egypt);PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Aviator;NonCust;0;0;0;0;0;;0.00;;0;;;;
-COM13983;AeroItalia;Customer;1;11;11;0;11;10/09/2025 00:00:00;8.00;07/31/2026 00:00:00;0;Avoidable;Staff didnt want to adapt to new provider.  Aeroitalia staying with existing provider.;;
+COM13983;AeroItalia;Customer;1;11;11;0;11;10/09/2025 00:00:00;8.00;07/31/2026 00:00:00;688000;Avoidable;Staff didnt want to adapt to new provider.  Aeroitalia staying with existing provider.;;
 ;JetManager;NonCust;0;0;0;0;0;;0.00;;0;;;;
 COM13993;Global Load Control (GLC);PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM14229;Nova Aviation Services;Customer;0;0;0;0;0;03/13/2023 00:00:00;8.00;;0;;;;
@@ -2320,7 +2320,7 @@ COM14229;Nova Aviation Services;Customer;0;0;0;0;0;03/13/2023 00:00:00;8.00;;0;;
 COM13975;AEROCONTROL;Customer;0;0;0;0;0;01/01/2022 00:00:00;8.00;;0;;;07/03/2023 00:00:00;
 ;Netsyst FR;NonCust;0;0;0;0;0;;0.00;;0;;;;
 COM11998;AIR MADAGASCAR;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM14036;Eznis Airways LLC;Quarantine;0;0;0;0;0;05/26/2022 00:00:00;8.00;06/17/2025 00:00:00;0;Unavoidable;;06/17/2025 00:00:00;No payment, no communication.
+COM14036;Eznis Airways LLC;Quarantine;0;0;0;0;0;05/26/2022 00:00:00;8.00;06/17/2025 00:00:00;122959;Unavoidable;;06/17/2025 00:00:00;No payment, no communication.
 COM13979;Green Airlines;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM14002;FVL AVIATION LTD;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Aeronautica SA (Aviator ONE);NonCust;0;0;0;0;0;;0.00;;0;;;;
@@ -2363,10 +2363,10 @@ COM14015;MTR EXPRESS;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Thierry Bodin (private);NonCust;0;0;0;0;0;;0.00;;0;;;;
 COM14013;GIG AVIATION;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Northeast Air;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM14020;Wiseway Cargo Airlines;Quarantine;0;0;0;0;0;10/01/2022 00:00:00;0.00;;0;Unavoidable;Missing payment. New CEO will not recognize contract.;01/24/2023 00:00:00;No payment
+COM14020;Wiseway Cargo Airlines;Quarantine;0;0;0;0;0;10/01/2022 00:00:00;0.00;;213994;Unavoidable;Missing payment. New CEO will not recognize contract.;01/24/2023 00:00:00;No payment
 COM14016;AIR CONNECT;Customer via;0;0;0;0;0;04/09/2024 00:00:00;0.00;;0;;;;
 ;Claus True (Private);NonCust;0;0;0;0;0;;0.00;;0;;;;
-COM14017;IFUEL;Quarantine;0;0;0;0;0;10/01/2022 00:00:00;8.00;06/30/2026 00:00:00;0;Unavoidable;No use of PPS. they have other businesslegs. stopping FPL activity.;06/03/2026 00:00:00;Lack of payment
+COM14017;IFUEL;Quarantine;0;0;0;0;0;10/01/2022 00:00:00;8.00;06/30/2026 00:00:00;81960;Unavoidable;No use of PPS. they have other businesslegs. stopping FPL activity.;06/03/2026 00:00:00;Lack of payment
 COM14018;ExecuJet Europe A/S;PotCust;0;0;0;0;0;06/01/2020 00:00:00;0.00;;0;;;06/06/2023 00:00:00;PPS no longer needed
 ;Jeff Dolcini (private);NonCust;0;0;0;0;0;;0.00;;0;;;;
 COM14019;Shannon Air Ground Handling;PotCust;0;0;0;0;0;;0.00;;0;;;;
@@ -2375,9 +2375,9 @@ COM14022;SMJet;Customer;3;2;2;0;0;03/04/2022 00:00:00;8.00;;0;;;09/27/2022 00:00
 ;Ola Jet LP;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM14033;MASARAT AVIATION;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Tamas Balint (private);NonCust;0;0;0;0;0;;0.00;;0;;;;
-COM14026;MAKSIM SYRYTSA;PotCust;0;0;0;0;0;03/16/2022 00:00:00;0.00;;0;Unavoidable;Missing Payment;01/13/2023 00:00:00;Mising payment!
+COM14026;MAKSIM SYRYTSA;PotCust;0;0;0;0;0;03/16/2022 00:00:00;0.00;;31983;Unavoidable;Missing Payment;01/13/2023 00:00:00;Mising payment!
 ;William P. Poteet (Private);NonCust;0;0;0;0;0;;0.00;;0;;;;
-COM14028;ALAR AVIATION d.o.o.(Tinadar);NonCust;0;0;0;0;0;03/18/2022 00:00:00;0.00;06/30/2025 00:00:00;0;Unavoidable;AC sold, no business left.;07/02/2025 00:00:00;AC sold, no business left.
+COM14028;ALAR AVIATION d.o.o.(Tinadar);NonCust;0;0;0;0;0;03/18/2022 00:00:00;0.00;06/30/2025 00:00:00;33078;Unavoidable;AC sold, no business left.;07/02/2025 00:00:00;AC sold, no business left.
 ;Flyadvanced;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;SKY VISION AIRLINES A Operation;Customer via;0;0;0;0;0;08/10/2022 00:00:00;0.00;;0;;;;
 COM14335;Boskovic Air Charters;PotCust;0;0;0;0;0;;0.00;;0;;;;
@@ -2412,7 +2412,7 @@ COM14047;BLACK EAGLE;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Million Air (Jacksonville);NonCust;0;0;0;0;0;;0.00;;0;;;;
 ;Hornbill Skyways;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Million Air Vancouver;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM14051;AVIOR;NonCust;0;0;0;0;0;05/18/2022 00:00:00;8.00;08/20/2025 00:00:00;0;Unavoidable;Missing payment;08/20/2025 00:00:00;No communication, no payment, no use of system
+COM14051;AVIOR;NonCust;0;0;0;0;0;05/18/2022 00:00:00;8.00;08/20/2025 00:00:00;47272;Unavoidable;Missing payment;08/20/2025 00:00:00;No communication, no payment, no use of system
 ;GAS Cologne Aviation Services GmbH;NonCust;0;0;0;0;0;;0.00;;0;;;;
 ;Jocelyn Raffray (private);NonCust;0;0;0;0;0;;0.00;;0;;;;
 ;Pierre Gagnon (private);NonCust;0;0;0;0;0;;0.00;;0;;;;
@@ -2455,7 +2455,7 @@ COM14062;Flex Flight International;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Juvenal Perraira (Private);NonCust;0;0;0;0;0;;0.00;;0;;;;
 ;Red Rock Aviation;NonCust;0;0;0;0;0;;0.00;;0;;;;
 COM14063;EXCLUSAIR;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM14064;Pakistan Aviators and Aviation;PotCust;0;0;0;0;0;10/01/2022 00:00:00;0.00;09/16/2024 00:00:00;0;Unavoidable;Shuttingdown;09/16/2024 00:00:00;Contract cancelled
+COM14064;Pakistan Aviators and Aviation;PotCust;0;0;0;0;0;10/01/2022 00:00:00;0.00;09/16/2024 00:00:00;41261;Unavoidable;Shuttingdown;09/16/2024 00:00:00;Contract cancelled
 ;Reeder Flying Service;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Vand og Affald A/S Svendborg;NonCust;0;0;0;0;0;;0.00;;0;;;;
 ;Pacific States Aviation;PotCust;0;0;0;0;0;;0.00;;0;;;;
@@ -2510,7 +2510,7 @@ COM14085;Flexair;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Juha Vuorenalho;NonCust;0;0;0;0;0;;0.00;;0;;;;
 COM14086;Sky Vision Airlines B Finance;Customer;3;7;0;0;0;10/01/2022 00:00:00;8.00;;0;;;;
 ;Jet Centers Of Colorado;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM14090;Legend Airlines SRL;Quarantine;2;2;0;0;0;11/01/2022 00:00:00;8.00;01/01/2026 00:00:00;0;Unavoidable;Customer shut down, 3 out 4 AC sold. Might start up again. Middleeast situation 26032026;12/16/2025 00:00:00;No communication, no payment
+COM14090;Legend Airlines SRL;Quarantine;2;2;0;0;0;11/01/2022 00:00:00;8.00;01/01/2026 00:00:00;183717;Unavoidable;Customer shut down, 3 out 4 AC sold. Might start up again. Middleeast situation 26032026;12/16/2025 00:00:00;No communication, no payment
 COM14554;DextraData (Logipad Aero)(Modern Work);NonCust;0;0;0;0;0;;0.00;;0;;;;
 ;Stephen Young;NonCust;0;0;0;0;0;;0.00;;0;;;;
 ;Liberia Airways;PotCust;0;0;0;0;0;;0.00;;0;;;;
@@ -2573,7 +2573,7 @@ COM14098;Flight Ops International;Customer;0;0;0;0;0;12/01/2022 00:00:00;8.00;;0
 ;RUSADA (Russell Adams Ltd);NonCust;0;0;0;0;0;;0.00;;0;;;;
 COM14231;FLYZAR;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;PACIFIC OCEAN;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM14102;VEGA JET;PotCust;0;1;0;0;0;09/26/2022 00:00:00;8.00;01/31/2024 00:00:00;0;Avoidable;going to unknow competitor, 36 months contract, 21 months remaining.;11/05/2025 00:00:00;going to unknow competitor, 36 months contract, 21 months remaining.
+COM14102;VEGA JET;PotCust;0;1;0;0;0;09/26/2022 00:00:00;8.00;01/31/2024 00:00:00;34659;Avoidable;going to unknow competitor, 36 months contract, 21 months remaining.;11/05/2025 00:00:00;going to unknow competitor, 36 months contract, 21 months remaining.
 ;TUI Airways;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;TENIL AVIACION;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;TOTAL FLIGHT;PotCust;0;0;0;0;0;;0.00;;0;;;;
@@ -2605,7 +2605,7 @@ COM14256;Skytours;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM14117;Kartika Airlines;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Fly Max Antilles;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM14125;New Pacific Airlines (ex Northern Pacific Airways);PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM14115;ARMENIAN AIRLINES;Quarantine;0;0;0;0;0;11/08/2022 00:00:00;8.00;09/16/2025 00:00:00;0;Unavoidable;Missing payment;09/16/2025 00:00:00;No payment, no communication
+COM14115;ARMENIAN AIRLINES;Quarantine;0;0;0;0;0;11/08/2022 00:00:00;8.00;09/16/2025 00:00:00;61579;Unavoidable;Missing payment;09/16/2025 00:00:00;No payment, no communication
 ;Atlas Air;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM14116;Gallop APAC Pte Ltd;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM14120;Berniq Airways;Testing;0;0;0;0;0;;0.00;;0;;;;
@@ -2617,8 +2617,8 @@ COM14123;RAINDO United Services;Quarantine;0;0;0;0;0;;0.00;;0;;;;
 ;Arjet Airlines;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Summit Aviation;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM14128;Mongolian Airways Cargo;Customer;0;1;1;1;0;11/23/2022 00:00:00;8.00;;0;;;;
-COM14126;VOLOCOPTER;PotCust;0;0;0;0;0;11/01/2023 00:00:00;0.00;07/01/2024 00:00:00;0;Avoidable;PPS dosent match VFR operations.;07/30/2024 00:00:00;PPS not suitable for this customer at this point.
-COM14133;JETKONTOR;NonCust;0;0;0;0;0;11/10/2022 00:00:00;0.00;02/02/2024 00:00:00;0;Unavoidable;Bankruptcy;03/04/2024 00:00:00;Churn iflg. HEH 04.03.2024 overf. til tab 23.05.24 / CM
+COM14126;VOLOCOPTER;PotCust;0;0;0;0;0;11/01/2023 00:00:00;0.00;07/01/2024 00:00:00;14926;Avoidable;PPS dosent match VFR operations.;07/30/2024 00:00:00;PPS not suitable for this customer at this point.
+COM14133;JETKONTOR;NonCust;0;0;0;0;0;11/10/2022 00:00:00;0.00;02/02/2024 00:00:00;62115;Unavoidable;Bankruptcy;03/04/2024 00:00:00;Churn iflg. HEH 04.03.2024 overf. til tab 23.05.24 / CM
 ;Revv Aviation;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM14129;TURACO AVIATION;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Jet Aviation - San Juan, PR;PotCust;0;0;0;0;0;;0.00;;0;;;;
@@ -2643,8 +2643,8 @@ COM14161;Simm Samm Airways Pvt Ltd;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM14163;Aurea Aviation Pvt Ltd;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM14164;AJM Jet Management Pvt Ltd;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM14165;Avia Maldives Pvt Ltd;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM14166;QUEENS AIR;NonCust;0;0;0;0;0;01/01/2023 00:00:00;8.00;02/28/2026 00:00:00;0;Unavoidable;Company closing down;03/18/2026 00:00:00;Company closing down
-COM14167;AIR INTER TRANSPORT CO.,LTD.;PotCust;0;0;0;0;0;02/17/2023 00:00:00;0.00;08/20/2024 00:00:00;0;Unavoidable;Missing payment;08/20/2024 00:00:00;Missing payment and communication
+COM14166;QUEENS AIR;NonCust;0;0;0;0;0;01/01/2023 00:00:00;8.00;02/28/2026 00:00:00;315799;Unavoidable;Company closing down;03/18/2026 00:00:00;Company closing down
+COM14167;AIR INTER TRANSPORT CO.,LTD.;PotCust;0;0;0;0;0;02/17/2023 00:00:00;0.00;08/20/2024 00:00:00;43428;Unavoidable;Missing payment;08/20/2024 00:00:00;Missing payment and communication
 ;Arroz Aviation Pvt Ltd;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM14169;Zil Air;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM14172;SUMAIR;PotCust;0;0;0;0;0;;0.00;;0;;;;
@@ -2799,7 +2799,7 @@ COM14239;FSP JETPLUS AVIATION SERVICE;Customer;0;0;0;0;0;03/24/2023 00:00:00;8.0
 ;Country TEST XK;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM14243;RICOH (Thailand) Limited;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Fifth Force Solutions;NonCust;0;0;0;0;0;;0.00;;0;;;;
-COM14245;AVIATION EXPERTS;Quarantine;0;0;0;0;0;03/24/2023 00:00:00;0.00;08/12/2024 00:00:00;0;Unavoidable;Customer refuse to pay, as PPS dosent work without electricity !!;08/12/2024 00:00:00;No payment! - power failure issue.
+COM14245;AVIATION EXPERTS;Quarantine;0;0;0;0;0;03/24/2023 00:00:00;0.00;08/12/2024 00:00:00;37412;Unavoidable;Customer refuse to pay, as PPS dosent work without electricity !!;08/12/2024 00:00:00;No payment! - power failure issue.
 ;TracPlus;NonCust;0;0;0;0;0;;0.00;;0;;;;
 ;Indigosat;NonCust;0;0;0;0;0;;0.00;;0;;;;
 ;Jeppesen Fleet Insight (Boeing);NonCust;0;0;0;0;0;;0.00;;0;;;;
@@ -2932,7 +2932,7 @@ COM14277;Bellagio Airlines;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Kokomo Private Island Fiji;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Island Hoppers;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Air Kaibu;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM14334;Pacific Island Air;PotCust;0;0;0;0;0;11/21/2023 00:00:00;0.00;10/31/2024 00:00:00;0;Unavoidable;ADSB Coverage insuffient from ADSBsupport (Antenna);11/05/2024 00:00:00;Out of business for now
+COM14334;Pacific Island Air;PotCust;0;0;0;0;0;11/21/2023 00:00:00;0.00;10/31/2024 00:00:00;12516;Unavoidable;ADSB Coverage insuffient from ADSBsupport (Antenna);11/05/2024 00:00:00;Out of business for now
 ;Northern Air;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Sunflower Aviation;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Pacific Private Jet;PotCust;0;0;0;0;0;;0.00;;0;;;;
@@ -3387,8 +3387,8 @@ COM14288;AEROWISE;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;AN AVIATION SERVICES;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Quantum International Services;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM14286;FLY-COOP AVIATION SERVICES LTD.;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM14308;Ibis Air;PotCust;0;0;0;0;0;12/01/2023 00:00:00;0.00;03/06/2024 00:00:00;0;Unavoidable;Missing payment;03/06/2024 00:00:00;missing payment and communication
-COM14287;Echo3 ( JAWI);Customer;3;0;0;0;0;07/01/2023 00:00:00;8.00;;0;Unavoidable;No Business;;
+COM14308;Ibis Air;PotCust;0;0;0;0;0;12/01/2023 00:00:00;0.00;03/06/2024 00:00:00;12346;Unavoidable;Missing payment;03/06/2024 00:00:00;missing payment and communication
+COM14287;Echo3 ( JAWI);Customer;3;0;0;0;0;07/01/2023 00:00:00;8.00;;11632;Unavoidable;No Business;;
 ;AIR SUPPORT GROUP;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM14376;SMALL FLY;Customer;3;5;0;0;0;01/31/2025 00:00:00;8.00;;0;;;;
 COM14292;ADTI Oman;PotCust;0;0;0;0;0;;0.00;;0;;;;
@@ -3432,7 +3432,7 @@ COM14366;Aerolínea del Estado Mexicano;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Mateusz Owczarek (private);PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;MAF International;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM14296;ADSB Support;NonCust;0;0;0;0;0;07/01/2023 00:00:00;0.00;;0;;;;
-COM14344;ASCEND AIRWAYS;NonCust;3;7;0;0;0;01/26/2024 00:00:00;8.00;04/29/2026 00:00:00;0;Unavoidable;Bankruptcy  - Fuelprices pushed them over the limited.  Middleeast situation;;
+COM14344;ASCEND AIRWAYS;NonCust;3;7;0;0;0;01/26/2024 00:00:00;8.00;04/29/2026 00:00:00;230491;Unavoidable;Bankruptcy  - Fuelprices pushed them over the limited.  Middleeast situation;;
 ;Skykeys GmbH;NonCust;0;0;0;0;0;;0.00;;0;;;;
 COM14315;Royal Airways;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Air Method;NonCust;0;0;0;0;0;;0.00;;0;;;;
@@ -3556,7 +3556,7 @@ COM14346;Aero Hi-Learn;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Helistar Resources;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM14349;FlySBS Aviation;Customer via;3;0;0;0;0;04/29/2024 00:00:00;0.00;;0;;;;
 ;FLYING WHALES;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM14360;JETSKY AIRWAYS;Quarantine;0;0;0;0;0;12/13/2023 00:00:00;8.00;03/12/2025 00:00:00;0;Unavoidable;Bankruptcy, information received via Tavi from Electra (BUL);03/12/2025 00:00:00;Bankrupt? No communication, no payment.
+COM14360;JETSKY AIRWAYS;Quarantine;0;0;0;0;0;12/13/2023 00:00:00;8.00;03/12/2025 00:00:00;96725;Unavoidable;Bankruptcy, information received via Tavi from Electra (BUL);03/12/2025 00:00:00;Bankrupt? No communication, no payment.
 ;Avizone;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;BENIN AIRLINES (ex Air Taxi Bénin);PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;JONAIR;PotCust;0;0;0;0;0;;0.00;;0;;;;
@@ -3616,7 +3616,7 @@ COM14611;AeroElite Aviation;Customer;3;0;0;0;0;11/02/2025 00:00:00;8.00;;0;;;;
 ;European Regions Airlines Association (ERA);NonCust;0;0;0;0;0;;0.00;;0;;;;
 ;FTS Aero;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM14374;EGYPT VALLEY AVIATION SERVICES;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM14375;Fox Aviation;Pending Closure;3;2;0;0;0;03/01/2024 00:00:00;8.00;01/31/2027 00:00:00;0;Avoidable;wish to have webbased solution.  Hosting will be too expensive for them see comments below from LN. (HEH13.05.2026);;
+COM14375;Fox Aviation;Pending Closure;3;2;0;0;0;03/01/2024 00:00:00;8.00;01/31/2027 00:00:00;59471;Avoidable;wish to have webbased solution.  Hosting will be too expensive for them see comments below from LN. (HEH13.05.2026);;
 ;PT National Utility Helicopters;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;VIH Helicopters Ltd.;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;CSI Aviation;PotCust;0;0;0;0;0;;0.00;;0;;;;
@@ -3627,7 +3627,7 @@ COM14379;SKYWAY AIRLINES;Customer;2;2;0;0;0;02/16/2024 00:00:00;8.00;;0;;;;
 COM14434;7 Air LLC (former 7Air Cargo);Customer;3;0;4;0;0;12/09/2025 00:00:00;0.00;;0;;;;
 COM14377;Fly Aeolus;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM14382;ElioJet;Customer;3;3;0;0;0;05/08/2024 00:00:00;8.00;;0;;;;
-COM14483;Marabu Airlines;Customer via;0;0;0;0;0;05/02/2024 00:00:00;0.00;01/26/2026 00:00:00;0;Avoidable;Customer at ASISTIM. Using Sita Mission watch. LN/HR case;01/28/2026 00:00:00;Customer at ASISTIM. Using Sita Mission watch. LN/HR case
+COM14483;Marabu Airlines;Customer via;0;0;0;0;0;05/02/2024 00:00:00;0.00;01/26/2026 00:00:00;149554;Avoidable;Customer at ASISTIM. Using Sita Mission watch. LN/HR case;01/28/2026 00:00:00;Customer at ASISTIM. Using Sita Mission watch. LN/HR case
 COM14378;Skywards Aviation;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Northrop Aviation Dispatch Academy;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Pentastar Aviation;PotCust;0;0;0;0;0;;0.00;;0;;;;
@@ -3662,7 +3662,7 @@ COM14395;AVIAARC Trip Support;Customer;2;8;0;0;0;01/17/2025 00:00:00;5.00;;0;;;;
 COM14448;BBN Airlines Thailand (Thai Smartlynx);Customer;1;1;0;0;0;11/20/2024 00:00:00;8.00;;0;;;;
 ;Keyvan;NonCust;0;0;0;0;0;;0.00;;0;;;;
 COM14396;Asman Airlines;Customer;0;3;0;0;0;08/01/2024 00:00:00;8.00;;0;;;;
-COM14402;Aviation Chemistry Canada;PotCust;0;0;0;0;0;04/12/2024 00:00:00;0.00;06/30/2025 00:00:00;0;Unavoidable;no business;01/15/2025 00:00:00;No payment - but they are working on settling all outstandings and to get back on track.
+COM14402;Aviation Chemistry Canada;PotCust;0;0;0;0;0;04/12/2024 00:00:00;0.00;06/30/2025 00:00:00;59481;Unavoidable;no business;01/15/2025 00:00:00;No payment - but they are working on settling all outstandings and to get back on track.
 ;Trogon Airways;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;German Air Force - VIP Squadron;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Jethouse Ltd;PotCust;0;0;0;0;0;;0.00;;0;;;;
@@ -3680,7 +3680,7 @@ COM14401;Aircompany Air KG;PotCust;2;0;0;0;0;;0.00;;0;;;;
 ;DALAVIATION SWITZERLAND;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM14404;Jetlink Flight Support;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Walmart;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM14413;Euroavia Airlines;Quarantine;0;1;0;0;0;05/08/2024 00:00:00;8.00;05/12/2026 00:00:00;0;Unavoidable;No flight conducted in 2026, AC parked in Napoli.;05/12/2026 00:00:00;Lack of payment
+COM14413;Euroavia Airlines;Quarantine;0;1;0;0;0;05/08/2024 00:00:00;8.00;05/12/2026 00:00:00;86362;Unavoidable;No flight conducted in 2026, AC parked in Napoli.;05/12/2026 00:00:00;Lack of payment
 ;Home Depot;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Oberon Aviation;PotCust;1;0;0;0;0;;0.00;;0;;;;
 ;Airgoldcoast;PotCust;1;0;0;0;0;;0.00;;0;;;;
@@ -3707,7 +3707,7 @@ COM14408;AJet;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Saltchuk;NonCust;0;0;0;0;0;;0.00;;0;;;;
 ;Elysian Airlines;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Dynasty Aviation Services;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM14410;Dynasty Jet W.L.L;NonCust;0;0;0;0;0;06/03/2024 00:00:00;8.00;09/23/2025 00:00:00;0;Unavoidable;Missing payment;09/23/2025 00:00:00;Missing payment and communication
+COM14410;Dynasty Jet W.L.L;NonCust;0;0;0;0;0;06/03/2024 00:00:00;8.00;09/23/2025 00:00:00;59058;Unavoidable;Missing payment;09/23/2025 00:00:00;Missing payment and communication
 ;AJ Aeroservices;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM14436;Technical Aviation Services, Inc (TAS);Customer;0;0;0;0;0;06/04/2024 00:00:00;8.00;;0;;;;
 COM14411;International Flight Planning Solutions IFPLS LLC FZ;PotCust;0;0;0;0;0;;0.00;;0;;;;
@@ -3727,11 +3727,11 @@ COM14416;Prime Aviation Ltd.;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM14417;G.A.D FLIGHTS LTD.;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;(Duplicate) JUMP AIR;NonCust;0;0;0;0;0;;0.00;;0;;;;
 COM14419;Tinadar Aviation d.o.o. (ALAR);PotCust;0;0;0;0;0;03/18/2022 00:00:00;8.00;;0;;;;
-COM14420;Havacilik Planlama servisleri A.S;Quarantine;0;0;0;0;0;05/16/2024 00:00:00;0.00;10/31/2024 00:00:00;0;Unavoidable;CUS had FPL binding date 10/30/2027. Company closed.;11/04/2024 00:00:00;No payment, no need for system.
+COM14420;Havacilik Planlama servisleri A.S;Quarantine;0;0;0;0;0;05/16/2024 00:00:00;0.00;10/31/2024 00:00:00;14679;Unavoidable;CUS had FPL binding date 10/30/2027. Company closed.;11/04/2024 00:00:00;No payment, no need for system.
 ;Avia Solutions Group;NonCust;0;0;0;0;0;;0.00;;0;;;;
 ;Avion Express Malta;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;RMBtec;NonCust;0;0;0;0;0;;0.00;;0;;;;
-COM14424;AIR 65;Quarantine;0;0;0;0;0;08/06/2024 00:00:00;8.00;02/21/2025 00:00:00;0;Unavoidable;out of business;02/24/2025 00:00:00;Out of business - bankrupt
+COM14424;AIR 65;Quarantine;0;0;0;0;0;08/06/2024 00:00:00;8.00;02/21/2025 00:00:00;27231;Unavoidable;out of business;02/24/2025 00:00:00;Out of business - bankrupt
 ;Sabb Aviation;PotCust;3;0;0;0;0;;0.00;;0;;;;
 ;Jindal Vijayanagar Steel Ltd;Customer via;0;0;0;0;0;04/29/2024 00:00:00;0.00;;0;;;;
 ;HINDALCO INDUSTRIES LTD;Customer via;0;0;0;0;0;04/29/2024 00:00:00;0.00;;0;;;;
@@ -3791,7 +3791,7 @@ COM14432;ArrowAvia;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Network Aviation Group;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Avion Express Brasil;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Thai Air Ambulance;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM14433;Alhind Air;Quarantine;2;1;0;0;0;12/16/2024 00:00:00;8.00;06/30/2026 00:00:00;0;Unavoidable;Missing payment, no contact for months, online search indicate the company is out of business.;01/27/2026 00:00:00;No payment!
+COM14433;Alhind Air;Quarantine;2;1;0;0;0;12/16/2024 00:00:00;8.00;06/30/2026 00:00:00;62923;Unavoidable;Missing payment, no contact for months, online search indicate the company is out of business.;01/27/2026 00:00:00;No payment!
 ;Aviation Source;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Levu Air Cargo;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Nossa Linhas Aereas;PotCust;0;0;0;0;0;;0.00;;0;;;;
@@ -3867,7 +3867,7 @@ COM14456;PHS Aviation;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Pasundan Air;PotCust;2;0;0;0;0;;0.00;;0;;;;
 ;Star Wisata Air;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Keewatin Air;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM14461;AFM Aviasi;PotCust;3;0;0;0;0;07/22/2024 00:00:00;8.00;07/31/2025 00:00:00;0;Unavoidable;No active clients;08/15/2025 00:00:00;No active clients
+COM14461;AFM Aviasi;PotCust;3;0;0;0;0;07/22/2024 00:00:00;8.00;07/31/2025 00:00:00;59164;Unavoidable;No active clients;08/15/2025 00:00:00;No active clients
 ;Arabesque Aviation DWC;NonCust;0;0;0;0;0;;0.00;;0;;;;
 ;Boeing;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM14459;Flaps Aviation Pvt Ltd;PotCust;0;0;0;0;0;;0.00;;0;;;;
@@ -3898,7 +3898,7 @@ COM14465;Axturis Flight Service GmbH;Customer;3;5;0;0;0;09/13/2024 00:00:00;8.00
 ;Neom Airlines;PotCust;1;0;0;0;0;;0.00;;0;;;;
 ;Forward Momentum Consulting Limited;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Skyline Aviation and Defense;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM14584;LD Aviation Services;PotCust;2;0;0;0;0;08/11/2025 00:00:00;8.00;07/31/2026 00:00:00;0;Unavoidable;Customer tried to expand services with flightplanning, but will shut down again due to lack of activity.;;
+COM14584;LD Aviation Services;PotCust;2;0;0;0;0;08/11/2025 00:00:00;8.00;07/31/2026 00:00:00;33456;Unavoidable;Customer tried to expand services with flightplanning, but will shut down again due to lack of activity.;;
 ;SPAM;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Pattaya Airways;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Royal Jeumpa Airlines;PotCust;0;0;0;0;0;;0.00;;0;;;;
@@ -3950,7 +3950,7 @@ COM14479;IFOS Aviation Group;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Coywolf Aviation;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Custom Helicopters;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Exact Air;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM14480;EAC Group;Quarantine;3;0;0;0;0;10/21/2024 00:00:00;8.00;11/30/2025 00:00:00;0;Unavoidable;Out of business;12/03/2025 00:00:00;Out of business, money lost.
+COM14480;EAC Group;Quarantine;3;0;0;0;0;10/21/2024 00:00:00;8.00;11/30/2025 00:00:00;30593;Unavoidable;Out of business;12/03/2025 00:00:00;Out of business, money lost.
 ;Flightexec;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;flyGTA Airlines;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Flying Whales Quebec;PotCust;0;0;0;0;0;;0.00;;0;;;;
@@ -3975,7 +3975,7 @@ COM14508;Porsche Air Service;Customer;0;2;0;0;0;11/15/2024 00:00:00;8.00;;0;;;;
 COM14487;Q Air;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Raptor Aerospace;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Greenpath Aviation;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM14485;Global Aero Tech (FZE);Pending Closure;0;0;0;0;0;10/02/2024 00:00:00;8.00;08/30/2026 00:00:00;0;Unavoidable;New account created at other PPS Customer. Churn value set to 0, See Lime history 03/08/2026;;
+COM14485;Global Aero Tech (FZE);Pending Closure;0;0;0;0;0;10/02/2024 00:00:00;8.00;08/30/2026 00:00:00;62541;Unavoidable;New account created at other PPS Customer. Churn value set to 0, See Lime history 03/08/2026;;
 COM14489;Arjavam Aerospace;Customer;3;0;0;0;0;10/11/2024 00:00:00;8.00;;0;;;;
 COM14486;Jet Stream International;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM14501;Johann Iconomidis;Customer;3;0;1;0;0;11/04/2024 00:00:00;8.00;;0;;;;
@@ -4011,7 +4011,7 @@ COM14494;Stars Airlines Services;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM14496;Methven Consulting;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM14497;Standard Sales Orders (SBO);NonCust;0;0;0;0;0;;0.00;;0;;;;
 ;Hawk Air Charter Services;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM14498;Flying Airline FZCO;PotCust;0;0;0;0;0;12/06/2024 00:00:00;8.00;01/31/2026 00:00:00;0;Unavoidable;went silent during implementation. No contact for more than 6 months. Considered bankrupt;;
+COM14498;Flying Airline FZCO;PotCust;0;0;0;0;0;12/06/2024 00:00:00;8.00;01/31/2026 00:00:00;32131;Unavoidable;went silent during implementation. No contact for more than 6 months. Considered bankrupt;;
 ;Freebird Airways;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Micronesian Air Cargo Services (MACS);PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM14500;Malaik Air;PotCust;0;0;0;0;0;;0.00;;0;;;;
@@ -4062,7 +4062,7 @@ COM14523;Mammoth Freighters LLC;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;TAH Airlines;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Kamaka Air;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM14549;Gridiron Air;PotCust;0;0;0;0;0;;0.00;;0;;;;
-COM14534;Mukhtara Air;Quarantine;1;2;0;0;0;03/27/2025 00:00:00;8.00;07/07/2026 00:00:00;10153;Unavoidable;Missing payment, no response from customer;07/07/2026 00:00:00;Lack of payment
+COM14534;Mukhtara Air;Quarantine;1;2;0;0;0;03/27/2025 00:00:00;8.00;07/07/2026 00:00:00;101.53;Unavoidable;Missing payment, no response from customer;07/07/2026 00:00:00;Lack of payment
 ;PSG Aviation;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM14526;MEKNAN AVIATION ACADEMY;PotCust;3;0;0;0;0;;0.00;;0;;;;
 COM14532;USC;Customer;3;5;4;0;4;03/04/2025 00:00:00;8.00;;0;;;;
@@ -5684,7 +5684,7 @@ COM14597;Aviation & Marine Alliance;PotCust;3;0;0;0;0;;0.00;;0;;;;
 ;Swiss Private Jet;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;PNR GO;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Canadian Aviator;NonCust;0;0;0;0;0;;0.00;;0;;;;
-COM14605;SG Ferry Services Ltd.;Pending Closure;0;0;0;0;0;11/13/2024 00:00:00;8.00;01/31/2028 00:00:00;0;Avoidable;CEO very disstaisfied with functionality;06/24/2026 00:00:00;Lack of payment
+COM14605;SG Ferry Services Ltd.;Pending Closure;0;0;0;0;0;11/13/2024 00:00:00;8.00;01/31/2028 00:00:00;50430;Avoidable;CEO very disstaisfied with functionality;06/24/2026 00:00:00;Lack of payment
 ;Setair;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Diamond Jet;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Corporate Aviation;PotCust;0;0;0;0;0;;0.00;;0;;;;
@@ -5865,4 +5865,4 @@ COM14697;Skyfolk Aviation;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;Searca Vuelos Charter;PotCust;0;0;0;0;0;;0.00;;0;;;;
 COM14698;Alex Jet;PotCust;0;0;0;0;0;;0.00;;0;;;;
 ;JOY;PotCust;0;0;0;0;0;;0.00;;0;;;;
-;;;0;0;0;390;277;;;;0;;;;
+;;;0;0;0;390;277;;;;20985066.65;;;;
