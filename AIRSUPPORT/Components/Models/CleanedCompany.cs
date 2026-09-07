@@ -18,6 +18,8 @@
         public string? ChurnReason { get; set; }
         public DateTime? BlockedDate { get; set; }
         public string? BlockedReason { get; set; }
-       
+        public string? Region { get; set; }
+        public int? Tier { get; set; }
+
     }
 }
