@@ -1,6 +1,7 @@
-﻿using CsvHelper;
+﻿using AIRSUPPORT.Components.Models;
+using CsvHelper;
 using System.Globalization;
-using AIRSUPPORT.Components.Models;
+using System.Timers;
 
 namespace AIRSUPPORT.Components.Services
 {
@@ -28,6 +29,7 @@ namespace AIRSUPPORT.Components.Services
             var cleaned = rawRows.Select(r =>
             {
                 var row = (IDictionary<string, object>)r;
+                var (region, tier) = CsvParsingHelper.ParseRegionTier(row["Region + Tier"]?.ToString());
 
                 return new CleanedCompany
                 {
@@ -47,6 +49,8 @@ namespace AIRSUPPORT.Components.Services
                     ChurnReason = row["Churn reason"]?.ToString(),
                     BlockedDate = CsvParsingHelper.ParseDate(row["Blocked Date"]?.ToString()),
                     BlockedReason = row["Blocked Reason"]?.ToString(),
+                    Region = region,
+                    Tier = tier,
 
 
 

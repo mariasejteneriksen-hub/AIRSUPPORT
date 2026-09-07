@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using System.Text.RegularExpressions;
 
 namespace AIRSUPPORT.Components.Services
 {
@@ -43,6 +44,18 @@ namespace AIRSUPPORT.Components.Services
             if (decimal.TryParse(value, out var result))
                 return result;
             return null;
+        }
+
+        public static (string? Region, int? Tier) ParseRegionTier(string? value)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+                return (null, null);
+
+            var match = Regex.Match(value.Trim(), @"^([A-Za-z]+)(\d+)$");
+            if (!match.Success)
+                return (null, null);
+
+            return (match.Groups[1].Value, int.Parse(match.Groups[2].Value));
         }
     }
 }
