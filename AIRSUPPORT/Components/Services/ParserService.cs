@@ -57,5 +57,20 @@ namespace AIRSUPPORT.Components.Services
 
             return (match.Groups[1].Value, int.Parse(match.Groups[2].Value));
         }
+
+        public static double ParseDoubleDanish(string? value)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+                return 0;
+
+            var cleaned = value
+                .Replace(".", "")   // fjern tusind-separator (punktum)
+                .Replace(",", "."); // gør decimal-komma til punktum
+
+            if (double.TryParse(cleaned, NumberStyles.Any, CultureInfo.InvariantCulture, out var result))
+                return result;
+
+            return 0;
+        }
     }
 }
