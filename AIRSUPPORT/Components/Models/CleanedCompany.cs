@@ -14,9 +14,15 @@
         public decimal? PriceEscalation { get; set; }
         public DateTime? Terminationdate { get; set; }
         public  double? ChurnValue { get; set; }
-        public string? Avoidable { get; set; }
+        public DateTime? ChurnReportedDate { get; set; }
+
+        public DateTime? ChurnDate { get; set; }
+
+        public bool? Avoidable { get; set; }
         public string? ChurnReason { get; set; }
         public DateTime? BlockedDate { get; set; }
+        public string? CombinedReason { get; set; }
+
         public string? BlockedReason { get; set; }
         public string? Region { get; set; }
         public int? Tier { get; set; }

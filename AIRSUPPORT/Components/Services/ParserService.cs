@@ -72,5 +72,43 @@ namespace AIRSUPPORT.Components.Services
 
             return 0;
         }
+        public static DateTime? GetEarliestDate(params DateTime?[] dates)
+        {
+            var validDates = dates.Where(d => d.HasValue).Select(d => d!.Value);
+            return validDates.Any() ? validDates.Min() : null;
+        }
+
+        public static string? CombineReasons(string? reason1, string? reason2)
+        {
+            var hasReason1 = !string.IsNullOrWhiteSpace(reason1);
+            var hasReason2 = !string.IsNullOrWhiteSpace(reason2);
+
+            if (hasReason1 && hasReason2)
+                return $"{reason1} | {reason2}"; // begge udfyldt: kombinér med en tydelig adskiller
+
+            if (hasReason1)
+                return reason1; // kun den ene
+
+            if (hasReason2)
+                return reason2; // kun den anden
+
+            return null; // ingen af dem
+        }
+
+        public static bool? ParseAvoidable(string? value)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+                return null; // ingenting angivet
+
+            var normalized = value.Trim().ToLower();
+
+            if (normalized == "avoidable")
+                return true;
+
+            if (normalized == "unavoidable")
+                return false;
+
+            return null; // uventet værdi, sikrere at returnere null end at gætte forkert
+        }
     }
 }
