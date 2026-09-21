@@ -29,7 +29,7 @@ namespace AIRSUPPORT.Components.Services
             {
                 var row = (IDictionary<string, object>)r;
 
-                var value2022 = CsvParsingHelper.ParseDouble(row[" 2 022"]?.ToString());
+                var value2022 = CsvParsingHelper.ParseDouble(CleanNumber(row[" 2 022"]?.ToString()));
                 var value2025 = CsvParsingHelper.ParseDouble(row["2,025.00"]?.ToString());
 
                 return new CleanedTurnover
@@ -41,11 +41,11 @@ namespace AIRSUPPORT.Components.Services
                     Balance = CsvParsingHelper.ParseDouble(row["Balance"]?.ToString()),
                     FleetSize = CsvParsingHelper.ParseInt(row["Company.Fleet Size"]?.ToString()),
                     Year2022 = value2022,
-                    Dev2223 = CsvParsingHelper.ParseDouble(row["Dev22-23"]?.ToString()),
-                    Year2023 = CsvParsingHelper.ParseDouble(row[" 2 023"]?.ToString()),
-                    Dev2324 = CsvParsingHelper.ParseDouble(row["Dev23-24"]?.ToString()),
-                    Year2024 = CsvParsingHelper.ParseDouble(row[" 2 024"]?.ToString()),
-                    Dev2425 = CsvParsingHelper.ParseDouble(row["Dev24-25"]?.ToString()),
+                    Dev2223 = CsvParsingHelper.ParseDouble(CleanNumber(row["Dev22-23"]?.ToString())),
+                    Year2023 = CsvParsingHelper.ParseDouble(CleanNumber(row[" 2 023"]?.ToString())),
+                    Dev2324 = CsvParsingHelper.ParseDouble(CleanNumber(row["Dev23-24"]?.ToString())),
+                    Year2024 = CsvParsingHelper.ParseDouble(CleanNumber(row[" 2 024"]?.ToString())),
+                    Dev2425 = CsvParsingHelper.ParseDouble(CleanNumber(row["Dev24-25"]?.ToString())),
                     Year2025 = value2025,
                     YearToDate = CsvParsingHelper.ParseDouble(row["Year to date"]?.ToString()),
                     LastYearToDate = CsvParsingHelper.ParseDouble(row["Last year to date"]?.ToString()),
@@ -57,6 +57,9 @@ namespace AIRSUPPORT.Components.Services
             using var csvWriter = new CsvWriter(writer, config);
             csvWriter.WriteRecords(cleaned);
         }
+
+        private static string CleanNumber(string? value) =>
+            value?.Replace(" ", "").Replace(" ", "").Replace("%", "") ?? "";
 
         private string ExtractCountryCode(string? value)
         {
