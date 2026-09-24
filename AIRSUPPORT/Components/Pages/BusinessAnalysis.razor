@@ -1,0 +1,256 @@
+@page "/forretningsanalyse"
+@rendermode InteractiveServer
+@using AIRSUPPORT.Components.Models
+@using AIRSUPPORT.Components.Services
+@inject IJSRuntime JS
+
+<PageTitle>Forretningsanalyse</PageTitle>
+
+@if (revenueTrend.Count == 0)
+{
+    <p><em>Indlæser...</em></p>
+}
+else
+{
+    <h1>Omsætningstrend 2017-2026</h1>
+    <p><em>
+        Bemærk at 2026 er et ufuldstændigt år (data findes kun til og med september) —
+        et fald i 2026 sammenlignet med 2025 kan derfor bare skyldes, at året ikke er slut endnu,
+        ikke nødvendigvis et reelt omsætningsfald.
+    </em></p>
+
+    <h2>Samlet omsætning pr. år</h2>
+    <div style="height:400px; max-width:900px;">
+        <canvas id="revenueTrendCanvas"></canvas>
+    </div>
+
+    <h2>Antal aktive kunder pr. år (omsætning &gt; 0)</h2>
+    <div style="height:400px; max-width:900px;">
+        <canvas id="activeCustomersCanvas"></canvas>
+    </div>
+    <p><em>
+        Sammenholdt med grafen ovenfor viser den, om omsætningsvæksten kommer fra flere kunder,
+        eller fra at de eksisterende kunder bruger mere.
+    </em></p>
+
+    <h2>Gennemsnitlig omsætning pr. aktiv kunde</h2>
+    <div style="height:400px; max-width:900px;">
+        <canvas id="avgRevenuePerCustomerCanvas"></canvas>
+    </div>
+
+    <h2>Vækst år-til-år (%)</h2>
+    <div style="height:400px; max-width:900px;">
+        <canvas id="yoyGrowthCanvas"></canvas>
+    </div>
+
+    <h1>Churn-analyse</h1>
+    <p><em>
+        En kunde regnes som churnet, hvis mindst ét af følgende er udfyldt: Terminationdate,
+        ChurnReportedDate eller ChurnReason. Sammenligningerne bruger Turnover2025 (sidste fulde år)
+        i stedet for 2024/2026, for at undgå at et ufuldstændigt år forvrider billedet.
+    </em></p>
+    <p>
+        <strong>@churnedCount</strong> ud af <strong>@(churnedCount + activeCount)</strong> kunder er churnet
+        (@churnShare.ToString("P1")).
+    </p>
+
+    <div style="display:grid; grid-template-columns: repeat(auto-fill, 320px); gap: 24px;">
+        @for (var i = 0; i < churnComparison.Count; i++)
+        {
+            var index = i;
+            <div>
+                <div style="font-size:15px; font-weight:bold; margin-bottom:4px;">@churnComparison[index].MetricLabel</div>
+                <div style="width:320px; height:260px;">
+                    <canvas id="churn-compare-@index"></canvas>
+                </div>
+            </div>
+        }
+    </div>
+
+    <h2>Churn-rate pr. år</h2>
+    <p><em>
+        Andel af det pågældende års aktive kunder, der har en ChurnReportedDate i netop det år.
+        0% for 2017-2021 er ikke en fejl — det bekræfter blot det tidligere fund, at LIME først
+        begyndte at registrere ChurnReportedDate systematisk fra 2022 (se BILAG punkt H i SQL-dokumentationen).
+    </em></p>
+    <div style="height:400px; max-width:900px;">
+        <canvas id="churnRateCanvas"></canvas>
+    </div>
+}
+
+@code {
+    private class YearlyRevenuePoint
+    {
+        public string Year { get; set; } = "";
+        public double TotalRevenue { get; set; }
+        public int ActiveCustomers { get; set; }
+        public double AvgRevenuePerCustomer { get; set; }
+        public double? GrowthPercent { get; set; }
+    }
+
+    private class ChurnComparisonMetric
+    {
+        public string MetricLabel { get; set; } = "";
+        public double ActiveAvg { get; set; }
+        public double ChurnedAvg { get; set; }
+    }
+
+    private class ChurnRatePoint
+    {
+        public string Year { get; set; } = "";
+        public double RatePercent { get; set; }
+        public int ChurnCount { get; set; }
+    }
+
+    private List<YearlyRevenuePoint> revenueTrend = new();
+    private List<ChurnComparisonMetric> churnComparison = new();
+    private List<ChurnRatePoint> churnRateByYear = new();
+    private int churnedCount;
+    private int activeCount;
+    private double churnShare;
+    private bool chartsRendered;
+
+    protected override void OnInitialized()
+    {
+        var masterDataService = new MasterDataService();
+        var customers = masterDataService.LoadCustomers();
+
+        // Omsætningstrend: for hvert år beregnes samlet omsætning, antal aktive kunder (omsætning > 0),
+        // gennemsnitlig omsætning pr. aktiv kunde, og vækst i % ift. foregående år
+        var turnoverByYear = new List<(string Year, List<double> Values)>
+        {
+            ("2017", customers.Select(c => c.Turnover2017).ToList()),
+            ("2018", customers.Select(c => c.Turnover2018).ToList()),
+            ("2019", customers.Select(c => c.Turnover2019).ToList()),
+            ("2020", customers.Select(c => c.Turnover2020).ToList()),
+            ("2021", customers.Select(c => c.Turnover2021).ToList()),
+            ("2022", customers.Select(c => c.Turnover2022).ToList()),
+            ("2023", customers.Select(c => c.Turnover2023).ToList()),
+            ("2024", customers.Select(c => c.Turnover2024).ToList()),
+            ("2025", customers.Select(c => c.Turnover2025).ToList()),
+            ("2026", customers.Select(c => c.Turnover2026).ToList()),
+        };
+
+        revenueTrend = new List<YearlyRevenuePoint>();
+        double? previousTotal = null;
+
+        foreach (var (year, values) in turnoverByYear)
+        {
+            var total = values.Sum();
+            var activeYearCount = values.Count(v => v > 0);
+
+            revenueTrend.Add(new YearlyRevenuePoint
+            {
+                Year = year,
+                TotalRevenue = total,
+                ActiveCustomers = activeYearCount,
+                AvgRevenuePerCustomer = activeYearCount == 0 ? 0 : total / activeYearCount,
+                GrowthPercent = previousTotal.HasValue && previousTotal.Value != 0
+                    ? Math.Round((total - previousTotal.Value) / previousTotal.Value * 100, 1)
+                    : null
+            });
+
+            previousTotal = total;
+        }
+
+        // Churn-analyse: sammenlign churnede kunder mod aktive kunder på nøgletal
+        bool IsChurned(MasterCustomer c) =>
+            c.Terminationdate.HasValue || c.ChurnReportedDate.HasValue || !string.IsNullOrWhiteSpace(c.ChurnReason);
+
+        var churnedCustomers = customers.Where(IsChurned).ToList();
+        var activeCustomersList = customers.Where(c => !IsChurned(c)).ToList();
+
+        churnedCount = churnedCustomers.Count;
+        activeCount = activeCustomersList.Count;
+        churnShare = customers.Count == 0 ? 0 : (double)churnedCount / customers.Count;
+
+        double Avg(List<MasterCustomer> list, Func<MasterCustomer, double> selector) =>
+            list.Count == 0 ? 0 : list.Average(selector);
+
+        double AvgTenure(List<MasterCustomer> list)
+        {
+            var tenures = list
+                .Where(c => c.CustomerSince.HasValue)
+                .Select(c => (DateTime.Now - c.CustomerSince!.Value).TotalDays / 365.25)
+                .ToList();
+            return tenures.Count == 0 ? 0 : tenures.Average();
+        }
+
+        churnComparison = new List<ChurnComparisonMetric>
+        {
+            new() { MetricLabel = "FleetSize", ActiveAvg = Avg(activeCustomersList, c => c.FleetSize), ChurnedAvg = Avg(churnedCustomers, c => c.FleetSize) },
+            new() { MetricLabel = "Turnover2025 (DKK)", ActiveAvg = Avg(activeCustomersList, c => c.Turnover2025), ChurnedAvg = Avg(churnedCustomers, c => c.Turnover2025) },
+            new() { MetricLabel = "PriorityCustomer", ActiveAvg = Avg(activeCustomersList, c => c.PriorityCustomer), ChurnedAvg = Avg(churnedCustomers, c => c.PriorityCustomer) },
+            new() { MetricLabel = "CustomerTenureYears", ActiveAvg = AvgTenure(activeCustomersList), ChurnedAvg = AvgTenure(churnedCustomers) },
+            new() { MetricLabel = "Balance (DKK)", ActiveAvg = Avg(activeCustomersList, c => c.Balance), ChurnedAvg = Avg(churnedCustomers, c => c.Balance) },
+        };
+
+        // Churn-rate pr. år: andel af det pågældende års aktive kunder, der har ChurnReportedDate i det år
+        churnRateByYear = revenueTrend.Select(yearPoint =>
+        {
+            var year = int.Parse(yearPoint.Year);
+            var churnCountThisYear = customers.Count(c => c.ChurnReportedDate.HasValue && c.ChurnReportedDate.Value.Year == year);
+            var rate = yearPoint.ActiveCustomers == 0 ? 0 : (double)churnCountThisYear / yearPoint.ActiveCustomers * 100;
+
+            return new ChurnRatePoint
+            {
+                Year = yearPoint.Year,
+                ChurnCount = churnCountThisYear,
+                RatePercent = Math.Round(rate, 1)
+            };
+        }).ToList();
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (chartsRendered || revenueTrend.Count == 0)
+            return;
+
+        chartsRendered = true;
+
+        await JS.InvokeVoidAsync("chartHelpers.renderLine",
+            "revenueTrendCanvas",
+            revenueTrend.Select(r => r.Year).ToArray(),
+            revenueTrend.Select(r => r.TotalRevenue).ToArray(),
+            "Samlet omsætning pr. år (DKK)",
+            "#2a78d6");
+
+        await JS.InvokeVoidAsync("chartHelpers.renderLine",
+            "activeCustomersCanvas",
+            revenueTrend.Select(r => r.Year).ToArray(),
+            revenueTrend.Select(r => (double)r.ActiveCustomers).ToArray(),
+            "Antal aktive kunder pr. år",
+            "#eb6834");
+
+        await JS.InvokeVoidAsync("chartHelpers.renderLine",
+            "avgRevenuePerCustomerCanvas",
+            revenueTrend.Select(r => r.Year).ToArray(),
+            revenueTrend.Select(r => r.AvgRevenuePerCustomer).ToArray(),
+            "Gennemsnitlig omsætning pr. aktiv kunde (DKK)",
+            "#1baf7a");
+
+        await JS.InvokeVoidAsync("chartHelpers.renderGrowthBar",
+            "yoyGrowthCanvas",
+            revenueTrend.Select(r => r.Year).ToArray(),
+            revenueTrend.Select(r => r.GrowthPercent).ToArray(),
+            "Vækst år-til-år (%)");
+
+        for (var i = 0; i < churnComparison.Count; i++)
+        {
+            var metric = churnComparison[i];
+            await JS.InvokeVoidAsync("chartHelpers.renderBarWithColors",
+                $"churn-compare-{i}",
+                new[] { "Aktive", "Churnede" },
+                new[] { metric.ActiveAvg, metric.ChurnedAvg },
+                new[] { "#1baf7a", "#e34948" },
+                metric.MetricLabel);
+        }
+
+        await JS.InvokeVoidAsync("chartHelpers.renderLine",
+            "churnRateCanvas",
+            churnRateByYear.Select(r => r.Year).ToArray(),
+            churnRateByYear.Select(r => r.RatePercent).ToArray(),
+            "Churn-rate pr. år (%)",
+            "#e34948");
+    }
+}

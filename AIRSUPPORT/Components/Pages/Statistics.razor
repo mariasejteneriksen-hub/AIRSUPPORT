@@ -1,0 +1,739 @@
+@page "/statistik"
+@rendermode InteractiveServer
+@using AIRSUPPORT.Components.Models
+@using AIRSUPPORT.Components.Services
+@inject IJSRuntime JS
+
+<PageTitle>Statistik</PageTitle>
+
+@if (customerRows == null || lineRows == null)
+{
+    <p><em>Indlæser...</em></p>
+}
+else
+{
+    <h1>Statistik: Deskriptive mål for numeriske kolonner</h1>
+
+    <h2>MasterCustomer (kundeniveau)</h2>
+    @RenderTable(customerRows)
+
+    <h2>MasterLine (fakturalinje-niveau)</h2>
+    @RenderTable(lineRows)
+
+    <h2>Top 10 højeste UnitPrice (til at spore outlieren)</h2>
+    <table class="table table-sm">
+        <thead>
+            <tr>
+                <th>CustomerNr</th>
+                <th>DocumentNo</th>
+                <th>LineNo</th>
+                <th>ItemNr</th>
+                <th>Description</th>
+                <th>UnitPrice</th>
+                <th>Amount</th>
+                <th>PostingDate</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var line in topUnitPriceLines)
+            {
+                <tr>
+                    <td>@line.CustomerNr</td>
+                    <td>@line.DocumentNo</td>
+                    <td>@line.LineNo</td>
+                    <td>@line.ItemNr</td>
+                    <td>@line.Description</td>
+                    <td>@line.UnitPrice.ToString("N2")</td>
+                    <td>@line.Amount.ToString("N2")</td>
+                    <td>@line.PostingDate?.ToShortDateString()</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <h2>Linjer med UnitPrice = 99.999,00 (mistænkt dummy-værdi)</h2>
+    <p>Antal linjer: @dummyPriceCount ud af @lineRows.First().N (@dummyPriceShare.ToString("P1"))</p>
+
+    <table class="table table-sm">
+        <thead>
+            <tr>
+                <th>ItemNr</th>
+                <th>Description</th>
+                <th>PostingGroupUpdated</th>
+                <th>Antal linjer</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var group in dummyPriceBreakdown)
+            {
+                <tr>
+                    <td>@group.ItemNr</td>
+                    <td>@group.Description</td>
+                    <td>@group.PostingGroupUpdated</td>
+                    <td>@group.Count</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <p><em>
+        Varians står i kvadrerede enheder, fordi formlen kvadrerer hver afvigelse fra middelværdien —
+        derfor er tallet ikke direkte aflæseligt. Standardafvigelsen (kvadratroden af variansen) er
+        tilbage i samme enhed som originaldata og er den, man i praksis bruger til at tolke spredningen.
+        Manglende værdier (fx tomme Dev%-, ChurnValue- eller PriceEscalation-felter) er sorteret fra,
+        så N kan variere fra kolonne til kolonne.
+    </em></p>
+
+    <h1>Frekvenstabeller for kategoriske kolonner</h1>
+
+    <h2>MasterCustomer</h2>
+    @foreach (var summary in customerFrequencies)
+    {
+        <h3>@summary.ColumnLabel (@summary.TotalCategories kategorier)</h3>
+        @RenderFrequencyTable(summary.Rows)
+        @if (summary.TotalCategories > MaxCategoriesShown)
+        {
+            <p><em>Viser kun de @MaxCategoriesShown hyppigste — @(summary.TotalCategories - MaxCategoriesShown) yderligere kategorier er ikke vist.</em></p>
+        }
+    }
+
+    <h2>MasterLine</h2>
+    @foreach (var summary in lineFrequencies)
+    {
+        <h3>@summary.ColumnLabel (@summary.TotalCategories kategorier)</h3>
+        @RenderFrequencyTable(summary.Rows)
+        @if (summary.TotalCategories > MaxCategoriesShown)
+        {
+            <p><em>Viser kun de @MaxCategoriesShown hyppigste — @(summary.TotalCategories - MaxCategoriesShown) yderligere kategorier er ikke vist.</em></p>
+        }
+    }
+
+    <h1>Datofelter</h1>
+    <p><em>
+        Middelværdi/median giver ikke mening for datoer — i stedet vises datointerval (tidligste/seneste),
+        antal manglende, og en fordeling pr. år. "CustomerTenureYears" (antal år som kunde, udledt af
+        CustomerSince) er tilføjet som numerisk kolonne i MasterCustomer-tabellerne/histogrammerne ovenfor.
+    </em></p>
+
+    <h2>MasterCustomer</h2>
+    <table class="table table-sm">
+        <thead>
+            <tr>
+                <th>Kolonne</th>
+                <th>N</th>
+                <th>Manglende</th>
+                <th>Tidligste</th>
+                <th>Seneste</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var summary in customerDateSummaries)
+            {
+                <tr>
+                    <td>@summary.Label</td>
+                    <td>@summary.Count</td>
+                    <td>@summary.MissingCount</td>
+                    <td>@summary.Min?.ToShortDateString()</td>
+                    <td>@summary.Max?.ToShortDateString()</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <h2>MasterLine</h2>
+    <table class="table table-sm">
+        <thead>
+            <tr>
+                <th>Kolonne</th>
+                <th>N</th>
+                <th>Manglende</th>
+                <th>Tidligste</th>
+                <th>Seneste</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var summary in lineDateSummaries)
+            {
+                <tr>
+                    <td>@summary.Label</td>
+                    <td>@summary.Count</td>
+                    <td>@summary.MissingCount</td>
+                    <td>@summary.Min?.ToShortDateString()</td>
+                    <td>@summary.Max?.ToShortDateString()</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <h2>Fordeling pr. år</h2>
+    <div style="display:grid; grid-template-columns: repeat(auto-fill, 400px); gap: 24px;">
+        @for (var i = 0; i < customerDateSummaries.Count; i++)
+        {
+            var index = i;
+            <div>
+                <div style="font-size:15px; font-weight:bold; margin-bottom:4px;">@customerDateSummaries[index].Label</div>
+                <div style="width:400px; height:280px;">
+                    <canvas id="datehist-customer-@index"></canvas>
+                </div>
+            </div>
+        }
+        @for (var i = 0; i < lineDateSummaries.Count; i++)
+        {
+            var index = i;
+            <div>
+                <div style="font-size:15px; font-weight:bold; margin-bottom:4px;">@lineDateSummaries[index].Label</div>
+                <div style="width:400px; height:280px;">
+                    <canvas id="datehist-line-@index"></canvas>
+                </div>
+            </div>
+        }
+    </div>
+
+    <h1>Visualiseringer</h1>
+
+    <h2>Histogram: Turnover2024</h2>
+    <div style="height:400px;">
+        <canvas id="histogramCanvas"></canvas>
+    </div>
+
+    <h2>Søjlediagram: PostingGroupUpdated (MasterLine)</h2>
+    <div style="height:400px;">
+        <canvas id="postingGroupBarCanvas"></canvas>
+    </div>
+
+    <h2>Scatterplot matrix (pairwise): @string.Join(", ", splomVariableNames)</h2>
+    <div style="display:grid; grid-template-columns: repeat(@splomVariableNames.Length, 180px); gap: 4px;">
+        @for (var row = 0; row < splomVariableNames.Length; row++)
+        {
+            for (var col = 0; col < splomVariableNames.Length; col++)
+            {
+                if (row == col)
+                {
+                    <div style="width:180px; height:150px; display:flex; align-items:center; justify-content:center; background:#f4f3f1; border:1px solid #e5e5e5; font-weight:bold; text-align:center; padding:4px;">
+                        @splomVariableNames[row]
+                    </div>
+                }
+                else
+                {
+                    <div style="width:180px; height:150px;">
+                        <canvas id="splom-@(row)-@(col)"></canvas>
+                    </div>
+                }
+            }
+        }
+    </div>
+    <p><em>
+        Læses sådan: rækken angiver y-aksen, kolonnen angiver x-aksen. Fx viser cellen i "Turnover2024"-rækken
+        og "FleetSize"-kolonnen Turnover2024 (y) mod FleetSize (x). Diagonalen viser bare variabelnavnet.
+    </em></p>
+
+    <h2>Histogrammer: alle numeriske kolonner (MasterCustomer)</h2>
+    <p><em>
+        Intervalbredden er beregnet ud fra 1.-99. percentil, ikke min/max — ellers ville enkelte ekstreme
+        outliers (fx dummy-værdien 999.999.999 i UnitPrice) klumpe al den rigtige data sammen i én søjle.
+        Værdier under P1/over P99 tælles stadig med, i yderste søjle.
+    </em></p>
+    <div style="display:grid; grid-template-columns: repeat(auto-fill, 560px); gap: 24px;">
+        @for (var i = 0; i < customerHistograms.Count; i++)
+        {
+            var index = i;
+            <div>
+                <div style="font-size:16px; font-weight:bold; margin-bottom:4px;">@customerHistograms[index].Label</div>
+                <div style="width:560px; height:380px;">
+                    <canvas id="hist-customer-@index"></canvas>
+                </div>
+            </div>
+        }
+    </div>
+
+    <h2>Histogrammer: alle numeriske kolonner (MasterLine)</h2>
+    <div style="display:grid; grid-template-columns: repeat(auto-fill, 560px); gap: 24px;">
+        @for (var i = 0; i < lineHistograms.Count; i++)
+        {
+            var index = i;
+            <div>
+                <div style="font-size:16px; font-weight:bold; margin-bottom:4px;">@lineHistograms[index].Label</div>
+                <div style="width:560px; height:380px;">
+                    <canvas id="hist-line-@index"></canvas>
+                </div>
+            </div>
+        }
+    </div>
+}
+
+@code {
+    private class StatRow
+    {
+        public string Label { get; set; } = "";
+        public int N { get; set; }
+        public double Mean { get; set; }
+        public double Median { get; set; }
+        public List<double> Mode { get; set; } = new();
+        public double Min { get; set; }
+        public double Max { get; set; }
+        public double Range { get; set; }
+        public double Q1 { get; set; }
+        public double Q3 { get; set; }
+        public double Iqr { get; set; }
+        public double Variance { get; set; }
+        public double StdDev { get; set; }
+    }
+
+    private class DummyPriceGroup
+    {
+        public string? ItemNr { get; set; }
+        public string? Description { get; set; }
+        public string? PostingGroupUpdated { get; set; }
+        public int Count { get; set; }
+    }
+
+    private class FrequencyRow
+    {
+        public string Category { get; set; } = "";
+        public int Count { get; set; }
+        public double Percentage { get; set; }
+    }
+
+    private class CategoricalSummary
+    {
+        public string ColumnLabel { get; set; } = "";
+        public List<FrequencyRow> Rows { get; set; } = new();
+        public int TotalCategories { get; set; }
+    }
+
+    private class DateColumnSummary
+    {
+        public string Label { get; set; } = "";
+        public int Count { get; set; }
+        public int MissingCount { get; set; }
+        public DateTime? Min { get; set; }
+        public DateTime? Max { get; set; }
+        public List<FrequencyRow> YearFrequency { get; set; } = new();
+    }
+
+    private List<StatRow>? customerRows;
+    private List<StatRow>? lineRows;
+    private List<MasterLine> topUnitPriceLines = new();
+    private int dummyPriceCount;
+    private double dummyPriceShare;
+    private List<DummyPriceGroup> dummyPriceBreakdown = new();
+    private List<CategoricalSummary> customerFrequencies = new();
+    private List<CategoricalSummary> lineFrequencies = new();
+    private List<DateColumnSummary> customerDateSummaries = new();
+    private List<DateColumnSummary> lineDateSummaries = new();
+
+    private class ScatterPoint
+    {
+        public double X { get; set; }
+        public double Y { get; set; }
+    }
+
+    private List<(string RangeLabel, int Count)> turnover2024Histogram = new();
+    private List<(string Label, List<(string RangeLabel, int Count)> Buckets)> customerHistograms = new();
+    private List<(string Label, List<(string RangeLabel, int Count)> Buckets)> lineHistograms = new();
+    private bool chartsRendered;
+
+    private readonly string[] splomVariableNames =
+    {
+        "FleetSize", "Balance", "PriorityCustomer", "ChurnValue", "YearToDate", "Turnover2023", "Turnover2024"
+    };
+    private Dictionary<string, double[]> splomSeries = new();
+
+    protected override void OnInitialized()
+    {
+        var masterDataService = new MasterDataService();
+        var statisticsService = new StatisticsService();
+
+        var customers = masterDataService.LoadCustomers();
+        var lines = masterDataService.LoadLines();
+
+        // Hver post: navn på kolonnen + de tal, den indeholder (manglende værdier er sorteret fra)
+        var customerColumns = new List<(string Label, List<double> Values)>
+        {
+            ("PriorityCustomer", customers.Select(c => c.PriorityCustomer).ToList()),
+            ("TailsOnPPS", customers.Select(c => c.TailsOnPPS).ToList()),
+            ("TailsFlightWatchTerrestrial", customers.Select(c => c.TailsFlightWatchTerrestrial).ToList()),
+            ("TailsFlightWatchSatellite", customers.Select(c => c.TailsFlightWatchSatellite).ToList()),
+            ("TailsNotamMonitoring", customers.Select(c => c.TailsNotamMonitoring).ToList()),
+            ("FleetSize", customers.Select(c => (double)c.FleetSize).ToList()),
+            ("Balance", customers.Select(c => c.Balance).ToList()),
+            ("Last12Months", customers.Select(c => c.Last12Months).ToList()),
+            ("YearToDate", customers.Select(c => c.YearToDate).ToList()),
+            ("LastYearToDate", customers.Select(c => c.LastYearToDate).ToList()),
+            ("LastFinancialYear", customers.Select(c => c.LastFinancialYear).ToList()),
+            ("PriceEscalation", customers.Where(c => c.PriceEscalation.HasValue).Select(c => (double)c.PriceEscalation!.Value).ToList()),
+            ("ChurnValue", customers.Where(c => c.ChurnValue.HasValue).Select(c => c.ChurnValue!.Value).ToList()),
+            ("Turnover2017", customers.Select(c => c.Turnover2017).ToList()),
+            ("Turnover2018", customers.Select(c => c.Turnover2018).ToList()),
+            ("Turnover2019", customers.Select(c => c.Turnover2019).ToList()),
+            ("Turnover2020", customers.Select(c => c.Turnover2020).ToList()),
+            ("Turnover2021", customers.Select(c => c.Turnover2021).ToList()),
+            ("Turnover2022", customers.Select(c => c.Turnover2022).ToList()),
+            ("Turnover2023", customers.Select(c => c.Turnover2023).ToList()),
+            ("Turnover2024", customers.Select(c => c.Turnover2024).ToList()),
+            ("Turnover2025", customers.Select(c => c.Turnover2025).ToList()),
+            ("Turnover2026", customers.Select(c => c.Turnover2026).ToList()),
+            ("Dev1718 (%)", customers.Where(c => c.Dev1718.HasValue).Select(c => (double)c.Dev1718!.Value).ToList()),
+            ("Dev1819 (%)", customers.Where(c => c.Dev1819.HasValue).Select(c => (double)c.Dev1819!.Value).ToList()),
+            ("Dev1920 (%)", customers.Where(c => c.Dev1920.HasValue).Select(c => (double)c.Dev1920!.Value).ToList()),
+            ("Dev2021 (%)", customers.Where(c => c.Dev2021.HasValue).Select(c => (double)c.Dev2021!.Value).ToList()),
+            ("Dev2122 (%)", customers.Where(c => c.Dev2122.HasValue).Select(c => (double)c.Dev2122!.Value).ToList()),
+            ("Dev2223 (%)", customers.Where(c => c.Dev2223.HasValue).Select(c => (double)c.Dev2223!.Value).ToList()),
+            ("Dev2324 (%)", customers.Where(c => c.Dev2324.HasValue).Select(c => (double)c.Dev2324!.Value).ToList()),
+            ("Dev2425 (%)", customers.Where(c => c.Dev2425.HasValue).Select(c => (double)c.Dev2425!.Value).ToList()),
+            ("Dev2526 (%)", customers.Where(c => c.Dev2526.HasValue).Select(c => (double)c.Dev2526!.Value).ToList()),
+            ("CustomerTenureYears", customers.Where(c => c.CustomerSince.HasValue)
+                .Select(c => (DateTime.Now - c.CustomerSince!.Value).TotalDays / 365.25).ToList()),
+        };
+
+        var lineColumns = new List<(string Label, List<double> Values)>
+        {
+            ("Quantity", lines.Select(l => l.Quantity).ToList()),
+            ("UnitPrice", lines.Select(l => l.UnitPrice).ToList()),
+            ("UnitPriceLCY", lines.Select(l => l.UnitPriceLCY).ToList()),
+            ("Amount", lines.Select(l => l.Amount).ToList()),
+            ("CurrencyFactor", lines.Select(l => l.CurrencyFactor).ToList()),
+            ("AmountLCY", lines.Select(l => l.AmountLCY).ToList()),
+            ("AmountInclVAT", lines.Select(l => l.AmountInclVAT).ToList()),
+            ("VATPercent", lines.Select(l => l.VATPercent).ToList()),
+        };
+
+        customerRows = BuildStatRows(customerColumns, statisticsService);
+        lineRows = BuildStatRows(lineColumns, statisticsService);
+
+        // Ét lille histogram pr. numerisk kolonne
+        customerHistograms = customerColumns
+            .Select(col => (col.Label, statisticsService.Histogram(col.Values, 15)))
+            .ToList();
+
+        lineHistograms = lineColumns
+            .Select(col => (col.Label, statisticsService.Histogram(col.Values, 15)))
+            .ToList();
+
+        topUnitPriceLines = lines
+            .OrderByDescending(l => l.UnitPrice)
+            .Take(25)
+            .ToList();
+
+        var dummyPriceLines = lines.Where(l => l.UnitPrice == 99999).ToList();
+        dummyPriceCount = dummyPriceLines.Count;
+        dummyPriceShare = lines.Count == 0 ? 0 : (double)dummyPriceCount / lines.Count;
+
+        dummyPriceBreakdown = dummyPriceLines
+            .GroupBy(l => new { l.ItemNr, l.Description, l.PostingGroupUpdated })
+            .Select(g => new DummyPriceGroup
+            {
+                ItemNr = g.Key.ItemNr,
+                Description = g.Key.Description,
+                PostingGroupUpdated = g.Key.PostingGroupUpdated,
+                Count = g.Count()
+            })
+            .OrderByDescending(g => g.Count)
+            .ToList();
+
+        // Hver post: navn på kolonnen + de kategoriske værdier, den indeholder
+        var customerCategoricalColumns = new List<(string Label, List<string?> Values)>
+        {
+            ("CustomerStatus", customers.Select(c => c.CustomerStatus).ToList()),
+            ("Country", customers.Select(c => c.Country).ToList()),
+            ("NavCountry", customers.Select(c => c.NavCountry).ToList()),
+            ("ChurnReason", customers.Select(c => c.ChurnReason).ToList()),
+            ("BlockedReason", customers.Select(c => c.BlockedReason).ToList()),
+        };
+
+        var lineCategoricalColumns = new List<(string Label, List<string?> Values)>
+        {
+            ("Currency", lines.Select(l => l.Currency).ToList()),
+            ("PostingGroupUpdated", lines.Select(l => l.PostingGroupUpdated).ToList()),
+            ("SalesType", lines.Select(l => l.SalesType).ToList()),
+            ("ItemNr", lines.Select(l => l.ItemNr).ToList()),
+            ("Description", lines.Select(l => l.Description).ToList()),
+        };
+
+        customerFrequencies = customerCategoricalColumns
+            .Select(col => BuildCategoricalSummary(col.Label, col.Values))
+            .ToList();
+
+        lineFrequencies = lineCategoricalColumns
+            .Select(col => BuildCategoricalSummary(col.Label, col.Values))
+            .ToList();
+
+        // Histogram over Turnover2024
+        var turnover2024Values = customers.Select(c => c.Turnover2024).ToList();
+        turnover2024Histogram = statisticsService.Histogram(turnover2024Values, 30);
+
+        // Datofelter: datointerval + fordeling pr. år for hver kolonne
+        var customerDateColumns = new List<(string Label, List<DateTime?> Values)>
+        {
+            ("CustomerSince", customers.Select(c => c.CustomerSince).ToList()),
+            ("Terminationdate", customers.Select(c => c.Terminationdate).ToList()),
+            ("ChurnReportedDate", customers.Select(c => c.ChurnReportedDate).ToList()),
+            ("BlockedDate", customers.Select(c => c.BlockedDate).ToList()),
+        };
+
+        var lineDateColumns = new List<(string Label, List<DateTime?> Values)>
+        {
+            ("PostingDate", lines.Select(l => l.PostingDate).ToList()),
+        };
+
+        customerDateSummaries = customerDateColumns
+            .Select(col => BuildDateColumnSummary(col.Label, col.Values))
+            .ToList();
+
+        lineDateSummaries = lineDateColumns
+            .Select(col => BuildDateColumnSummary(col.Label, col.Values))
+            .ToList();
+
+        // Scatterplot matrix (pairwise): de valgte variable holdt op mod hinanden parvist.
+        // ChurnValue er nullable — manglende værdi (ikke churnet) sættes til 0 for at holde
+        // arrayet på samme længde/rækkefølge som de andre variable (parret pr. kunde).
+        splomSeries = new Dictionary<string, double[]>
+        {
+            ["FleetSize"] = customers.Select(c => (double)c.FleetSize).ToArray(),
+            ["Balance"] = customers.Select(c => c.Balance).ToArray(),
+            ["PriorityCustomer"] = customers.Select(c => c.PriorityCustomer).ToArray(),
+            ["ChurnValue"] = customers.Select(c => c.ChurnValue ?? 0).ToArray(),
+            ["YearToDate"] = customers.Select(c => c.YearToDate).ToArray(),
+            ["Turnover2023"] = customers.Select(c => c.Turnover2023).ToArray(),
+            ["Turnover2024"] = customers.Select(c => c.Turnover2024).ToArray(),
+        };
+
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (chartsRendered || customerRows == null || lineRows == null)
+            return;
+
+        chartsRendered = true;
+
+        await JS.InvokeVoidAsync("chartHelpers.renderBar",
+            "histogramCanvas",
+            turnover2024Histogram.Select(h => h.RangeLabel).ToArray(),
+            turnover2024Histogram.Select(h => h.Count).ToArray(),
+            "Antal kunder pr. omsætningsinterval (Turnover2024)",
+            "#2a78d6");
+
+        var postingGroupFrequency = lineFrequencies.First(f => f.ColumnLabel == "PostingGroupUpdated").Rows;
+        await JS.InvokeVoidAsync("chartHelpers.renderBar",
+            "postingGroupBarCanvas",
+            postingGroupFrequency.Select(r => r.Category).ToArray(),
+            postingGroupFrequency.Select(r => r.Count).ToArray(),
+            "Antal fakturalinjer pr. PostingGroupUpdated",
+            "#eb6834");
+
+        for (var row = 0; row < splomVariableNames.Length; row++)
+        {
+            for (var col = 0; col < splomVariableNames.Length; col++)
+            {
+                if (row == col)
+                    continue;
+
+                var xValues = splomSeries[splomVariableNames[col]];
+                var yValues = splomSeries[splomVariableNames[row]];
+                var points = xValues
+                    .Zip(yValues, (x, y) => new ScatterPoint { X = x, Y = y })
+                    .ToList();
+
+                await JS.InvokeVoidAsync("chartHelpers.renderMiniScatter", $"splom-{row}-{col}", points, "#2a78d6");
+            }
+        }
+
+        for (var i = 0; i < customerHistograms.Count; i++)
+        {
+            var histogram = customerHistograms[i].Buckets;
+            await JS.InvokeVoidAsync("chartHelpers.renderMiniBar",
+                $"hist-customer-{i}",
+                histogram.Select(h => h.RangeLabel).ToArray(),
+                histogram.Select(h => h.Count).ToArray(),
+                "#2a78d6");
+        }
+
+        for (var i = 0; i < lineHistograms.Count; i++)
+        {
+            var histogram = lineHistograms[i].Buckets;
+            await JS.InvokeVoidAsync("chartHelpers.renderMiniBar",
+                $"hist-line-{i}",
+                histogram.Select(h => h.RangeLabel).ToArray(),
+                histogram.Select(h => h.Count).ToArray(),
+                "#eb6834");
+        }
+
+        for (var i = 0; i < customerDateSummaries.Count; i++)
+        {
+            var yearFrequency = customerDateSummaries[i].YearFrequency;
+            await JS.InvokeVoidAsync("chartHelpers.renderMiniBar",
+                $"datehist-customer-{i}",
+                yearFrequency.Select(r => r.Category).ToArray(),
+                yearFrequency.Select(r => r.Count).ToArray(),
+                "#1baf7a");
+        }
+
+        for (var i = 0; i < lineDateSummaries.Count; i++)
+        {
+            var yearFrequency = lineDateSummaries[i].YearFrequency;
+            await JS.InvokeVoidAsync("chartHelpers.renderMiniBar",
+                $"datehist-line-{i}",
+                yearFrequency.Select(r => r.Category).ToArray(),
+                yearFrequency.Select(r => r.Count).ToArray(),
+                "#1baf7a");
+        }
+    }
+
+    private const int MaxCategoriesShown = 30;
+
+    // Bygger en frekvenstabel for én kolonne, begrænset til de MaxCategoriesShown hyppigste
+    // kategorier — nogle kolonner (fx ItemNr, Description) kan have tusindvis af forskellige
+    // værdier, og en tabel med alle ville gøre siden ubrugeligt lang og langsom at rendere.
+    private CategoricalSummary BuildCategoricalSummary(string label, List<string?> values)
+    {
+        var total = values.Count;
+
+        var allRows = values
+            .Select(v => string.IsNullOrWhiteSpace(v) ? "(tom)" : v!.Trim())
+            .GroupBy(v => v)
+            .Select(g => new FrequencyRow
+            {
+                Category = g.Key,
+                Count = g.Count(),
+                Percentage = total == 0 ? 0 : (double)g.Count() / total
+            })
+            .OrderByDescending(r => r.Count)
+            .ToList();
+
+        return new CategoricalSummary
+        {
+            ColumnLabel = label,
+            Rows = allRows.Take(MaxCategoriesShown).ToList(),
+            TotalCategories = allRows.Count
+        };
+    }
+
+    // Datointerval + fordeling pr. år for én datokolonne. Manglende (null) datoer tælles for sig,
+    // i stedet for at blive udeladt stiltiende — det er i sig selv et datakvalitets-tal værd at kende.
+    private DateColumnSummary BuildDateColumnSummary(string label, List<DateTime?> values)
+    {
+        var nonNull = values.Where(v => v.HasValue).Select(v => v!.Value).ToList();
+
+        var yearFrequency = nonNull
+            .GroupBy(d => d.Year)
+            .Select(g => new FrequencyRow
+            {
+                Category = g.Key.ToString(),
+                Count = g.Count(),
+                Percentage = nonNull.Count == 0 ? 0 : (double)g.Count() / nonNull.Count
+            })
+            .OrderBy(r => r.Category)
+            .ToList();
+
+        return new DateColumnSummary
+        {
+            Label = label,
+            Count = nonNull.Count,
+            MissingCount = values.Count - nonNull.Count,
+            Min = nonNull.Count == 0 ? null : nonNull.Min(),
+            Max = nonNull.Count == 0 ? null : nonNull.Max(),
+            YearFrequency = yearFrequency
+        };
+    }
+
+    // Mode() kan i praksis returnere rigtig mange "tied" værdier for næsten-kontinuerte tal
+    // (fx CustomerTenureYears, hvor mange kunder tilfældigvis deler præcis samme værdi) —
+    // her begrænses visningen, så tabellen ikke bliver oversvømmet af én kolonnes typetal.
+    private static string FormatMode(List<double> mode)
+    {
+        const int maxShown = 5;
+
+        var formatted = mode.Take(maxShown).Select(m => m.ToString("N2"));
+        var result = string.Join(", ", formatted);
+
+        if (mode.Count > maxShown)
+            result += $" (+{mode.Count - maxShown} flere med samme antal)";
+
+        return result;
+    }
+
+    private List<StatRow> BuildStatRows(List<(string Label, List<double> Values)> columns, StatisticsService statisticsService)
+    {
+        return columns.Select(col =>
+        {
+            var five = statisticsService.FiveNumberSummary(col.Values);
+            return new StatRow
+            {
+                Label = col.Label,
+                N = col.Values.Count,
+                Mean = statisticsService.Mean(col.Values),
+                Median = statisticsService.Median(col.Values),
+                Mode = statisticsService.Mode(col.Values),
+                Min = five.Min,
+                Max = five.Max,
+                Range = statisticsService.Range(col.Values),
+                Q1 = statisticsService.Q1(col.Values),
+                Q3 = statisticsService.Q3(col.Values),
+                Iqr = statisticsService.InterquartileRange(col.Values),
+                Variance = statisticsService.Variance(col.Values),
+                StdDev = statisticsService.StandardDeviation(col.Values)
+            };
+        }).ToList();
+    }
+
+    private RenderFragment RenderTable(List<StatRow> tableRows) => @<table class="table table-sm">
+        <thead>
+            <tr>
+                <th>Kolonne</th>
+                <th>N</th>
+                <th>Mean</th>
+                <th>Median</th>
+                <th>Mode</th>
+                <th>Min</th>
+                <th>Max</th>
+                <th>Range</th>
+                <th>Q1</th>
+                <th>Q3</th>
+                <th>IQR</th>
+                <th>Varians</th>
+                <th>Std.afv.</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var row in tableRows)
+            {
+                <tr>
+                    <td>@row.Label</td>
+                    <td>@row.N</td>
+                    <td>@row.Mean.ToString("N2")</td>
+                    <td>@row.Median.ToString("N2")</td>
+                    <td>@FormatMode(row.Mode)</td>
+                    <td>@row.Min.ToString("N2")</td>
+                    <td>@row.Max.ToString("N2")</td>
+                    <td>@row.Range.ToString("N2")</td>
+                    <td>@row.Q1.ToString("N2")</td>
+                    <td>@row.Q3.ToString("N2")</td>
+                    <td>@row.Iqr.ToString("N2")</td>
+                    <td>@row.Variance.ToString("N2")</td>
+                    <td>@row.StdDev.ToString("N2")</td>
+                </tr>
+            }
+        </tbody>
+    </table>;
+
+    private RenderFragment RenderFrequencyTable(List<FrequencyRow> tableRows) => @<table class="table table-sm">
+        <thead>
+            <tr>
+                <th>Kategori</th>
+                <th>Antal</th>
+                <th>Andel</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var row in tableRows)
+            {
+                <tr>
+                    <td>@row.Category</td>
+                    <td>@row.Count</td>
+                    <td>@row.Percentage.ToString("P1")</td>
+                </tr>
+            }
+        </tbody>
+    </table>;
+}

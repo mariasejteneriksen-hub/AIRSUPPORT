@@ -95,6 +95,22 @@ namespace AIRSUPPORT.Components.Services
             return null; // ingen af dem
         }
 
+        public static int? ParseNullableInt(string? value)
+        {
+            if (int.TryParse(value, out var result))
+                return result;
+            return null;
+        }
+
+        public static string? CleanNullText(string? value)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+                return null;
+
+            var trimmed = value.Trim();
+            return trimmed.Equals("NULL", StringComparison.OrdinalIgnoreCase) ? null : trimmed;
+        }
+
         public static bool? ParseAvoidable(string? value)
         {
             if (string.IsNullOrWhiteSpace(value))
