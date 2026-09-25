@@ -45,9 +45,14 @@ namespace AIRSUPPORT.Components.Services
                     Terminationdate = CsvParsingHelper.ParseDate(row["Terminationdate"]?.ToString()),
                     ChurnValue = CsvParsingHelper.ParseDoubleDanish(row["ChurnValue"]?.ToString()),
                     ChurnReportedDate = CsvParsingHelper.ParseDate(row["ChurnReportedDate"]?.ToString()),
+                    ChurnDate = CsvParsingHelper.ParseDate(row["ChurnDate"]?.ToString()),                    // NYT
+                    Avoidable = CsvParsingHelper.ParseAvoidable(row["Avoidable"]?.ToString()),                 // NYT
                     ChurnReason = CsvParsingHelper.CleanNullText(row["ChurnReason"]?.ToString()),
                     BlockedDate = CsvParsingHelper.ParseDate(row["BlockedDate"]?.ToString()),
+                    CombinedReason = CsvParsingHelper.CleanNullText(row["CombinedReason"]?.ToString()),        // NYT
                     BlockedReason = CsvParsingHelper.CleanNullText(row["BlockedReason"]?.ToString()),
+                    Region = CsvParsingHelper.CleanNullText(row["Region"]?.ToString()),                        // NYT
+                    Tier = CsvParsingHelper.ParseNullableInt(row["Tier"]?.ToString()),                          // NYT
                     Country = CsvParsingHelper.CleanNullText(row["Country"]?.ToString()),
                     Balance = CsvParsingHelper.ParseDouble(row["Balance"]?.ToString()),
                     FleetSize = CsvParsingHelper.ParseInt(row["FleetSize"]?.ToString()),
