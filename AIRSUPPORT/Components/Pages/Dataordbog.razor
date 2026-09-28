@@ -1,0 +1,81 @@
+@page "/dataordbog"
+
+<PageTitle>Dataordbog</PageTitle>
+
+<h1>Dataordbog</h1>
+<p>
+    Kort forklaring af kolonnerne i <code>MasterCustomer</code> (kundeniveau) og <code>MasterLine</code>
+    (fakturalinje-niveau) — særligt de omdøbte, sammenlagte eller udledte felter, som ikke er
+    selvforklarende ud fra navnet alene.
+</p>
+
+<h2>MasterCustomer (kundeniveau)</h2>
+<table class="table table-sm">
+    <thead>
+        <tr>
+            <th style="width:220px;">Kolonne</th>
+            <th>Betydning</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td><code>CustomerNr</code></td><td>Kundens overordnede nummer — NavCustomerNo, hvis den findes, ellers kundenummeret fra fakturadata.</td></tr>
+        <tr><td><code>NavCustomerNo</code></td><td>Kundenummer fra NAV specifikt.</td></tr>
+        <tr><td><code>CompanyName</code></td><td>Firmanavn, som registreret i LIME.</td></tr>
+        <tr><td><code>CustomerStatus</code></td><td>Kundens status i LIME (fx "Customer", "PotCust").</td></tr>
+        <tr><td><code>PriorityCustomer</code></td><td>Prioritetsscore for kunden.</td></tr>
+        <tr><td><code>TailsOnPPS</code>, <code>TailsFlightWatchTerrestrial</code>, <code>TailsFlightWatchSatellite</code>, <code>TailsNotamMonitoring</code></td><td>Antal fly ("tails") tilknyttet hver af Air Supports services.</td></tr>
+        <tr><td><code>CustomerSince</code></td><td>Dato kunden blev oprettet. Vises som "NewCustomersRegistered" i grafen over nye kunder pr. år på /statistik.</td></tr>
+        <tr><td><code>PriceEscalation</code></td><td>Aftalt årlig prisstigning i %.</td></tr>
+        <tr><td><code>ChurnValue</code></td><td>Churnens økonomiske værdi i kr. (hvis registreret).</td></tr>
+        <tr><td><code>ChurnDate</code></td><td>
+            <strong>Den samlede churn-dato.</strong> Udledt i SQL som den tidligste af Terminationdate/BlockedDate/ChurnReportedDate.
+            <em>BlockedDate tæller kun med, hvis kunden ikke har fået faktura efter blokeringen</em> — ellers regnes de stadig som aktive.
+            Er ChurnDate udfyldt, regnes kunden som churnet (se <code>IsChurned</code> i forretningsanalysen).
+        </td></tr>
+        <tr><td><code>Avoidable</code></td><td>Om churnen kunne være undgået (true) eller ej (false), for churnede kunder. Null hvis ikke relevant/ikke registreret.</td></tr>
+        <tr><td><code>CombinedReason</code></td><td>ChurnReason og BlockedReason slået sammen til én tekst (adskilt med " | ", hvis begge er udfyldt).</td></tr>
+        <tr><td><code>Region</code>, <code>Tier</code></td><td>Udpakket fra LIME's "Region + Tier"-felt (fx "EUR4" → Region="EUR", Tier=4).</td></tr>
+        <tr><td><code>Country</code></td><td>LIME's egen landeregistrering (fuldt navn). Bruges ikke i analyserne — brug <code>NavCountry</code> i stedet, som allerede er en ren kode.</td></tr>
+        <tr><td><code>Balance</code></td><td>Kundens aktuelle saldo.</td></tr>
+        <tr><td><code>FleetSize</code></td><td>Antal fly i kundens flåde.</td></tr>
+        <tr><td><code>Last12Months</code>, <code>YearToDate</code>, <code>LastYearToDate</code>, <code>LastFinancialYear</code></td><td>Omsætningstal fra LIME's egen turnover-rapportering (uafhængig af NAV-baserede Turnover2017-2026).</td></tr>
+        <tr><td><code>NavCustomerName</code></td><td>Kundenavn fra NAV.</td></tr>
+        <tr><td><code>NavCountry</code></td><td><strong>Ren landekode</strong> fra NAV (fx "DK", "DE"). Brug denne til landeanalyser.</td></tr>
+        <tr><td><code>NavBlocked</code></td><td>Blokeringsstatus-kode fra NAV (NAV's eget option-felt, ikke det samme som ChurnDate/BlockedDate).</td></tr>
+        <tr><td><code>Turnover2017</code> … <code>Turnover2026</code></td><td>Kundens årlige omsætning i DKK, beregnet ud fra NAV-fakturadata. 2026 er et ufuldstændigt år.</td></tr>
+        <tr><td><code>Dev1718</code> … <code>Dev2526</code></td><td>Udvikling i % fra ét år til det næste (fx Dev2324 = udvikling fra 2023 til 2024).</td></tr>
+    </tbody>
+</table>
+
+<h2>MasterLine (fakturalinje-niveau)</h2>
+<table class="table table-sm">
+    <thead>
+        <tr>
+            <th style="width:220px;">Kolonne</th>
+            <th>Betydning</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td><code>CustomerNr</code></td><td>Kundenummer (samme som i MasterCustomer — bruges til at koble de to tabeller sammen).</td></tr>
+        <tr><td><code>SellToCustomerNo</code>, <code>BillToCustomerNo</code></td><td>Sælg-til/faktureres-til kundenummer fra NAV.</td></tr>
+        <tr><td><code>DocumentNo</code></td><td>Fakturanummer.</td></tr>
+        <tr><td><code>LineNo</code></td><td>Linjenummer på fakturaen.</td></tr>
+        <tr><td><code>Type</code></td><td>NAV's linjetype-kode. Altid 2 (vare) i vores data, da vi har filtreret på det i SQL.</td></tr>
+        <tr><td><code>ItemNr</code></td><td>Varenummer.</td></tr>
+        <tr><td><code>Description</code>, <code>Description2</code></td><td>Varebeskrivelse.</td></tr>
+        <tr><td><code>Quantity</code></td><td>Antal enheder på linjen.</td></tr>
+        <tr><td><code>UnitPrice</code></td><td>Enhedspris i fakturaens valuta. Renset for tre dummy-værdier (99.999 / 999.999 / 999.999.999), som nu er sat til 0.</td></tr>
+        <tr><td><code>UnitPriceLCY</code></td><td>Enhedspris omregnet til DKK.</td></tr>
+        <tr><td><code>Amount</code></td><td>Beløb i fakturaens valuta.</td></tr>
+        <tr><td><code>Currency</code></td><td>Valutakode ("LCY" = DKK).</td></tr>
+        <tr><td><code>CurrencyFactor</code></td><td>Kurs brugt til at omregne beløbet til DKK.</td></tr>
+        <tr><td><code>AmountLCY</code></td><td><strong>Beløb omregnet til DKK</strong> — brug denne, når I skal sammenligne på tværs af valutaer (fx i omsætningstrenden).</td></tr>
+        <tr><td><code>AmountInclVAT</code></td><td>Beløb inklusiv moms.</td></tr>
+        <tr><td><code>VATPercent</code></td><td>Momssats i %.</td></tr>
+        <tr><td><code>PostingGroupUpdated</code></td><td>Varekategori/posting group — renset og opdateret via opslag i Item- og Inventory Posting Group-tabellerne (dækker gamle/forældede koder).</td></tr>
+        <tr><td><code>GenProdPostingGroup</code>, <code>VATBusPostingGroup</code></td><td>NAV's egne bogføringsgruppe-koder (ikke renset).</td></tr>
+        <tr><td><code>SalesType</code></td><td>Salgstype-kode (fx SUB, NEW, UPS).</td></tr>
+        <tr><td><code>PostingDate</code></td><td>Bogføringsdato for linjen.</td></tr>
+        <tr><td><code>NavCustomerNo</code></td><td>Kundenummer fra NAV (samme som på kundetabellen).</td></tr>
+    </tbody>
+</table>

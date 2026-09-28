@@ -1,7 +1,49 @@
-﻿@page "/"
+@page "/"
+@using AIRSUPPORT.Components.Services
 
-<PageTitle>Home</PageTitle>
+<PageTitle>AIRSUPPORT</PageTitle>
 
-<h1>Hello, world!</h1>
+<h1>AIRSUPPORT — Kunde- og omsætningsanalyse</h1>
+<p>Oversigt over jeres nøgletal, baseret på master_customers og master_lines.</p>
 
-Welcome to your new app.
+<div style="display:flex; gap:24px; flex-wrap:wrap; margin:24px 0;">
+    <div style="background:#f4f3f1; border-radius:8px; padding:20px 28px; min-width:200px;">
+        <div style="font-size:14px; color:#52514e;">Antal kunder</div>
+        <div style="font-size:32px; font-weight:bold;">@totalCustomers</div>
+    </div>
+
+    <div style="background:#f4f3f1; border-radius:8px; padding:20px 28px; min-width:200px;">
+        <div style="font-size:14px; color:#52514e;">Omsætning 2025 (sidste fulde år)</div>
+        <div style="font-size:32px; font-weight:bold;">@totalRevenue2025.ToString("N0") kr.</div>
+    </div>
+
+    <div style="background:#f4f3f1; border-radius:8px; padding:20px 28px; min-width:200px;">
+        <div style="font-size:14px; color:#52514e;">Churn-rate</div>
+        <div style="font-size:32px; font-weight:bold;">@churnRate.ToString("P1")</div>
+        <div style="font-size:13px; color:#52514e;">@churnedCount ud af @totalCustomers kunder</div>
+    </div>
+</div>
+
+<h2>Gå videre til</h2>
+<ul>
+    <li><a href="/statistik">Statistik</a> — deskriptive mål, frekvenstabeller og histogrammer for alle kolonner</li>
+    <li><a href="/forretningsanalyse">Forretningsanalyse</a> — omsætningstrend og churn-analyse</li>
+    <li><a href="/dataordbog">Dataordbog</a> — hvad de enkelte kolonner betyder</li>
+</ul>
+
+@code {
+    private int totalCustomers;
+    private double totalRevenue2025;
+    private int churnedCount;
+    private double churnRate;
+
+    protected override void OnInitialized()
+    {
+        var customers = new MasterDataService().LoadCustomers();
+
+        totalCustomers = customers.Count;
+        totalRevenue2025 = customers.Sum(c => c.Turnover2025);
+        churnedCount = customers.Count(c => c.ChurnDate.HasValue);
+        churnRate = totalCustomers == 0 ? 0 : (double)churnedCount / totalCustomers;
+    }
+}

@@ -437,7 +437,6 @@ else
         var customerCategoricalColumns = new List<(string Label, List<string?> Values)>
         {
             ("CustomerStatus", customers.Select(c => c.CustomerStatus).ToList()),
-            ("Country", customers.Select(c => c.Country).ToList()),
             ("NavCountry", customers.Select(c => c.NavCountry).ToList()),
             ("CombinedReason", customers.Select(c => c.CombinedReason).ToList()),
         };
@@ -466,7 +465,7 @@ else
         // Datofelter: datointerval + fordeling pr. år for hver kolonne
         var customerDateColumns = new List<(string Label, List<DateTime?> Values)>
         {
-            ("CustomerSince", customers.Select(c => c.CustomerSince).ToList()),
+            ("NewCustomersRegistered", customers.Select(c => c.CustomerSince).ToList()),
             ("ChurnDate", customers.Select(c => c.ChurnDate).ToList()),
         };
 
