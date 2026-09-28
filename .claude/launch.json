@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "airsupport-web",
+      "runtimeExecutable": "dotnet",
+      "runtimeArgs": ["run", "--project", "AIRSUPPORT", "--launch-profile", "http"],
+      "port": 5001
+    }
+  ]
+}

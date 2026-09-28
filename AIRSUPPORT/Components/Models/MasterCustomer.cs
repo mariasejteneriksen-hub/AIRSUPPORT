@@ -13,15 +13,10 @@ namespace AIRSUPPORT.Components.Models
         public double TailsNotamMonitoring { get; set; }
         public DateTime? CustomerSince { get; set; }
         public decimal? PriceEscalation { get; set; }
-        public DateTime? Terminationdate { get; set; }
         public double? ChurnValue { get; set; }
-        public DateTime? ChurnReportedDate { get; set; }
-        public DateTime? ChurnDate { get; set; }          // NYT
+        public DateTime? ChurnDate { get; set; }          // NYT — erstatter Terminationdate/ChurnReportedDate/BlockedDate
         public bool? Avoidable { get; set; }               // NYT
-        public string? ChurnReason { get; set; }
-        public DateTime? BlockedDate { get; set; }
-        public string? CombinedReason { get; set; }         // NYT
-        public string? BlockedReason { get; set; }
+        public string? CombinedReason { get; set; }         // NYT — erstatter ChurnReason/BlockedReason
         public string? Region { get; set; }                 // NYT
         public int? Tier { get; set; }                       // NYT
         public string? Country { get; set; }

@@ -45,9 +45,13 @@ else
 
     <h1>Churn-analyse</h1>
     <p><em>
-        En kunde regnes som churnet, hvis mindst ét af følgende er udfyldt: Terminationdate,
-        ChurnReportedDate eller ChurnReason. Sammenligningerne bruger Turnover2025 (sidste fulde år)
-        i stedet for 2024/2026, for at undgå at et ufuldstændigt år forvrider billedet.
+        En kunde regnes som churnet, hvis ChurnDate er udfyldt (den tidligste af Terminationdate/
+        BlockedDate/ChurnReportedDate — udledt i SQL). Det er den eneste definition af "churnet", der
+        bruges i denne analyse, både her og i churn-rate-pr.-år nedenfor. <strong>Bemærk:</strong> fordi
+        BlockedDate indgår, tæller en kunde, der kun er midlertidigt blokeret (men ikke opsagt), også som
+        churnet lige nu — det bør bekræftes med Air Support, om det er den rigtige definition, eller om
+        blokerede kunder skal udelades. Sammenligningerne bruger Turnover2025 (sidste fulde år) i stedet
+        for 2024/2026, for at undgå at et ufuldstændigt år forvrider billedet.
     </em></p>
     <p>
         <strong>@churnedCount</strong> ud af <strong>@(churnedCount + activeCount)</strong> kunder er churnet
@@ -69,9 +73,9 @@ else
 
     <h2>Churn-rate pr. år</h2>
     <p><em>
-        Andel af det pågældende års aktive kunder, der har en ChurnReportedDate i netop det år.
+        Andel af det pågældende års aktive kunder, der har en ChurnDate i netop det år.
         0% for 2017-2021 er ikke en fejl — det bekræfter blot det tidligere fund, at LIME først
-        begyndte at registrere ChurnReportedDate systematisk fra 2022 (se BILAG punkt H i SQL-dokumentationen).
+        begyndte at registrere churn-relaterede datoer systematisk fra 2022 (se BILAG punkt H i SQL-dokumentationen).
     </em></p>
     <div style="height:400px; max-width:900px;">
         <canvas id="churnRateCanvas"></canvas>
@@ -153,9 +157,14 @@ else
             previousTotal = total;
         }
 
-        // Churn-analyse: sammenlign churnede kunder mod aktive kunder på nøgletal
-        bool IsChurned(MasterCustomer c) =>
-            c.Terminationdate.HasValue || c.ChurnReportedDate.HasValue || !string.IsNullOrWhiteSpace(c.ChurnReason);
+        // Churn-analyse: sammenlign churnede kunder mod aktive kunder på nøgletal.
+        // Definitionen af "churnet" er ÉN kilde (ChurnDate), brugt både her og i churn-rate-pr.-år
+        // nedenfor — ellers kan de to steder i koden give forskellige svar på samme spørgsmål.
+        // ChurnDate = tidligste af Terminationdate/BlockedDate/ChurnReportedDate (se SQL-BILAG).
+        // OBS: det betyder at en kunde, der KUN er blokeret (BlockedDate), tæller som churnet her.
+        // Er det ikke meningen, skal ChurnDate-definitionen i SQL ændres (fjern BlockedDate) —
+        // det er en forretningsbeslutning, ikke noget koden kan afgøre.
+        bool IsChurned(MasterCustomer c) => c.ChurnDate.HasValue;
 
         var churnedCustomers = customers.Where(IsChurned).ToList();
         var activeCustomersList = customers.Where(c => !IsChurned(c)).ToList();
@@ -167,11 +176,13 @@ else
         double Avg(List<MasterCustomer> list, Func<MasterCustomer, double> selector) =>
             list.Count == 0 ? 0 : list.Average(selector);
 
+        // Bruger ChurnDate som slutdato for churnede kunder, i stedet for i dag — ellers ville
+        // tenure for en churnet kunde fortsætte med at vokse helt frem til i dag
         double AvgTenure(List<MasterCustomer> list)
         {
             var tenures = list
                 .Where(c => c.CustomerSince.HasValue)
-                .Select(c => (DateTime.Now - c.CustomerSince!.Value).TotalDays / 365.25)
+                .Select(c => ((c.ChurnDate ?? DateTime.Now) - c.CustomerSince!.Value).TotalDays / 365.25)
                 .ToList();
             return tenures.Count == 0 ? 0 : tenures.Average();
         }
@@ -181,15 +192,15 @@ else
             new() { MetricLabel = "FleetSize", ActiveAvg = Avg(activeCustomersList, c => c.FleetSize), ChurnedAvg = Avg(churnedCustomers, c => c.FleetSize) },
             new() { MetricLabel = "Turnover2025 (DKK)", ActiveAvg = Avg(activeCustomersList, c => c.Turnover2025), ChurnedAvg = Avg(churnedCustomers, c => c.Turnover2025) },
             new() { MetricLabel = "PriorityCustomer", ActiveAvg = Avg(activeCustomersList, c => c.PriorityCustomer), ChurnedAvg = Avg(churnedCustomers, c => c.PriorityCustomer) },
-            new() { MetricLabel = "CustomerTenureYears", ActiveAvg = AvgTenure(activeCustomersList), ChurnedAvg = AvgTenure(churnedCustomers) },
+            new() { MetricLabel = "CustomerLifetimeYears", ActiveAvg = AvgTenure(activeCustomersList), ChurnedAvg = AvgTenure(churnedCustomers) },
             new() { MetricLabel = "Balance (DKK)", ActiveAvg = Avg(activeCustomersList, c => c.Balance), ChurnedAvg = Avg(churnedCustomers, c => c.Balance) },
         };
 
-        // Churn-rate pr. år: andel af det pågældende års aktive kunder, der har ChurnReportedDate i det år
+        // Churn-rate pr. år: andel af det pågældende års aktive kunder, der har en ChurnDate i det år
         churnRateByYear = revenueTrend.Select(yearPoint =>
         {
             var year = int.Parse(yearPoint.Year);
-            var churnCountThisYear = customers.Count(c => c.ChurnReportedDate.HasValue && c.ChurnReportedDate.Value.Year == year);
+            var churnCountThisYear = customers.Count(c => c.ChurnDate.HasValue && c.ChurnDate.Value.Year == year);
             var rate = yearPoint.ActiveCustomers == 0 ? 0 : (double)churnCountThisYear / yearPoint.ActiveCustomers * 100;
 
             return new ChurnRatePoint

@@ -72,29 +72,6 @@ namespace AIRSUPPORT.Components.Services
 
             return 0;
         }
-        public static DateTime? GetEarliestDate(params DateTime?[] dates)
-        {
-            var validDates = dates.Where(d => d.HasValue).Select(d => d!.Value);
-            return validDates.Any() ? validDates.Min() : null;
-        }
-
-        public static string? CombineReasons(string? reason1, string? reason2)
-        {
-            var hasReason1 = !string.IsNullOrWhiteSpace(reason1);
-            var hasReason2 = !string.IsNullOrWhiteSpace(reason2);
-
-            if (hasReason1 && hasReason2)
-                return $"{reason1} | {reason2}"; // begge udfyldt: kombinér med en tydelig adskiller
-
-            if (hasReason1)
-                return reason1; // kun den ene
-
-            if (hasReason2)
-                return reason2; // kun den anden
-
-            return null; // ingen af dem
-        }
-
         public static int? ParseNullableInt(string? value)
         {
             if (int.TryParse(value, out var result))
@@ -118,10 +95,12 @@ namespace AIRSUPPORT.Components.Services
 
             var normalized = value.Trim().ToLower();
 
-            if (normalized == "avoidable")
+            // "avoidable"/"unavoidable" er den gamle rå LIME-tekst; "1"/"0" er SQL's BIT-kolonne
+            // (Avoidable i master_customers), som nu bliver eksporteret som tal i CSV'en
+            if (normalized == "avoidable" || normalized == "1" || normalized == "true")
                 return true;
 
-            if (normalized == "unavoidable")
+            if (normalized == "unavoidable" || normalized == "0" || normalized == "false")
                 return false;
 
             return null; // uventet værdi, sikrere at returnere null end at gætte forkert

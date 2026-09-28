@@ -42,17 +42,12 @@ namespace AIRSUPPORT.Components.Services
                     TailsNotamMonitoring = CsvParsingHelper.ParseDoubleDanish(row["TailsNotamMonitoring"]?.ToString()),
                     CustomerSince = CsvParsingHelper.ParseDate(row["CustomerSince"]?.ToString()),
                     PriceEscalation = CsvParsingHelper.ParseDecimal(row["PriceEscalation"]?.ToString()),
-                    Terminationdate = CsvParsingHelper.ParseDate(row["Terminationdate"]?.ToString()),
                     ChurnValue = CsvParsingHelper.ParseDoubleDanish(row["ChurnValue"]?.ToString()),
-                    ChurnReportedDate = CsvParsingHelper.ParseDate(row["ChurnReportedDate"]?.ToString()),
-                    ChurnDate = CsvParsingHelper.ParseDate(row["ChurnDate"]?.ToString()),                    // NYT
-                    Avoidable = CsvParsingHelper.ParseAvoidable(row["Avoidable"]?.ToString()),                 // NYT
-                    ChurnReason = CsvParsingHelper.CleanNullText(row["ChurnReason"]?.ToString()),
-                    BlockedDate = CsvParsingHelper.ParseDate(row["BlockedDate"]?.ToString()),
-                    CombinedReason = CsvParsingHelper.CleanNullText(row["CombinedReason"]?.ToString()),        // NYT
-                    BlockedReason = CsvParsingHelper.CleanNullText(row["BlockedReason"]?.ToString()),
-                    Region = CsvParsingHelper.CleanNullText(row["Region"]?.ToString()),                        // NYT
-                    Tier = CsvParsingHelper.ParseNullableInt(row["Tier"]?.ToString()),                          // NYT
+                    ChurnDate = CsvParsingHelper.ParseDate(GetValue(row, "ChurnDate")?.ToString()),                    // NYT — erstatter Terminationdate/ChurnReportedDate/BlockedDate
+                    Avoidable = CsvParsingHelper.ParseAvoidable(GetValue(row, "Avoidable")?.ToString()),               // NYT
+                    CombinedReason = CsvParsingHelper.CleanNullText(GetValue(row, "CombinedReason")?.ToString()),      // NYT — erstatter ChurnReason/BlockedReason
+                    Region = CsvParsingHelper.CleanNullText(GetValue(row, "Region")?.ToString()),                      // NYT — kolonnen findes endnu ikke i CustomerCSV1.csv
+                    Tier = CsvParsingHelper.ParseNullableInt(GetValue(row, "Tier")?.ToString()),                       // NYT — kolonnen findes endnu ikke i CustomerCSV1.csv
                     Country = CsvParsingHelper.CleanNullText(row["Country"]?.ToString()),
                     Balance = CsvParsingHelper.ParseDouble(row["Balance"]?.ToString()),
                     FleetSize = CsvParsingHelper.ParseInt(row["FleetSize"]?.ToString()),
@@ -138,5 +133,10 @@ namespace AIRSUPPORT.Components.Services
                 };
             }).ToList();
         }
+
+        // Læser en værdi ud, hvis kolonnen findes i CSV'en — ellers null i stedet for at crashe.
+        // Bruges til kolonner, som endnu ikke findes i den aktuelle eksport af CustomerCSV1.csv.
+        private static object? GetValue(IDictionary<string, object> row, string key) =>
+            row.ContainsKey(key) ? row[key] : null;
     }
 }

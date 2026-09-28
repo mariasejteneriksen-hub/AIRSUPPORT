@@ -111,7 +111,7 @@ else
     <h1>Datofelter</h1>
     <p><em>
         Middelværdi/median giver ikke mening for datoer — i stedet vises datointerval (tidligste/seneste),
-        antal manglende, og en fordeling pr. år. "CustomerTenureYears" (antal år som kunde, udledt af
+        antal manglende, og en fordeling pr. år. "CustomerLifetimeYears" (antal år som kunde, udledt af
         CustomerSince) er tilføjet som numerisk kolonne i MasterCustomer-tabellerne/histogrammerne ovenfor.
     </em></p>
 
@@ -382,8 +382,10 @@ else
             ("Dev2324 (%)", customers.Where(c => c.Dev2324.HasValue).Select(c => (double)c.Dev2324!.Value).ToList()),
             ("Dev2425 (%)", customers.Where(c => c.Dev2425.HasValue).Select(c => (double)c.Dev2425!.Value).ToList()),
             ("Dev2526 (%)", customers.Where(c => c.Dev2526.HasValue).Select(c => (double)c.Dev2526!.Value).ToList()),
-            ("CustomerTenureYears", customers.Where(c => c.CustomerSince.HasValue)
-                .Select(c => (DateTime.Now - c.CustomerSince!.Value).TotalDays / 365.25).ToList()),
+            // Bruger ChurnDate som slutdato for churnede kunder, i stedet for i dag — ellers ville
+            // tenure for en kunde, der churnede i 2022, fortsætte med at vokse helt frem til i dag
+            ("CustomerLifetimeYears", customers.Where(c => c.CustomerSince.HasValue)
+                .Select(c => ((c.ChurnDate ?? DateTime.Now) - c.CustomerSince!.Value).TotalDays / 365.25).ToList()),
         };
 
         var lineColumns = new List<(string Label, List<double> Values)>
@@ -437,8 +439,7 @@ else
             ("CustomerStatus", customers.Select(c => c.CustomerStatus).ToList()),
             ("Country", customers.Select(c => c.Country).ToList()),
             ("NavCountry", customers.Select(c => c.NavCountry).ToList()),
-            ("ChurnReason", customers.Select(c => c.ChurnReason).ToList()),
-            ("BlockedReason", customers.Select(c => c.BlockedReason).ToList()),
+            ("CombinedReason", customers.Select(c => c.CombinedReason).ToList()),
         };
 
         var lineCategoricalColumns = new List<(string Label, List<string?> Values)>
@@ -466,9 +467,7 @@ else
         var customerDateColumns = new List<(string Label, List<DateTime?> Values)>
         {
             ("CustomerSince", customers.Select(c => c.CustomerSince).ToList()),
-            ("Terminationdate", customers.Select(c => c.Terminationdate).ToList()),
-            ("ChurnReportedDate", customers.Select(c => c.ChurnReportedDate).ToList()),
-            ("BlockedDate", customers.Select(c => c.BlockedDate).ToList()),
+            ("ChurnDate", customers.Select(c => c.ChurnDate).ToList()),
         };
 
         var lineDateColumns = new List<(string Label, List<DateTime?> Values)>
@@ -638,7 +637,7 @@ else
     }
 
     // Mode() kan i praksis returnere rigtig mange "tied" værdier for næsten-kontinuerte tal
-    // (fx CustomerTenureYears, hvor mange kunder tilfældigvis deler præcis samme værdi) —
+    // (fx CustomerLifetimeYears, hvor mange kunder tilfældigvis deler præcis samme værdi) —
     // her begrænses visningen, så tabellen ikke bliver oversvømmet af én kolonnes typetal.
     private static string FormatMode(List<double> mode)
     {
