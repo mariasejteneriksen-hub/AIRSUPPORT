@@ -141,5 +141,51 @@ namespace AIRSUPPORT.Components.Services
 
             return result;
         }
+
+        // Pearsons korrelationskoefficient (r) mellem to variable
+        // Værdier parres på index — kald ParisedValues() først for at fjerne rækker, hvor én af de to mangler.
+        // Returnerer et tal mellem -1 (perfekt negativ) og 1 (perfekt positiv). 0 = ingen lineær sammenhæng.
+        public double PearsonCorrelation(List<double> x, List<double> y)
+        {
+            if (x.Count != y.Count || x.Count < 2)
+                return 0;
+
+            var meanX = Mean(x);
+            var meanY = Mean(y);
+
+            double covariance = 0, varX = 0, varY = 0;
+            for (var i = 0; i < x.Count; i++)
+            {
+                var dx = x[i] - meanX;
+                var dy = y[i] - meanY;
+                covariance += dx * dy;
+                varX += dx * dx;
+                varY += dy * dy;
+            }
+
+            if (varX == 0 || varY == 0)
+                return 0; // ingen variation i den ene variabel — korrelation er udefineret, vi returnerer 0
+
+            return covariance / Math.Sqrt(varX * varY);
+        }
+
+        // Parrer to lister af nullable-værdier på index og beholder kun de rækker, hvor begge er udfyldt —
+        // nødvendigt fordi Pearson-korrelation kræver lige lange lister uden huller.
+        public (List<double> X, List<double> Y) PairedValues(List<double?> x, List<double?> y)
+        {
+            var pairedX = new List<double>();
+            var pairedY = new List<double>();
+
+            for (var i = 0; i < Math.Min(x.Count, y.Count); i++)
+            {
+                if (x[i].HasValue && y[i].HasValue)
+                {
+                    pairedX.Add(x[i]!.Value);
+                    pairedY.Add(y[i]!.Value);
+                }
+            }
+
+            return (pairedX, pairedY);
+        }
     }
 }

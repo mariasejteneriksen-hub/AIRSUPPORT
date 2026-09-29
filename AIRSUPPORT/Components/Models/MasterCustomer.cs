@@ -48,5 +48,52 @@ namespace AIRSUPPORT.Components.Models
         public int? Dev2324 { get; set; }
         public int? Dev2425 { get; set; }
         public int? Dev2526 { get; set; }
+
+        // RFM-features, udledt af fakturalinjerne (master_lines) i SQL og gemt som rigtige
+        // kolonner på master_customers — se dataordbogen for definitionerne.
+        public int? DaysSinceLastInvoice { get; set; }
+        public int? InvoiceCount { get; set; }
+        public double? AvgDaysBetweenInvoices { get; set; }
+        public int? InvoiceCountLast6M { get; set; }
+        public int? InvoiceCountPrev6M { get; set; }
+        public int? PPSInvoiceCount { get; set; }
+        public int? OCInvoiceCount { get; set; }
+        public int? ActiveProgramCount { get; set; }
+        public double? AvgLineAmount { get; set; }
+
+        // Udledte egenskaber (beregnes ikke fra CSV, men ud fra felterne ovenfor) —
+        // samlet ét sted, så Statistik/Forretningsanalyse/Korrelation bruger nøjagtig samme formel.
+
+        // Antal år som kunde. Bruger ChurnDate som slutdato for churnede kunder i stedet for i dag —
+        // ellers ville tenure for en kunde, der churnede i fx 2022, fortsætte med at vokse frem til i dag.
+        public double? LifetimeYears =>
+            CustomerSince.HasValue
+                ? ((ChurnDate ?? DateTime.Now) - CustomerSince.Value).TotalDays / 365.25
+                : null;
+
+        // Gennemsnitlig årlig omsætning. Bruger kun de 9 fulde år (2017-2025) — Turnover2026 er et
+        // ufuldstændigt år og holdes udenfor. Nævneren er MIN(LifetimeYears, 9): nye kunder deles med
+        // deres faktiske levetid, mens kunder fra før 2017 cappes ved 9, da det er den periode, vi har data for.
+        public double? AverageTurnover
+        {
+            get
+            {
+                if (LifetimeYears is not double lifetime || lifetime <= 0)
+                    return null;
+
+                var sum = Turnover2017 + Turnover2018 + Turnover2019 + Turnover2020 + Turnover2021
+                        + Turnover2022 + Turnover2023 + Turnover2024 + Turnover2025;
+
+                return sum / Math.Min(lifetime, 9.0);
+            }
+        }
+
+        // Faktureringstrend: positiv = flere fakturaer for nylig end tidligere, negativ = færre (advarselstegn).
+        // Erstatter InvoiceCountLast6M/InvoiceCountPrev6M som model-input — de to rå tal korrelerer stærkt
+        // (r=0,90), fordi de fleste kunder er stabile, men differencen fanger netop de kunder, der ikke er.
+        public int? InvoiceTrend =>
+            InvoiceCountLast6M.HasValue && InvoiceCountPrev6M.HasValue
+                ? InvoiceCountLast6M - InvoiceCountPrev6M
+                : null;
     }
 }

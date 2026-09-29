@@ -44,8 +44,42 @@
         <tr><td><code>NavBlocked</code></td><td>Blokeringsstatus-kode fra NAV (NAV's eget option-felt, ikke det samme som ChurnDate/BlockedDate).</td></tr>
         <tr><td><code>Turnover2017</code> … <code>Turnover2026</code></td><td>Kundens årlige omsætning i DKK, beregnet ud fra NAV-fakturadata. 2026 er et ufuldstændigt år.</td></tr>
         <tr><td><code>Dev1718</code> … <code>Dev2526</code></td><td>Udvikling i % fra ét år til det næste (fx Dev2324 = udvikling fra 2023 til 2024).</td></tr>
+        <tr><td><code>LifetimeYears</code></td><td>
+            <strong>Udledt, ikke i CSV'en.</strong> Antal år som kunde: <code>(ChurnDate ?? i dag) − CustomerSince</code>.
+            Bruger ChurnDate som slutdato for churnede kunder, så beregningen stopper det år, kunden stoppede, i stedet for at fortsætte frem til i dag.
+        </td></tr>
+        <tr><td><code>AverageTurnover</code></td><td>
+            <strong>Udledt, ikke i CSV'en.</strong> Gennemsnitlig årlig omsætning: summen af <code>Turnover2017</code>-<code>Turnover2025</code>
+            (kun de 9 fulde år — 2026 er udeladt, da det er ufuldstændigt) divideret med <code>MIN(LifetimeYears, 9)</code>.
+            Nye kunder deles med deres faktiske levetid; kunder fra før 2017 cappes ved 9 år, da det er den periode, vi har omsætningsdata for.
+        </td></tr>
+        <tr><td><code>DaysSinceLastInvoice</code></td><td>
+            <strong>RFM — Recency.</strong> Antal dage siden kundens seneste fakturalinje, regnet frem til <code>ChurnDate</code> (for churnede)
+            eller datasættets seneste kendte fakturadato (for aktive). Et af de stærkeste churn-signaler.
+        </td></tr>
+        <tr><td><code>InvoiceCount</code></td><td><strong>RFM — Frequency.</strong> Antal unikke fakturaer (<code>Document No_</code>) i alt for kunden.</td></tr>
+        <tr><td><code>AvgDaysBetweenInvoices</code></td><td><strong>RFM — Frequency.</strong> Gennemsnitligt antal dage mellem kundens fakturaer.</td></tr>
+        <tr><td><code>InvoiceCountLast6M</code>, <code>InvoiceCountPrev6M</code></td><td>
+            Antal fakturaer i de seneste 6 måneder op til referencedatoen, hhv. de 6 måneder før det igen. Bruges ikke direkte som
+            model-input (se <code>InvoiceTrend</code>) — de to tal korrelerer for stærkt med hinanden (r=0,90) til at stå som separate prædiktorer.
+        </td></tr>
+        <tr><td><code>InvoiceTrend</code></td><td>
+            <strong>Udledt, ikke i CSV'en.</strong> <code>InvoiceCountLast6M − InvoiceCountPrev6M</code>. Positiv = flere fakturaer for nylig
+            end tidligere, negativ = færre (advarselstegn om faldende aktivitet). Erstatter de to rå tal som model-input.
+        </td></tr>
+        <tr><td><code>PPSInvoiceCount</code>, <code>OCInvoiceCount</code></td><td>Antal fakturalinjer for hhv. PPS- og OC-programmet (ud fra <code>PostingGroupUpdated</code>).</td></tr>
+        <tr><td><code>ActiveProgramCount</code></td><td>Antal forskellige produkttyper (<code>PostingGroupUpdated</code>), kunden har faktureret for.</td></tr>
+        <tr><td><code>AvgLineAmount</code></td><td>Gennemsnitlig beløbsstørrelse pr. fakturalinje (<code>AmountLCY</code>).</td></tr>
     </tbody>
 </table>
+
+<h2>Om korrelations- og modeludvælgelsen</h2>
+<p>
+    På <a href="/korrelation">korrelationssiden</a> er <code>ChurnValue</code> bevidst udeladt — den er kun udfyldt for churnede
+    kunder og ville "snyde" en model (data leakage). De fire LIME-omsætningsmål (<code>Last12Months</code>, <code>YearToDate</code>,
+    <code>LastYearToDate</code>, <code>LastFinancialYear</code>) er også udeladt: de har kun ca. 40% datadækning, mod
+    <code>AverageTurnover</code>s ca. 70%, så <code>AverageTurnover</code> bruges i stedet som det primære omsætningsmål.
+</p>
 
 <h2>MasterLine (fakturalinje-niveau)</h2>
 <table class="table table-sm">

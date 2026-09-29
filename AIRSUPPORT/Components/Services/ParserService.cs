@@ -27,7 +27,9 @@ namespace AIRSUPPORT.Components.Services
 
         public static int ParseInt(string? value)
         {
-            if (int.TryParse(value, out var result))
+            // Fjerner tusind-separator (punktum), samme problem som ParseDoubleDanish løser for decimaltal —
+            // store heltal (fx DaysSinceLastInvoice) kan komme ud af SSMS-eksport som "1.234"
+            if (int.TryParse(value?.Replace(".", ""), out var result))
                 return result;
             return 0;
         }
@@ -74,7 +76,7 @@ namespace AIRSUPPORT.Components.Services
         }
         public static int? ParseNullableInt(string? value)
         {
-            if (int.TryParse(value, out var result))
+            if (int.TryParse(value?.Replace(".", ""), out var result))
                 return result;
             return null;
         }

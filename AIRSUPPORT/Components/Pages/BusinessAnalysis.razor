@@ -176,13 +176,13 @@ else
         double Avg(List<MasterCustomer> list, Func<MasterCustomer, double> selector) =>
             list.Count == 0 ? 0 : list.Average(selector);
 
-        // Bruger ChurnDate som slutdato for churnede kunder, i stedet for i dag — ellers ville
-        // tenure for en churnet kunde fortsætte med at vokse helt frem til i dag
+        // LifetimeYears er en udledt egenskab på MasterCustomer (bruger ChurnDate som slutdato for
+        // churnede kunder i stedet for i dag) — se MasterCustomer.cs for definitionen.
         double AvgTenure(List<MasterCustomer> list)
         {
             var tenures = list
-                .Where(c => c.CustomerSince.HasValue)
-                .Select(c => ((c.ChurnDate ?? DateTime.Now) - c.CustomerSince!.Value).TotalDays / 365.25)
+                .Where(c => c.LifetimeYears.HasValue)
+                .Select(c => c.LifetimeYears!.Value)
                 .ToList();
             return tenures.Count == 0 ? 0 : tenures.Average();
         }

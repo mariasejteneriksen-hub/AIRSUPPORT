@@ -382,10 +382,10 @@ else
             ("Dev2324 (%)", customers.Where(c => c.Dev2324.HasValue).Select(c => (double)c.Dev2324!.Value).ToList()),
             ("Dev2425 (%)", customers.Where(c => c.Dev2425.HasValue).Select(c => (double)c.Dev2425!.Value).ToList()),
             ("Dev2526 (%)", customers.Where(c => c.Dev2526.HasValue).Select(c => (double)c.Dev2526!.Value).ToList()),
-            // Bruger ChurnDate som slutdato for churnede kunder, i stedet for i dag — ellers ville
-            // tenure for en kunde, der churnede i 2022, fortsætte med at vokse helt frem til i dag
-            ("CustomerLifetimeYears", customers.Where(c => c.CustomerSince.HasValue)
-                .Select(c => ((c.ChurnDate ?? DateTime.Now) - c.CustomerSince!.Value).TotalDays / 365.25).ToList()),
+            // LifetimeYears er en udledt egenskab på MasterCustomer (bruger ChurnDate som slutdato for
+            // churnede kunder i stedet for i dag) — se MasterCustomer.cs for definitionen.
+            ("CustomerLifetimeYears", customers.Where(c => c.LifetimeYears.HasValue)
+                .Select(c => c.LifetimeYears!.Value).ToList()),
         };
 
         var lineColumns = new List<(string Label, List<double> Values)>

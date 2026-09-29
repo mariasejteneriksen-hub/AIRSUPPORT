@@ -1,0 +1,203 @@
+@page "/korrelation"
+@rendermode InteractiveServer
+@using AIRSUPPORT.Components.Models
+@using AIRSUPPORT.Components.Services
+@using System.Globalization
+
+<PageTitle>Korrelation</PageTitle>
+
+@if (customers == null)
+{
+    <p><em>Indlæser...</em></p>
+}
+else
+{
+    <h1>Korrelationsmatrix</h1>
+    <p>
+        Viser Pearsons korrelationskoefficient (r) mellem de numeriske kundevariable, parvis. r går fra
+        -1 (perfekt negativ sammenhæng) til 1 (perfekt positiv sammenhæng) — 0 betyder ingen lineær
+        sammenhæng. Formålet er at spotte variable, der reelt måler det samme (fx flere omsætningsmål),
+        så vi ikke fodrer en model med redundante/stærkt korrelerede variable.
+    </p>
+    <p>
+        <strong>Blå</strong> = positiv sammenhæng, <strong>rød</strong> = negativ sammenhæng. Jo kraftigere
+        farve, jo stærkere sammenhæng. Diagonalen (r = 1,00) er en variabels korrelation med sig selv.
+        Se <a href="/dataordbog">dataordbogen</a> for forklaring af de udledte kolonner, herunder
+        RFM-features (<code>DaysSinceLastInvoice</code>, <code>InvoiceCount</code> m.fl.), som er bygget
+        af fakturalinjerne. <code>ChurnValue</code> og de fire LIME-omsætningsmål (<code>Last12Months</code>
+        m.fl.) er bevidst udeladt her — se forklaring i dataordbogen.
+    </p>
+
+    <div style="overflow-x:auto;">
+        <table class="table table-sm table-bordered" style="text-align:center;">
+            <thead>
+                <tr>
+                    <th></th>
+                    @foreach (var col in variables)
+                    {
+                        <th style="writing-mode:vertical-rl; transform:rotate(180deg); white-space:nowrap; padding:6px 4px;">@col.Label</th>
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var row in variables)
+                {
+                    <tr>
+                        <th style="white-space:nowrap; text-align:left;">@row.Label</th>
+                        @foreach (var col in variables)
+                        {
+                            var r = matrix[(row.Label, col.Label)];
+                            <td style="background-color:@CellColor(r); padding:6px 8px;">@r.ToString("0.00")</td>
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <h2>Stærkeste sammenhænge (|r| ≥ 0,70)</h2>
+    @if (strongPairs.Count == 0)
+    {
+        <p><em>Ingen variabelpar med |r| ≥ 0,70.</em></p>
+    }
+    else
+    {
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    <th>Variabel A</th>
+                    <th>Variabel B</th>
+                    <th>r</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var pair in strongPairs)
+                {
+                    <tr>
+                        <td>@pair.A</td>
+                        <td>@pair.B</td>
+                        <td>@pair.R.ToString("0.00")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <p><em>Disse par bør overvejes reduceret til én variabel, før vi vælger prædiktorer til en model.</em></p>
+    }
+
+    <h2>Eksportér til R</h2>
+    <p>
+        Genererer <code>ModelFeatures.csv</code> med <code>CustomerNr</code>, <code>IsChurned</code> (target, 0/1)
+        og de @variables.Count prædiktorvariable ovenfor — klar til at importere i R (kommasepareret,
+        punktum som decimaltegn: <code>read.csv("ModelFeatures.csv")</code>).
+    </p>
+    <button class="btn btn-primary" @onclick="ExportModelFeatures">Eksportér model-CSV</button>
+    @if (exportMessage != null)
+    {
+        <p><em>@exportMessage</em></p>
+    }
+}
+
+@code {
+    private List<MasterCustomer>? customers;
+    private List<(string Label, Func<MasterCustomer, double?> Selector)> variables = new();
+    private Dictionary<(string, string), double> matrix = new();
+    private List<(string A, string B, double R)> strongPairs = new();
+
+    protected override void OnInitialized()
+    {
+        customers = new MasterDataService().LoadCustomers();
+
+        variables = new List<(string, Func<MasterCustomer, double?>)>
+        {
+            ("FleetSize", c => c.FleetSize),
+            ("PriorityCustomer", c => c.PriorityCustomer),
+            ("Balance", c => c.Balance),
+            ("LifetimeYears", c => c.LifetimeYears),
+            ("AverageTurnover", c => c.AverageTurnover),
+            ("TailsOnPPS", c => c.TailsOnPPS),
+            ("TailsFlightWatchTerrestrial", c => c.TailsFlightWatchTerrestrial),
+            ("TailsFlightWatchSatellite", c => c.TailsFlightWatchSatellite),
+            ("TailsNotamMonitoring", c => c.TailsNotamMonitoring),
+            // RFM-features (Recency/Frequency) — udledt af fakturalinjerne
+            // InvoiceCount er bevidst udeladt — den korrelerer for stærkt med PPSInvoiceCount (r=0,73),
+            // og PPS/OC-opdelingen er mere informativ end det samlede tal.
+            ("DaysSinceLastInvoice", c => c.DaysSinceLastInvoice),
+            ("AvgDaysBetweenInvoices", c => c.AvgDaysBetweenInvoices),
+            ("InvoiceTrend", c => c.InvoiceTrend),
+            ("PPSInvoiceCount", c => c.PPSInvoiceCount),
+            ("OCInvoiceCount", c => c.OCInvoiceCount),
+            ("ActiveProgramCount", c => c.ActiveProgramCount),
+            ("AvgLineAmount", c => c.AvgLineAmount),
+        };
+
+        var stats = new StatisticsService();
+
+        // Beregn hver variabels værdier for alle kunder én gang (null bevares — fjernes parvist nedenfor)
+        var values = variables.ToDictionary(v => v.Label, v => customers.Select(v.Selector).ToList());
+
+        matrix = new Dictionary<(string, string), double>();
+        strongPairs = new List<(string, string, double)>();
+
+        foreach (var rowVar in variables)
+        {
+            foreach (var colVar in variables)
+            {
+                if (rowVar.Label == colVar.Label)
+                {
+                    matrix[(rowVar.Label, colVar.Label)] = 1.0;
+                    continue;
+                }
+
+                var (x, y) = stats.PairedValues(values[rowVar.Label], values[colVar.Label]);
+                var r = stats.PearsonCorrelation(x, y);
+                matrix[(rowVar.Label, colVar.Label)] = r;
+            }
+        }
+
+        // Find stærke par (kun én gang pr. par, ikke A-B og B-A begge)
+        for (var i = 0; i < variables.Count; i++)
+        {
+            for (var j = i + 1; j < variables.Count; j++)
+            {
+                var r = matrix[(variables[i].Label, variables[j].Label)];
+                if (Math.Abs(r) >= 0.70)
+                    strongPairs.Add((variables[i].Label, variables[j].Label, r));
+            }
+        }
+        strongPairs = strongPairs.OrderByDescending(p => Math.Abs(p.R)).ToList();
+    }
+
+    // Blå = positiv, rød = negativ. Alpha (styrke) skalerer med |r|.
+    private string CellColor(double r)
+    {
+        var alpha = Math.Abs(r).ToString("0.00", System.Globalization.CultureInfo.InvariantCulture);
+        return r >= 0
+            ? $"rgba(37, 99, 235, {alpha})"
+            : $"rgba(220, 38, 38, {alpha})";
+    }
+
+    private string? exportMessage;
+
+    // Eksporterer CustomerNr + IsChurned (target) + det curated prædiktorsæt til en ny CSV,
+    // klar til R. Rører ikke ved CustomerCSV1.csv/FakturaCSV1.csv — helt separat fil.
+    private void ExportModelFeatures()
+    {
+        var culture = CultureInfo.InvariantCulture;
+        string Fmt(double? v) => v.HasValue ? v.Value.ToString(culture) : "";
+
+        var lines = new List<string>
+        {
+            "CustomerNr,IsChurned," + string.Join(",", variables.Select(v => v.Label))
+        };
+
+        foreach (var c in customers!)
+        {
+            var isChurned = c.ChurnDate.HasValue ? 1 : 0;
+            var values = variables.Select(v => v.Selector(c)).Select(Fmt);
+            lines.Add($"{c.CustomerNr},{isChurned}," + string.Join(",", values));
+        }
+
+        File.WriteAllLines("wwwroot/Data/ModelFeatures.csv", lines);
+        exportMessage = $"Eksporteret {customers!.Count} rækker ({DateTime.Now:HH:mm:ss}) til wwwroot/Data/ModelFeatures.csv";
+    }
+}

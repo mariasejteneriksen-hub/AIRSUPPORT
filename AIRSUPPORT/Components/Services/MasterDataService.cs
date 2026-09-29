@@ -77,6 +77,15 @@ namespace AIRSUPPORT.Components.Services
                     Dev2324 = CsvParsingHelper.ParseNullableInt(row["Dev2324"]?.ToString()),
                     Dev2425 = CsvParsingHelper.ParseNullableInt(row["Dev2425"]?.ToString()),
                     Dev2526 = CsvParsingHelper.ParseNullableInt(row["Dev2526"]?.ToString()),
+                    DaysSinceLastInvoice = CsvParsingHelper.ParseNullableInt(GetValue(row, "DaysSinceLastInvoice")?.ToString()),
+                    InvoiceCount = CsvParsingHelper.ParseNullableInt(GetValue(row, "InvoiceCount")?.ToString()),
+                    AvgDaysBetweenInvoices = CsvParsingHelper.ParseDoubleDanish(GetValue(row, "AvgDaysBetweenInvoices")?.ToString()),
+                    InvoiceCountLast6M = CsvParsingHelper.ParseNullableInt(GetValue(row, "InvoiceCountLast6M")?.ToString()),
+                    InvoiceCountPrev6M = CsvParsingHelper.ParseNullableInt(GetValue(row, "InvoiceCountPrev6M")?.ToString()),
+                    PPSInvoiceCount = CsvParsingHelper.ParseNullableInt(GetValue(row, "PPSInvoiceCount")?.ToString()),
+                    OCInvoiceCount = CsvParsingHelper.ParseNullableInt(GetValue(row, "OCInvoiceCount")?.ToString()),
+                    ActiveProgramCount = CsvParsingHelper.ParseNullableInt(GetValue(row, "ActiveProgramCount")?.ToString()),
+                    AvgLineAmount = CsvParsingHelper.ParseDoubleDanish(GetValue(row, "AvgLineAmount")?.ToString()),
                 };
             }).ToList();
         }
