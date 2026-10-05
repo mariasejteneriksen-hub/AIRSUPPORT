@@ -180,6 +180,46 @@ window.chartHelpers = (function () {
         });
     }
 
+    // Linjegraf med flere serier — bruges til at vise flere programmer (PPS, OC, osv.)
+    // som hver sin linje i samme graf. datasets er et array af { label, data }.
+    function renderMultiLine(canvasId, labels, datasets) {
+        destroy(canvasId);
+        const ctx = document.getElementById(canvasId);
+        if (!ctx) return;
+
+        const palette = ["#2a78d6", "#eb6834", "#1baf7a", "#e34948", "#8855c7", "#c9a227"];
+
+        instances[canvasId] = new Chart(ctx, {
+            type: "line",
+            data: {
+                labels: labels,
+                datasets: datasets.map((d, i) => ({
+                    label: d.label,
+                    data: d.data,
+                    borderColor: palette[i % palette.length],
+                    backgroundColor: palette[i % palette.length],
+                    pointRadius: 4,
+                    borderWidth: 3,
+                    tension: 0.15,
+                    fill: false,
+                    spanGaps: true
+                }))
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: true, labels: { color: textColor } },
+                    title: { display: false }
+                },
+                scales: {
+                    x: { grid: { display: false }, ticks: { color: textColor, font: { size: 13 } } },
+                    y: { grid: { color: gridColor }, ticks: { color: textColor, font: { size: 13 } }, beginAtZero: true }
+                }
+            }
+        });
+    }
+
     // Søjlediagram til vækst-% år-til-år — grøn for positiv vækst, rød for negativ.
     // Værdier kan være null (fx første år, hvor der ikke findes et foregående år at sammenligne med).
     function renderGrowthBar(canvasId, labels, values, seriesLabel) {
@@ -251,5 +291,5 @@ window.chartHelpers = (function () {
         });
     }
 
-    return { renderBar, renderScatter, renderMiniScatter, renderMiniBar, renderLine, renderGrowthBar, renderBarWithColors, destroy };
+    return { renderBar, renderScatter, renderMiniScatter, renderMiniBar, renderLine, renderGrowthBar, renderBarWithColors, renderMultiLine, destroy };
 })();
