@@ -1,0 +1,139 @@
+﻿@page "/overview"
+@rendermode InteractiveServer
+@using AIRSUPPORT.Components.Services
+@using AIRSUPPORT.Components.Models
+@inject IJSRuntime JS
+@implements IAsyncDisposable
+
+<PageTitle>Overview</PageTitle>
+
+<h1>Customer Overview</h1>
+
+<h2>Active Customers per Year</h2>
+<div style="height:350px; max-width:800px;">
+    <canvas id="customerCountCanvas"></canvas>
+</div>
+
+<h2>Churned Customers per Year</h2>
+<p><em>Click a bar to filter the table below to that year.</em></p>
+<div style="height:350px; max-width:800px;">
+    <canvas id="churnCountCanvas"></canvas>
+</div>
+
+<h3>
+    @(selectedYear == null ? "All churned customers" : $"Churned customers in {selectedYear}")
+    @if (selectedYear != null)
+    {
+        <button @onclick="@(() => selectedYear = null)">Show all years</button>
+    }
+</h3>
+
+<table class="table table-sm">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Churn Date</th>
+            <th>Churn Value</th>
+            <th>Reason</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var customer in FilteredChurnedCustomers)
+        {
+            <tr>
+                <td>@customer.CompanyName</td>
+                <td>@customer.ChurnDate?.ToShortDateString()</td>
+                <td>@customer.ChurnValue?.ToString("N0")</td>
+                <td>@customer.CombinedReason</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code {
+    private readonly MasterDataService _masterDataService = new();
+    private List<MasterCustomer> allCustomers = new();
+    private List<MasterCustomer> churnedCustomers = new();
+    private int? selectedYear;
+    private DotNetObjectReference<Overview>? dotNetRef;
+
+    private static readonly int[] Years = { 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026 };
+
+    private IEnumerable<MasterCustomer> FilteredChurnedCustomers =>
+        selectedYear == null
+            ? churnedCustomers
+            : churnedCustomers.Where(c => c.ChurnDate!.Value.Year == selectedYear);
+
+    protected override void OnInitialized()
+    {
+        allCustomers = _masterDataService.LoadCustomers();
+        churnedCustomers = allCustomers.Where(c => c.ChurnDate.HasValue).ToList();
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!firstRender)
+            return;
+
+        dotNetRef = DotNetObjectReference.Create(this);
+
+        var activeCounts = Years.Select(GetActiveCustomerCount).ToArray();
+        await JS.InvokeVoidAsync("chartHelpers.renderLine",
+            "customerCountCanvas",
+            Years.Select(y => y.ToString()).ToArray(),
+            activeCounts.Select(c => (double)c).ToArray(),
+            "Active customers per year",
+            "#2a78d6");
+
+        var churnCounts = Years.Select(y => churnedCustomers.Count(c => c.ChurnDate!.Value.Year == y)).ToArray();
+        await JS.InvokeVoidAsync("chartHelpers.renderClickableBar",
+            "churnCountCanvas",
+            Years.Select(y => y.ToString()).ToArray(),
+            churnCounts.Select(c => (double)c).ToArray(),
+            "Churned customers per year",
+            "#e34948",
+            dotNetRef,
+            nameof(OnYearSelected));
+    }
+
+    private int GetActiveCustomerCount(int year) => year switch
+    {
+        2017 => allCustomers.Count(c => c.Turnover2017 > 0),
+        2018 => allCustomers.Count(c => c.Turnover2018 > 0),
+        2019 => allCustomers.Count(c => c.Turnover2019 > 0),
+        2020 => allCustomers.Count(c => c.Turnover2020 > 0),
+        2021 => allCustomers.Count(c => c.Turnover2021 > 0),
+        2022 => allCustomers.Count(c => c.Turnover2022 > 0),
+        2023 => allCustomers.Count(c => c.Turnover2023 > 0),
+        2024 => allCustomers.Count(c => c.Turnover2024 > 0),
+        2025 => allCustomers.Count(c => c.Turnover2025 > 0),
+        2026 => allCustomers.Count(c => c.Turnover2026 > 0),
+        _ => 0
+    };
+
+    [JSInvokable]
+    public void OnYearSelected(string yearLabel)
+    {
+        selectedYear = int.Parse(yearLabel);
+        StateHasChanged();
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        dotNetRef?.Dispose();
+
+        try
+        {
+            await JS.InvokeVoidAsync("chartHelpers.destroy", "customerCountCanvas");
+            await JS.InvokeVoidAsync("chartHelpers.destroy", "churnCountCanvas");
+        }
+        catch (JSDisconnectedException)
+        {
+            // Circuit er allerede lukket ned — intet at rydde op i
+        }
+        catch (InvalidOperationException)
+        {
+            // Prerenderet instans bliver disposed, før interaktivitet er etableret — intet at rydde op i
+        }
+    }
+}

@@ -45,6 +45,45 @@ window.chartHelpers = (function () {
         });
     }
 
+    // Bar chart where clicking a bar invokes a .NET method with that bar's label (e.g. a year)
+    function renderClickableBar(canvasId, labels, values, seriesLabel, color, dotNetHelper, methodName) {
+        destroy(canvasId);
+        const ctx = document.getElementById(canvasId);
+        if (!ctx) return;
+
+        instances[canvasId] = new Chart(ctx, {
+            type: "bar",
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: seriesLabel,
+                    data: values,
+                    backgroundColor: color || "#2a78d6",
+                    borderRadius: 4,
+                    maxBarThickness: 48
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                onClick: (event, elements) => {
+                    if (elements.length > 0 && dotNetHelper) {
+                        const index = elements[0].index;
+                        dotNetHelper.invokeMethodAsync(methodName, labels[index]);
+                    }
+                },
+                plugins: {
+                    legend: { display: false },
+                    title: { display: true, text: seriesLabel, color: textColor }
+                },
+                scales: {
+                    x: { grid: { display: false }, ticks: { color: textColor } },
+                    y: { grid: { color: gridColor }, ticks: { color: textColor }, beginAtZero: true }
+                }
+            }
+        });
+    }
+
     function renderScatter(canvasId, points, xLabel, yLabel, color) {
         destroy(canvasId);
         const ctx = document.getElementById(canvasId);
@@ -291,5 +330,5 @@ window.chartHelpers = (function () {
         });
     }
 
-    return { renderBar, renderScatter, renderMiniScatter, renderMiniBar, renderLine, renderGrowthBar, renderBarWithColors, renderMultiLine, destroy };
+    return { renderBar, renderClickableBar, renderScatter, renderMiniScatter, renderMiniBar, renderLine, renderGrowthBar, renderBarWithColors, renderMultiLine, destroy };
 })();

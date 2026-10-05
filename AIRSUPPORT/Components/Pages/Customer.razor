@@ -1,0 +1,109 @@
+﻿@page "/customer"
+@rendermode InteractiveServer
+@using AIRSUPPORT.Components.Services
+@inject IJSRuntime JS
+
+<PageTitle>Customer Overview</PageTitle>
+
+<h1>Customer Overview</h1>
+
+<input @bind="searchText" @bind:event="oninput" placeholder="Search for company name..." style="width:300px;" />
+
+<div style="margin:8px 0;">
+    <button @onclick="@(() => selectedLetter = null)">All</button>
+    @foreach (var letter in "ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+    {
+        var currentLetter = letter;
+        <button @onclick="@(() => selectedLetter = currentLetter)">@currentLetter</button>
+    }
+</div>
+
+<ul style="max-height:300px; overflow-y:auto; list-style:none; padding:0;">
+    @foreach (var customer in FilteredCustomers)
+    {
+        <li style="cursor:pointer; padding:4px;" @onclick="@(() => SelectCustomer(customer.CustomerNr, customer.CompanyName))">
+            @customer.CompanyName
+        </li>
+    }
+</ul>
+
+@if (selectedCustomerNr != null)
+{
+    <h2>@selectedCompanyName</h2>
+
+    <div style="margin:8px 0;">
+        <button @onclick="@(() => SetProgramFilter(null))" disabled="@(programFilter == null)">All</button>
+        @foreach (var program in availablePrograms)
+        {
+            var currentProgram = program;
+            <button @onclick="@(() => SetProgramFilter(currentProgram))" disabled="@(programFilter == currentProgram)">@currentProgram</button>
+        }
+    </div>
+
+    <div style="height:400px; max-width:900px;">
+        <canvas id="revenueByProgramCanvas"></canvas>
+    </div>
+
+    <!-- Info box (VAT type, country code, region, fleet size, etc.) to be added later -->
+}
+
+@code {
+    private readonly CustomerRevenueService _revenueService = new();
+    private List<(string CustomerNr, string CompanyName)> allCustomers = new();
+    private string searchText = "";
+    private char? selectedLetter;
+    private string? selectedCustomerNr;
+    private string? selectedCompanyName;
+    private List<(string Program, List<(string MonthLabel, double Revenue)> Points)> revenueData = new();
+    private List<string> availablePrograms = new();
+    private string? programFilter; // null = All
+    private bool needsChartRender;
+
+    private IEnumerable<(string CustomerNr, string CompanyName)> FilteredCustomers =>
+        allCustomers.Where(c =>
+            (string.IsNullOrWhiteSpace(searchText) || c.CompanyName.Contains(searchText, StringComparison.OrdinalIgnoreCase)) &&
+            (selectedLetter == null || c.CompanyName.StartsWith(selectedLetter.Value.ToString(), StringComparison.OrdinalIgnoreCase)));
+
+    protected override void OnInitialized()
+    {
+        allCustomers = _revenueService.GetCustomerList();
+    }
+
+    private void SelectCustomer(string customerNr, string companyName)
+    {
+        selectedCustomerNr = customerNr;
+        selectedCompanyName = companyName;
+        revenueData = _revenueService.GetMonthlyRevenueByProgram(customerNr);
+        availablePrograms = revenueData.Select(r => r.Program).OrderBy(p => p).ToList();
+        programFilter = null;
+        needsChartRender = true;
+    }
+
+    private void SetProgramFilter(string? program)
+    {
+        programFilter = program;
+        needsChartRender = true;
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!needsChartRender)
+            return;
+
+        needsChartRender = false;
+
+        var filteredData = programFilter == null
+            ? revenueData
+            : revenueData.Where(r => r.Program == programFilter).ToList();
+
+        var datasets = filteredData.Select(r => new
+        {
+            label = r.Program,
+            data = r.Points.Select(p => p.Revenue).ToArray()
+        }).ToArray();
+
+        var allLabels = filteredData.SelectMany(r => r.Points.Select(p => p.MonthLabel)).Distinct().OrderBy(l => l).ToArray();
+
+        await JS.InvokeVoidAsync("chartHelpers.renderMultiLine", "revenueByProgramCanvas", allLabels, datasets);
+    }
+}
