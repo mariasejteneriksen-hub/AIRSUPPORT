@@ -221,6 +221,7 @@ window.chartHelpers = (function () {
 
     // Linjegraf med flere serier — bruges til at vise flere programmer (PPS, OC, osv.)
     // som hver sin linje i samme graf. datasets er et array af { label, data }.
+    // Linjegraf med flere serier — bruges til at vise flere programmer (PPS, OC, osv.)
     function renderMultiLine(canvasId, labels, datasets) {
         destroy(canvasId);
         const ctx = document.getElementById(canvasId);
@@ -235,6 +236,7 @@ window.chartHelpers = (function () {
                 datasets: datasets.map((d, i) => ({
                     label: d.label,
                     data: d.data,
+                    breakdowns: d.breakdowns, // Gem breakdowns på dataset
                     borderColor: palette[i % palette.length],
                     backgroundColor: palette[i % palette.length],
                     pointRadius: 4,
@@ -249,7 +251,28 @@ window.chartHelpers = (function () {
                 maintainAspectRatio: false,
                 plugins: {
                     legend: { display: true, labels: { color: textColor } },
-                    title: { display: false }
+                    title: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            footer: function (tooltipItems) {
+                                let linesText = [];
+                                tooltipItems.forEach(function (item) {
+                                    const dataset = item.dataset;
+                                    const dataIndex = item.dataIndex;
+
+                                    if (dataset.breakdowns && dataset.breakdowns[dataIndex] && dataset.breakdowns[dataIndex].length > 0) {
+                                        const lines = dataset.breakdowns[dataIndex];
+                                        linesText.push("--- Fakturalinjer ---");
+                                        lines.forEach(l => {
+                                            const formattedAmount = l.amount.toLocaleString("da-DK", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+                                            linesText.push(`${l.description}: ${formattedAmount}`);
+                                        });
+                                    }
+                                });
+                                return linesText.join("\n");
+                            }
+                        }
+                    }
                 },
                 scales: {
                     x: { grid: { display: false }, ticks: { color: textColor, font: { size: 13 } } },

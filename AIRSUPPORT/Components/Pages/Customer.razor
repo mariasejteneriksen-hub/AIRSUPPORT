@@ -7,16 +7,21 @@
 
 <h1>Customer Overview</h1>
 
+<MudButton Variant="Variant.Filled" Color="Color.Primary">Test</MudButton>
+
 <input @bind="searchText" @bind:event="oninput" placeholder="Search for company name..." style="width:300px;" />
 
-<div style="margin:8px 0;">
-    <button @onclick="@(() => selectedLetter = null)">All</button>
+<MudStack Row="true" Spacing="1" Wrap="Wrap.Wrap" Class="my-2">
     @foreach (var letter in "ABCDEFGHIJKLMNOPQRSTUVWXYZ")
     {
         var currentLetter = letter;
-        <button @onclick="@(() => selectedLetter = currentLetter)">@currentLetter</button>
+        <MudButton Size="Size.Small"
+                   Variant="@(selectedLetter == currentLetter ? Variant.Filled : Variant.Outlined)"
+                   OnClick="@(() => selectedLetter = currentLetter)">
+            @currentLetter
+        </MudButton>
     }
-</div>
+</MudStack>
 
 <ul style="max-height:300px; overflow-y:auto; list-style:none; padding:0;">
     @foreach (var customer in FilteredCustomers)
@@ -43,26 +48,27 @@
     <div style="height:400px; max-width:900px;">
         <canvas id="revenueByProgramCanvas"></canvas>
     </div>
-
-    <!-- Info box (VAT type, country code, region, fleet size, etc.) to be added later -->
 }
 
 @code {
     private readonly CustomerRevenueService _revenueService = new();
     private List<(string CustomerNr, string CompanyName)> allCustomers = new();
     private string searchText = "";
-    private char? selectedLetter;
+    private char selectedLetter = 'A';
+
     private string? selectedCustomerNr;
     private string? selectedCompanyName;
-    private List<(string Program, List<(string MonthLabel, double Revenue)> Points)> revenueData = new();
+
+    // Opdateret type med Breakdown
+    private List<(string Program, List<(string MonthLabel, double Revenue, List<(string Description, double Amount)> Breakdown)> Points)> revenueData = new();
     private List<string> availablePrograms = new();
-    private string? programFilter; // null = All
+    private string? programFilter;
     private bool needsChartRender;
 
     private IEnumerable<(string CustomerNr, string CompanyName)> FilteredCustomers =>
         allCustomers.Where(c =>
-            (string.IsNullOrWhiteSpace(searchText) || c.CompanyName.Contains(searchText, StringComparison.OrdinalIgnoreCase)) &&
-            (selectedLetter == null || c.CompanyName.StartsWith(selectedLetter.Value.ToString(), StringComparison.OrdinalIgnoreCase)));
+            c.CompanyName.StartsWith(selectedLetter.ToString(), StringComparison.OrdinalIgnoreCase) &&
+            (string.IsNullOrWhiteSpace(searchText) || c.CompanyName.Contains(searchText, StringComparison.OrdinalIgnoreCase)));
 
     protected override void OnInitialized()
     {
@@ -96,13 +102,27 @@
             ? revenueData
             : revenueData.Where(r => r.Program == programFilter).ToList();
 
-        var datasets = filteredData.Select(r => new
-        {
-            label = r.Program,
-            data = r.Points.Select(p => p.Revenue).ToArray()
-        }).ToArray();
+        var allLabels = filteredData
+            .SelectMany(r => r.Points.Select(p => p.MonthLabel))
+            .Distinct()
+            .OrderBy(l => l)
+            .ToArray();
 
-        var allLabels = filteredData.SelectMany(r => r.Points.Select(p => p.MonthLabel)).Distinct().OrderBy(l => l).ToArray();
+        // Tilpas data-strukturen så hvert label har sin tilhørende værdi og breakdown
+        var datasets = filteredData.Select(r =>
+        {
+            var pointsDict = r.Points.ToDictionary(p => p.MonthLabel, p => p);
+
+            return new
+            {
+                label = r.Program,
+                data = allLabels.Select(l => pointsDict.ContainsKey(l) ? pointsDict[l].Revenue : 0).ToArray(),
+                breakdowns = allLabels.Select(l => pointsDict.ContainsKey(l)
+                    ? pointsDict[l].Breakdown.Select(b => new { description = b.Description, amount = b.Amount }).ToArray()
+                    : Array.Empty<object>()
+                            ).ToArray()
+            };
+        }).ToArray();
 
         await JS.InvokeVoidAsync("chartHelpers.renderMultiLine", "revenueByProgramCanvas", allLabels, datasets);
     }

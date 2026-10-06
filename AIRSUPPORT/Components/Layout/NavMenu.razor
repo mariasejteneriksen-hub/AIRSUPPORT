@@ -1,53 +1,23 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="">AIRSUPPORT</a>
-    </div>
-</div>
-
-<input type="checkbox" title="Navigation menu" class="navbar-toggler" />
-
-<div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
-    <nav class="nav flex-column">
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Forside
-            </NavLink>
-        </div>
-
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="customer">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Customer
-            </NavLink>
-        </div>
-
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="overview">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Overview
-            </NavLink>
-        </div>
-
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="statistik">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Statistik
-            </NavLink>
-        </div>
-
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="forretningsanalyse">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Forretningsanalyse
-            </NavLink>
-        </div>
-
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="dataordbog">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Dataordbog
-            </NavLink>
-        </div>
-
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="korrelation">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Korrelation
-            </NavLink>
-        </div>
-    </nav>
-</div>
+﻿<MudStack Row="true" Spacing="2" AlignItems="AlignItems.Center">
+    <NavLink href="" Match="NavLinkMatch.All">
+        <MudButton Variant="Variant.Text" Color="Color.Inherit">Forside</MudButton>
+    </NavLink>
+    <NavLink href="customer">
+        <MudButton Variant="Variant.Text" Color="Color.Inherit">Customer</MudButton>
+    </NavLink>
+    <NavLink href="overview">
+        <MudButton Variant="Variant.Text" Color="Color.Inherit">Overview</MudButton>
+    </NavLink>
+    <NavLink href="statistik">
+        <MudButton Variant="Variant.Text" Color="Color.Inherit">Statistik</MudButton>
+    </NavLink>
+    <NavLink href="forretningsanalyse">
+        <MudButton Variant="Variant.Text" Color="Color.Inherit">Forretningsanalyse</MudButton>
+    </NavLink>
+    <NavLink href="dataordbog">
+        <MudButton Variant="Variant.Text" Color="Color.Inherit">Dataordbog</MudButton>
+    </NavLink>
+    <NavLink href="korrelation">
+        <MudButton Variant="Variant.Text" Color="Color.Inherit">Korrelation</MudButton>
+    </NavLink>
+</MudStack>
